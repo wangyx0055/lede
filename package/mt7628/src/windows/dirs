@@ -1,0 +1,4 @@
+DIRS= \
+    hal \
+    Common \
+    PLATFORM

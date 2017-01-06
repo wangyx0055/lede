@@ -1,0 +1,3808 @@
+[V10.0.0.0147]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: 0x50] [Customer: N/A]
+1. [Feature] Support Virtual Wi-Fi SoftAP.
+2. [Feature] Optimize mlme allocate memory.
+3. [BugFix] Fixed access invalid memory due to suprise remove when WDF return STATUS_WDF_DEVICE_REMOVED_NOT_SENT.
+
+[V10.0.0.0146]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Feature] Revise WSC functions. Reference StaCfg.WscControl struct from pPort instead of pAd.
+
+[V10.0.0.0145]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Feature] Revise Rx path. Prepare for WinXp.
+
+[V10.0.0.0144]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: 0x10D] [Customer: N/A]
+1. [BugFix] Refine spinlock PktCmdLock.
+
+[V10.0.0.0143]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: 0x10D] [Customer: N/A]
+1. [BugFix] UT(Disconnect/Connect):BSOD 0x10D, N6USBBulkOutPktCmd() call WdfRequestSend() before previous packet cmd is completed. Add spinlock PktCmdLock to protect it.
+2. [BugFix] UT(Disconnect/Connect):Connect fail, OID_RESET_REQUEST handler donot call linkdown and set pPort state to INIT_STATE, causing next connection fail by pPort invalid state. Add #if 0 code segment back.
+3. [BugFix] Fix RaUI WPS version is UNKNOWN. Mapping WSC related and BeaconLostTime registries.
+
+[V10.0.0.0142]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Feature] Revise Tx path. Replace Netbuffer/Netbufferlist/MDL with private structure.
+
+[V10.0.0.0141]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] stop send pkt when in DFS channel.
+
+[V10.0.0.0140]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix Roaming fail due to no scan.
+
+[V10.0.0.0139]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix Driver|Properties|Advanced Tab|Radio on/off is not workable. Mapping registry AdhocNMode/ChannelMode/CountryRegion/SmartScan/RadioOnOff/RoamingSensitivity.
+2. [Feature] Remove NICResetFromError() unused code.
+3. [Feature] Replace NdisMOidRequestComplete() by N6CompletePendingOID() except P2P part.
+
+[V10.0.0.0138]
+[Interface: All] [OS: All] [IC: All] [WCNCR: WCNCR00010880] [BSOD: N/A] [Customer: N/A]
+1.) [Feature] Single Channel Concurrent STA + WFDCLT ping success
+2.) [Feature] write packet sequence in the Hardtransmit not in Dequeue thread
+
+[V10.0.0.0137]
+[Interface: All] [OS: All] [IC: All] [WCNCR: WCNCR00010880] [BSOD: N/A] [Customer: N/A]
+1.) [Feature] RaCoInst V1.0.12.3
+    [Description] Update RaCoInst.dat, RaCoInst.dll and RaCoInstx.dll
+    [Solution] Change note:
+	a. Change Copyright.
+	b. ADD Support EDCCA feature.
+	c. Add another way to launch backdog exe.
+
+[V10.0.0.0136]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix S3/S4 issue(Need Lens check-in new FW). Not complete OID_PNP_SET_POWER pending OID.
+2. [BugFix] Fix OID_DOT11_NIC_POWER_STATE complete pending OID type (PENDING_PNP_SET_POWER -> PENDING_NIC_POWER_STATE).
+3. [BugFix] OID CreateMac/DeleteMac/SetNicPowerState call handler directly if it's at passive level.
+
+[V10.0.0.0135]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix win8 build error. Cause by OidStaQuery.c OidStaSet.c not extern DbgGetOidName() after V132 removing redundant code.
+
+[V10.0.0.0134]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix Roaming fail due to channelQuality was wrong, changed with using rxbeacon count.
+
+[V10.0.0.0133]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix pPort is at invalid state after linkdown. MlmeCntLinkDown() is not complete because of checking unused wcid 255 Mac entry. 
+
+[V10.0.0.0132]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Feature] Delete Ndis6OidQuery.c Ndis6OidSet.c Ndis6APOidQuery.c Ndis6APOidSet.c Ndis6OidQuery.h Ndis6OidSet.h Ndis6APOidQuery.h Ndis6APOidSet.h
+2. [Feature] Remove redundant code in new oid handling flow.
+3. [Feature] Remove define NEW_OID_IMPLEMENT and related code with NEW_OID_IMPLEMENT == 0.
+
+[V10.0.0.0131]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Issue of Add BA handshake.
+2. [BugFix] Sequence of BAR needs to sync with TxD.
+3. [BugFix] fixed two issues about "Mac Entry is NULL".
+
+[V10.0.0.0130]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Feature] Remove WAPI.
+2. [BugFix] Fix pPort point to an invalid Pointer.
+
+[V10.0.0.129]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Add Remove key function.
+
+[V10.0.0.128]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Cannot connect with hidden-SSID AP. Send probe req with pPort->PortCfg.DesiredSSID if bHiddenNetworkEnabled == TRUE.
+2. [BugFix] Call PlatformZeroMemory() before copying SSID by PlatformMoveMemory().
+
+[V10.0.0.127]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Feature] move P2pMsConnectedStatus: pPort->P2PCfg.P2pMsConnectedStatus ==> pAd->pP2pCtrll->P2pMsConnectedStatus
+
+[V10.0.0.126]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Feature] Update the new cerification for build environment.
+2. [BugFix] Reivse for update the BW setting to each MacEntry.
+3. [BugFix] change the WlanIdx and WlanRole type from USHORT to UCHAR.
+
+[V10.0.0.125]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Feature] Added HAL functions. It's sync with Linux.
+2. [Feature] Re-mapping endpoints for Data/Mlme/FW packets.
+3. [Feature] Change Mlme Bulk out behavior. Unload driver spends long time.
+4. [Feature] Set Correct Tx/Rx Stream with MCSSet in assoc req packet.
+5. [BugFix] difficult to re-connect with AP. Remove sending BAR before sending DEL BA action.
+
+[V10.0.0.124]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix Set to wrong BW when first connect to AP.
+
+[V10.0.0.123]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix BBP read over time error when MTK OID query RSSI1/RSSI2.
+
+[V10.0.0.122]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] P2p connection ok.
+
+[V10.0.0.121]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] WorkItem might have chance that not been Signal and cause PlatformFreeWorkitem to wait for infinite time.
+
+[V10.0.0.120]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Feature] Remove reserved mac tabl entry with each port.
+
+[V10.0.0.119]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix retried mgmt packet is always droped.
+2. [Feature] Add break into ProcessXxxOIDRequest() for-loop if OID has been handled.
+
+[V10.0.0.118]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix BSOD 0x1E should not indicate scan with WFD Device port
+2. [BugFix] rate turning by differnet port
+
+[V10.0.0.117]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Feature] Revise RealeaseAdapter function
+2. [BugFix] Fix WorkItem not closed after driver unload.
+3. [BugFix] WDF Kernel module might return STATUS_WDF_DEVICE_REMOVED_NOT_SENT while surprise remove and driver has been unload.
+4. [BugFix] Fix Adapter might not be free while runing failed at N6Initialize.
+
+[V10.0.0.116]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] WFD WPS connection success
+2. [BugFix] WFD 4-way HS success
+3. [BugFix] WFD get ip success but ping lost rate very high
+
+[V10.0.0.115]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix Connection to Securier AP fail issue.
+
+[V10.0.0.114]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix new common MTK OID handler return NDIS_STATUS_INVALID_OID if PortSubtype == PORTSUBTYPE_SoftapAP
+2. Change FUNC_LEAVE_STATUS() debug level to RT_DEBUG_TRACE.
+
+[V10.0.0.113]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix PlatformWorkitemCallBackFunc() WorkItem context cast to wrong type PMP_ADAPTER, the correct type is PMP_PORT.
+2. [BugFix] Fix uninstalling driver hang on continuous halt.
+3. Disable send bar after disassociation.
+
+[V10.0.0.112]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. Force delete  "BusTypeDef.h", QAToolDef.h and "OS_VER.h" when build driver. It will re-generate by this command file.
+
+[V10.0.0.111]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] fix build error: for win8/8.1 not support MS WFD
+
+[V10.0.0.110]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fix WPA2AES ping fail, OID_DOT11_CIPHER_KEY_MAPPING_KEY Set always return INVALID_OID.
+
+[V10.0.0.109]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. WFD Discover success
+2. ScanTimeoutWorkitem, AsicSwitchChannelWorkitem by port
+3. AsicSetDevMac for Device port 
+
+[V10.0.0.108]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. Remove unused messages.
+2. Add compile flag for unify related file.
+
+[V10.0.0.107]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Fixed Add Ba with wrong MacTab.
+2. [BugFix] Fxied BW's setting was wrong issue.
+
+[V10.0.0.106]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix] Enable New oid WPA2AES ping ok. Fix OID_DOT11_CIPHER_KEY_MAPPING_KEY Set always return INVALID_OID.
+
+[V10.0.0.105]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [BugFix], WPA2AES ping ok.
+2. Disable New oid, otherwise  WPA2AES ping fail.
+
+[V10.0.0.104]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Feature]: Revise the MacTable from pAd to pPort.
+2. Win7X64 ping ok (Open mode.)
+
+[V10.0.0.103]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Feature]: move channel, CentralChannel, & BW to MP_PORT
+
+[V10.0.0.102]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Issue]: Tx TP too low about 70Mbps 
+   [Description]: Tx TP too low about 70Mbps 
+   [Solution]: add WMM IE in association request & update transmitsetting to port 
+
+2. [Feature]: collect all retistry setting to the same structure 
+   
+[V10.0.0.101]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Enable new OID handler.
+2.) Modify 2 MSFT OID handlers.
+
+[V10.0.0.100]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Fix BSOD 0xA IRQL_NOT_LESS_OR_EQUAL if NEW_OID_IMPLEMENT == 1.
+2.) Replace NdisMOidRequestComplete() of CreateMac, DeleteMac, SetNicPowerState by N6CompletePendingOID() if NEW_OID_IMPLEMENT == 1.
+3.) Add Include/OidDef.h of MSFT/MTK OID hex value (Not in compiling list just for reference).
+
+[V10.0.0.99]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) add RegistryCfg to real all registry
+2.) RegistryCfg will mapping to correspondence struct
+3.) HwSupportCapabilities will update to port default settings
+
+[V10.0.0.98]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Revise the internal cmd.
+2.) Revise the mlmeperiodtimer.
+
+[V10.0.0.97]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Revise the init flow.
+2.) Modify Internal cmd (copy buffer if input bufferlen>0) 
+
+[V10.0.0.96]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Fix build errors if NEW_OID_IMPLEMENT == 1
+2.) Modify MTK Query/Set OID condition. 
+
+[V10.0.0.95]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) move pAd->CommonCfg to MP_PORT
+2.) integrate port->CommonCfg to MP_PORT 
+
+[V10.0.0.94]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Implement MTK OID Set handler. 
+
+[V10.0.0.93]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Implement MSFT OID handler. 
+2.) Implement MTK OID Set handler. 
+
+[V10.0.0.92]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Implement MSFT OID handler. 
+   
+[V10.0.0.91]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1. [Issue] build win8/8.1 failed 
+   [Description] not define port build error
+   [Solution] add definition 
+ 
+2. [Issue] BSOD IRQL 
+   [Description] once plug in then BSOD beacuse use wrong handle
+   [Solution] use handle in the MP_PORT
+
+[V10.0.0.90]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Update Inf file for some setting.
+
+[V10.0.0.89]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Revise the timer into pPort.
+2.) Revise the init flow to avoid BSOD.(Receive Rx that Mlme FSM not init)
+3.) Fixed scan fail (skip the rx cmd pkt in the wrong place.)
+
+[V10.0.0.88]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Replace USBCfg by HifCfg.
+2.) Rename Variable names in MP_ADAPTER follow by Naming Convention.
+
+[V10.0.0.87]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Remove unused TXPower Control.
+
+[V10.0.0.86]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Implement 35 MTK OID Query handler.
+
+[V10.0.0.85]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Skip 7603 rx pkt cmd for every rx process.
+2.) Replace the tabs to spaces.
+
+[V10.0.0.84]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Implement MTK OID Query handler.
+
+[V10.0.0.83]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Implement MSFT OID handler.
+
+[V10.0.0.82]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Revise the Internal cmd buffer usage.
+2.) Return all LED cmd.
+
+[V10.0.0.81]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Remove CCX feature.
+
+[V10.0.0.80]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Implement MSFT OID handler.
+
+[V10.0.0.79]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Change the Init flow to avoid read eeprom fail.
+
+[V10.0.0.78]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Fix build errors if NEW_OID_IMPLEMENT == 1
+2.) Implement MSFT OID handler.
+
+[V10.0.0.77]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Revise the init flow (tx/rx/loadfw/readeeprom).
+2.) Support auto rate tuning.
+
+
+[V10.0.0.76]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Support RSSI.
+2.) Support auto rate tuning.
+3.) Led cmd ready.
+
+[V10.0.0.75]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Bug fix
+1.
+[Description]
+Tx pkt cmd can't be completed when load fw.
+[Root cause]
+Some code are not reached for some mistake (before: #elif IS_BUS_TYPE_USB, after: #elif IS_BUS_TYPE_USB(DEV_BUS_TYPE))
+
+[V10.0.0.74]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Revise N6UsbInfo.c
+
+[V10.0.0.73]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Rename the funciton with prefix.
+2.) delete "BusTypeDef.h" and "OS_VER.h" when build driver.
+
+[V10.0.0.72]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Implement MSFT OID handler.
+
+[V10.0.0.71]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Issue:
+1.) Fix win8.1/win7 build errors if NEW_OID_IMPLEMENT == 1
+
+[V10.0.0.70]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Rename the file/folder.
+
+[V10.0.0.69]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Rename the file/folder.
+
+[V10.0.0.68]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Fix BSOD WDF_Exception
+2.) Fxi BSOD 0x7E 
+
+[V10.0.0.67]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Rename the NdisCommon/ and NdisCommonUsb related function.
+2.) Rename the OID related function/file/folder.
+
+[V10.0.0.66]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Implement MSFT OID handler.
+
+[V10.0.0.65]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Implement MSFT OID handler.
+
+[V10.0.0.64]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) restructure N6Initialize
+
+[V10.0.0.63]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Remove BT3.0 & Coexistence feature.
+
+[V10.0.0.62]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Remove N6UsbData.c
+
+[V10.0.0.61]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Implement MSFT OID handler.
+
+[V10.0.0.60]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Implement MSFT OID handler.
+
+[V10.0.0.59]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Remove Bt related structure.
+2.) Move functions to related file.
+
+[V10.0.0.58]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Remove Bt related function/File.
+
+[V10.0.0.57]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Fix build errors if NEW_OID_IMPLEMENT == 1
+
+[V10.0.0.56]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Revise some changes for support multi platform.
+2.) Rename the RTMPxxx as MTxxx
+
+[V10.0.0.55]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Revise some changes for support multi platform.
+2.) Rename the RTMPxxx as MTxxx
+
+[V10.0.0.54]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Revise for support mulit platform.
+
+[V10.0.0.53]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Restructure MP_ADAPTER and minimize the szie.
+
+[V10.0.0.52]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Rename the RTMP to N6Usb. (Function and file.)
+
+[V10.0.0.51]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+Feature:
+1.) Seperate the Mlme/TxpktCmd pkt from MlmeKickBulkout.
+
+[V10.0.0.50]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Remove 7601 code, remove 7601 define in .h
+
+[V10.0.0.49]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Fixed Disable/Enable causing BSOD (Update new FW)
+
+[V10.0.0.48]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Fixed build error if NEW_OID_IMPLEMENT == 1
+
+[V10.0.0.47]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) All OID handler add function enter/leave comment.
+2.) Fix 7 build errors if NEW_OID_IMPLEMENT == 1
+3.) Implement MSFT OID handler in AP_oids_Query.c
+
+[V10.0.0.46]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Revise the Indication function. (Symption: can't connect to any AP unless re init the NIC)
+
+[V10.0.0.45]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Remove 7601 code
+
+[V10.0.0.44]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Rename MTK proprietary OID handler.
+
+[V10.0.0.43]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Rename MTK proprietary OID.
+
+[V10.0.0.42]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Revise the MlmeCmd to call directlly.
+2.) Swich channel cmds are using workitem to avoid bsod.
+
+[V10.0.0.41]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Replace pAdapter to pAd.
+
+[V10.0.0.40]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Remove 7650/7630/7610 code
+
+
+[V10.0.0.39]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Separate the P2P/Multichannel related cmd to each thread.
+
+[V10.0.0.38]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Revise MP_ADAPTER structure and remove unused variables.
+2.) Remove WHQL Regsitry setting from INF file.
+3.) Change history.txt from "binary" mode to "text" mode.
+
+[V10.0.0.37]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Redeinfe RT_CMD.
+2.) LED cmd move to another thread.
+3.) Revise Memory leakage issue. (There are 16 bytes are not free after halt)
+
+[V10.0.0.36]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Remove rtmp_init.c
+2.) Rename the RTMPPort to MPPort.
+3.) Add some check for timer/thread/worktiem.
+
+[V10.0.0.35]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Rename RTMPxxx to MPxxx
+2.) Remove functions to specific folder and rename.
+3.) Update the new FW for E2.
+
+[V10.0.0.34]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Rename MSFT N5/N6 handler.
+2.) Raname OID_GET_SET_TOGGLE->MTK_TOGGLE_OID_SET, RT_VISTA_TOGGLE_OID->MTK_TOGGLE_OID_N6
+
+[V10.0.0.33]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1.) Add Interface select by compiler option for FW loading
+
+[V10.0.0.32]
+[Interface: USB] [OS: All] [IC: MT7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1) [MT7603 E2] 
+    [Description] Merged E2 code from old source to here
+    [Solution] None. Please use the E2 FW to run the MT7603 E2. new FW is in hal/FW
+
+[V10.0.0.31]
+[Interface: All] [OS: All] [IC: All] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+1) [Feature] 
+    [Description] Mandatory information for check-in process (in the history.txt)
+    [Solution] Add a session of [Feature/Issue] in History_Guide.txt
+
+[V10.0.0.30]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Remove RT5XXX/RT85592 related code
+
+[V10.0.0.29]
+[Interface: USB][OS: Win7/Win8][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Revise Timer/Thread/Workitem string size to 64.
+
+[V10.0.0.28]
+[Interface: USB][OS: Win7/Win8][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Add QA related function.
+
+[V10.0.0.27]
+[Interface: USB][OS: Win7/Win8][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Revise indicate function.
+2.) Abstract the construct mgnt pkt function.
+3.) Abstract the LED function.
+
+[V10.0.0.26]
+[Interface: USB][OS: Win7/Win8][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Add Workitem related function.
+2.) Replace the Kesetevent to NdisSetEvent. 
+
+[V10.0.0.25]
+[Interface: USB][OS: Win7/Win8][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Add some WPS related OID
+
+[V10.0.0.24]
+[Interface: USB][OS: Win7/Win8][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Revise OID structure.
+
+[V10.0.0.23]
+[Interface: USB][OS: Win7/Win8][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Revise INF file.
+
+[V10.0.0.22]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Revise the file struct of common folder.
+
+[V10.0.0.21]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Revise Tx Path
+
+[V10.0.0.20]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Add Run Time OS version and compiler time OS version.
+2.) Revise all the project about run time/compiler time OS version judgement.
+
+[V10.0.0.19]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Add bus type defination.
+
+[V10.0.0.18]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Revise the timer/thread function.
+
+[V10.0.0.17]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1.) Remove IC's define and related code with RT3070/RT3071/RT3072/RT3572/RT2070/RT2860/RT2872/RT3390/RT3593
+
+[V10.0.0.16]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Revise build environment. (folder more clean)
+
+[V10.0.0.15]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Change the header folder to Include.
+2) Move some files from usb to common.
+
+[V10.0.0.14]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Fixed Build Win7 on VC2012 can't install issue.
+
+[V10.0.0.13]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Lost check in some file. 
+
+[V10.0.0.12]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Revise the build environment.
+2) Win7 install, can scan.
+
+[V10.0.0.11]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Revise the indication function.
+
+[V10.0.0.10]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Revise rx path.
+
+[V10.0.0.9]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Add some folder, and revise some header file.
+
+[V10.0.0.8]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Add some folder.
+
+[V10.0.0.7]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Revise the structure
+
+[V10.0.0.6]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Fixed build Win8 error
+
+[V10.0.0.5]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Revise allocate memory/free memory function with count.
+
+[V10.0.0.4]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Revise Timer function.
+2) Revise allocate memory/free memory function.
+
+[V10.0.0.3]
+[Interface: All][OS: Win7][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Support Win7 build environment
+
+[V10.0.0.2]
+[Interface: All][OS: All][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) (bd.cmd) Always convert the project file
+2) Add HAL
+3) Delete pack.bat and rtbuild.bat
+
+[V10.0.0.1]
+[Interface: All][OS: All][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Add build script (sb.bat and bd.cmd)
+2) Add History Guide (History_Guide.txt)
+
+[V10.0.0.0]
+[Interface: All][OS: All][IC: All][WCNCR: N/A][BSOD: N/A][Customer: N/A]
+1) Tabs to spaces
+
+[V5.1.1.1]
+1.) Reset BT role to initialized value. HCI READ_LOCAL_AMP_ASSOC command may be fail if BT role is not reset.
+
+[V5.1.1.0]
+1.) WHQL Release
+
+[V5.1.0.9]
+1.) Remove the RT6X9X condition to check read GPIO pin2 as Hardware
+2.) Update LED mode 10 for D-link
+
+[V5.1.0.8]
+1.) INF: remove "country region" form advance page. (Planex: USB\VID_2019&PID_AB31 / ZyXEL: USB\VID_0586&PID_3425)
+2.) INF: remove "Wireless Mode" form advance page.
+
+[V5.1.0.7]
+1.) Enable and correct VHT SoftAp for APUI and netsh command.
+2.) Fixed BSOD caused by DHCP frame jumpping wrong offset.
+3.) Fixed BSOD caused by spin lock dead lock.
+4.) Fixed BSOD caused by umplug device and rx returned wrong transferbufferlength.
+5.) Fixed scan no ap after S4. (Enable RF)
+
+[V5.1.0.6]
+1.) (7610/7630/7650) Update the HT/VHT Transmit Beamforming Capabilities and add Registry Control "ETxBfEn"
+2.) Support new 1x1 HT rate table (5G) for STA (infra, ad hoc, DLS, ¡K) and SoftAP
+3.) Update TDT for new 1x1 HT rate table
+
+[V5.1.0.5]
+1.) INF: Add product ID for TP-Link (USB\VID_148f&PID_761A)
+
+[V5.1.0.4]
+1.) Patch to fix: Un-updated RaCoInst.dll file, and wirelessmode will not updated (wirelessmode=0).
+2.) Add RT3572 as dual band check mac version.
+
+[V5.1.0.3]
+1.) INF: Modify Device description for ZyXEL "ZyXEL Dual-Band Wireless AC867 USB Adapter" to "ZyXEL Dual-Band Wireless AC600 USB Adapter" 
+
+[V5.1.0.2]
+1.) (7610/7630/7650) Not fully support the "Receive Staggered Sounding Capable" in the HT Transmit Beamforming Capabilities
+
+[V5.1.0.1]
+1.) Review ChannelMode settings in the INF, and fix 5G-unscanning for VID_1690&PID_0761
+
+[V5.1.0.0C]
+1.) Patched IRQ level issue by using RTNdisCommonGenericDelay to replace NdisCommonGenericDelay on RxPacket
+2.) Add MT7650_table.h to align MAC init CR for all 7650 chip version
+3.) Source Code for V5.0.9.0A~V5.1.0.0B is put on the follow path: \\192.168.22.33\Department2\Software\OCA\Drivers\MT7601\Win8Win7
+
+[V5.1.0.0B]
+1.) Fixed scan list empty issue when SwitchChannelOffloadEnabled
+2.) Fixed 5G AP issue with wrong format when SwitchChannelOffloadEnabled
+3.) Add MT7601U HW PBC check
+4.) TSSI enhancements
+a) Speed up the convergence rate of Tx power by using better starting point of TX_ALC_CFG1[5:0]
+b) Correct the 2's complement conversion (e-fuse 0xE3 and 0x123)
+c) Ignore TSSI adjustment if the BB reading is empty (0x00000000)
+d) Change RF PA power (1dB for CCK EVM limited or CCK Mask Limited)
+e) Change the delta power of packet type for 7650/7630/7610
+5.) Restore 7610 E3 BBP CR - MT7650E3_BBP_CR_20121206
+6.) Restore 7610 E3 RF CR - MT7650E3_WiFi_RF_CR_20121202
+7.) Update MT7610_formal_1.6.bin for SwitchchannelOffload
+8.) Add Thermal solution and registry control with VID/PID
+9.) Fixed bIEEE80211H & CarrierDetect Enable issue
+10.) Update MT7601_formal_1.5.bin for LED control
+
+[V5.1.0.0A]
+1.) WHQL relase
+2.) Add Full Calibration control 
+
+[V5.0.9.0B]
+1.) Correct BBP base address for MT7601U when init.
+2.) Added a flag "UpdateBbBasedOnTemperature7650Enable" to control disable UpdateBbBasedOnTemperature7650 for Cisco.
+3.) Changed MAX_FW_SIZE to 14344 for additional padding 4 bytes to end aggreagation for loading FW.
+4.) A workaround to set RTMPEnableWlan for patch TXDCOC failed of MT7601U.
+5.) "close clock" is set by FW for MT7610U/MT7601U.
+
+[V5.0.9.0A]
+1.) Add FW Full Calibration Offload
+2.) Add FW SwitchChannel Offload, control by registry "SwitchChannelOffloadEnable"
+3.) Add New LED control
+4.) Add 4 bytes padding for command packet to avoid USB controller packet aggregate.
+5.) Release for WHQL test
+6.) FW version: mt7610_formal1.3 (3/1 released)
+
+[V5.0.8.6]
+1.) INF: Modify repeated ID for AboCom (USB\VID_07B8&PID_8812 to USB\VID_07B8&PID_7610)
+
+[V5.0.8.5]
+1.) INF: remove repeated ID for D-Link (USB\VID_2001&PID_3D02)
+2.) INF: Add product ID for AboCom (USB\VID_07B8&PID_8812)
+3.) INF: Add product ID for Planex (USB\VID_2019&PID_AB29 & USB\VID_2019&PID_AB31)
+
+[V5.0.8.4]
+1.) INF: Add product ID for D-Link (USB\VID_2001&PID_3D02)
+
+[V5.0.8.3]
+1.) Reduce SetRFFilterAfcCtrl6590 function
+
+[V5.0.8.2]
+1.) Update 7610 E3 BBP CR - MT7650E3_BBP_CR_20130222
+2.) Update 7610 E3 RF CR - MT7650E3_WiFi_RF_CR_20130130
+
+[V5.0.8.1]
+1.) INF: Add product ID for Logitec (USB\VID_0789&PID_0170)
+
+[V5.0.8.0E WHQL]
+1.) Rollback to V5.0.8.0B.
+2.) Remove hard code 0x20[bit16] for enable MT7601U LED mode.
+
+[V5.0.8.0D]
+1.) Changed spinlock method for Rx read packet.
+
+[V5.0.8.0C]
+1.) Add LED command with FW formal release 7610U ver 1.1/ 7601U ver 1.4
+2.) Fixed deadlock of bulkin spinlock (Vwifi stress test)
+
+[V5.0.8.0B]
+1.) Fixed memory leakage.
+2.) Run without Rx enhancement when turn off BA and no N phy mode.
+3.) Remove LED command. (has problem that will cause bulk out complete slowly.)
+
+[V5.0.8.0A]
+1.) Enable AGC VGA tuning for endurence test. (the feature will affect the throughput)
+
+[V5.0.8.0]
+1.) Add new LED command format
+2.) Disable AGC VGA tuning for endurence test
+3.) Update Cisco Power Single SKU
+4.) PMU sequence update
+
+[V5.0.7.2]
+1.) INF: Add product ID for I-O DATA (USB\VID_04BB&PID_0951)
+
+[V5.0.7.1]
+1.) Fix get BSSID 00:00:00:00:00:00 from Scan Table after S3/S4 if STA is connected to AP. [original V5.0.6.8]
+
+[V5.0.7.0L]
+1.) Remove the UpdateBbBasedOnTemperature7650() for T.P Test
+2.) the source code for V5.0.7.0~V5.0.7.0L is put at the follow path. \\192.168.22.33\Department2\Software\OCA\Drivers\MT7601\Win8Win7
+
+[V5.0.7.0K]
+1. Modified get usb port status from WDM to WDF. (Fix bug : card will disable, not exist)
+
+[V5.0.7.0J]
+1. temp solution for scan no AP
+2. delay 20ms in mlmeRadiooff for patch bulk in failed
+
+[V5.0.7.0I]
+1. Disable GLRT table update
+2. Patch bulk-in failed during stopGO and asicRadioOff
+
+[V5.0.7.0H]
+1. Rollback to P2pMsScanDone
+
+[V5.0.7.0G]
+1. Update temperature once only when link up.
+
+[V5.0.7.0F]
+1. Update SKU algorithm for BwPwrDeltaOffset and 2's complement issue
+2. Exclude wps re-connection issue (workaround) in whql test
+
+[V5.0.7.0E]
+1. Remove GLRT BBP setting on UpdateBbBasedOnTemperature7650 function
+ 
+[V5.0.7.0D]
+1. Add MT76xx EIRP upper bound and lower bound
+
+[V5.0.7.0C]
+1. Reduce driver size for x86 only.
+
+[V5.0.7.0B]
+1. Added MT76xx check for bulk out reset.
+
+[V5.0.7.0]
+1. Change AUTH_TIMEOUT from 300ms to 500ms.
+2. Change threshold of packet detection from 0x11112016 to 0x11111616
+3. Change scan channel time after channel 157
+4. Patch for bulk out reset failed.
+
+[V5.0.6.7]
+1.) INF: Add CountryTargetTxPowerMode registry for Cisco (USB\VID_13B1&PID_003E)
+
+[V5.0.6.6]
+1. Fix the next conenction enters an invalid state due to long execution time of MlmeSyncScanReqAction.(Workaround)
+2. Collect scan done actions to one func, named as MlmeSyncScanDoneAction.
+
+[V5.0.6.5]
+1.) INF: Modify Manufacturer Name for Cisco
+
+[V5.0.6.4]
+1.) INF: Add product ID for Cisco (USB\VID_13B1&PID_003E)
+
+[V5.0.6.3]
+1.) Update MT7601_formal_1.3.bin for fine tune Tx Power of RXIQ
+2.) Update MT76xx TSSI with V1.3 EEPROM format
+3.) Add MT76xx TSSI with SKU
+4.) Update RaConInst.dll and RaConInstx.dll (V1.0.9.0)
+5.) 7610 5G channel index selection based on e-fuse for the initial VGA and RSSI calculation
+
+[V5.0.6.2]
+1.) Fixed wps issues: STA can't connect ER via ethernet and 802.11.
+    Reset auto-connect limitation when connect with bssid.
+
+[V5.0.6.1]
+1.) INF: Add product ID for ASUS (USB\VID_0B05&PID_17D1)
+
+[V5.0.6.0A WHQL]
+1.) Fixed 0xD1 BSOD caused by NIC_TAG20. [When test Wdf Fault Injection of WHQL on Win8/Win7 x64]
+2.) Fixed 0x7F BSOD caused by mapping wrong queue number. [Removed reserved byts of MLME_QUEUE]
+3.) Added memory tags.
+4.) Fixed install problem for MT7610.
+
+[V5.0.6.0 WHQL]
+1.) Modified inf version.
+
+[V5.0.5.4]
+1.) Added error handling when load FW failed caused by bulk out failed(reset) in initial stage. In order to avoid 0x9F BSOD.
+
+[V5.0.5.3]
+1.) Add MT76xx TSSI for 2.4G and 5G - Verify OK
+2.) Update 7610 E3 BBP CR - MT7650E3_BBP_CR_20121206
+3.) Update 7610 E3 MAC CR - MT7650_E3_CR_setting_1225
+4.) Update 7610 E3 RF CR - MT7650E3_WiFi_RF_CR_20121202.xls
+5.) Restore VCO_CALIBRATION_PERIOD = 5 to fixed perform VCO calibration issue
+
+[V5.0.5.2]
+1.) Patched PMKID-Cache in roaming phase has EAP frame (Broadcom AP). Add 15 ms delay before SwitchBandwidth.
+
+[V5.0.5.1]
+1.) Fix Data rate display wrong, it always show 433.5 even AC router set bw to 20 or 40
+
+[V5.0.5.0 WHQL]
+[V5.0.3.9]
+1.) Fix issue of load FW_3573.bin.
+
+[V5.0.3.8]
+1.) Fix Country region on e-fuse is no work(set 5G conuntry to index 1)
+
+[V5.0.3.7]
+1.) INF: Modify the Win8 INF for NTx86.6.2 and NTAMD64.6.2
+
+[V5.0.3.6]
+1.) Update RT3573 external FW. Sync with internal FW. [Load external FW_3573.bin failed.]
+
+[V5.0.3.5]
+1.) (7610/7630/7650) Disable piggyback by default
+2.) Default enable STBC feature on 7601U
+3.) Update MT7601_formal_1.2.bin for Reduce TX LOFT/TXIQ/RXIQ Calibration power consumption
+4.) Patch 7610 BB hang issue - Disable inband Tx FIFO empty check
+5.) Update 7610 E3 RF CR - MT7650E3_WiFi_RF_CR_20121119
+6.) Update 7610 E3 MAC CR - MT7650_E3_CR_setting_1220
+7.) Update 7610 E3 BBP CR - MT7650E3_BBP_CR_20121127
+8.) Fix 7610 WEP Shared Key issue
+9.) remove pipe reset when re-load FW. Use delay time to instead
+10.) Correct vedor_reset sequence
+11.) update rtbuild
+
+[V5.0.3.4]
+1.) A timeout for write FW command packet.
+2.) Fixed hang problem. FW reset when re-install without unplug device.
+
+[V5.0.3.3]
+1.) Correct external FW name in driver. [FW_7650.bin --> FW_7610.bin]
+2.) Avoid 0x50 BSOD on Win7. packet command complete return after unload driver.
+
+[V5.0.3.2]
+1.) Fix MT7610 wrong Tx Power setting on 5G.
+2.) Update Power Table function for Cisco - verify 2.4G and 5G BW 20 OK
+3.) Update MT7601_formal_1.0.bin for fix RXIQ-Calibration bug
+
+[V5.0.3.1]
+1.) Fixed load FW failed issue.
+2.) Re-load FW when S3/S4/S5 and uninstall/install.
+3.) Fixed indicate rx packet problem after S3/S4. [refresh indicated netbuffer pool]
+
+[V5.0.3.0Q]
+1.) Remove "DelFile" from inf file. [impact ¡§Plug and Play¡¨ test of WHCK]
+2.) Correct index of [ Australia (36) 5 GHz channel 36, 40, 44, 48, 149, 153, 157, 161, 165 ] in RaCoInst.dat.
+
+[V5.0.3.0P]
+1.) Reducing driver file size for passing driver memory test of WHCK. 
+        1. Remove FW embedded in driver and use external FW to replace on free builded driver.
+        2. Disable regiter/deregister ioctl for BT on free builded driver.
+2.) Added read/write register function for (read 0x47 and write 0x42). It's for CD team to debug.
+3.) Remove DMA register read/write. No need for USB.
+4.) Changed allocated method for MDL of indicateNetbufferList. To prevent random BSOD on nonpaged pool of MDL.
+5.) Remove Hw Radio check for 7610U/7601U. Lance said this two devices have no Hw Radio.
+
+[V5.0.3.0O]
+1.) Remove ChannelMode.reg in MT7601 inf
+2.) Add registry key Calibration and backdoor 0xa7f7 to control calibration sequences
+3.) Power Table implementation with TSSI enable/disable
+
+[V5.0.3.0N]
+1.) Add world wide table for Cisco
+2.) Update MT7601 RT6390_RF_Register_20121122.xls and PA mode to solve RF PLL-lock potential problem.
+3.) Restore pAd->MlmeAux.BssIdx for WHQL test
+4.) Update ASSOC_TIMEOUT to 500ms
+5.) Update JOIN_TIMEOUT for Win7 sync Win8
+
+[V5.0.3.0M]
+1.) MT7610 Power Table implementation for Cisco
+
+[V5.0.3.0L]
+1.) Recovery ASSOC_TIMEOUT from 1000ms to 300ms. Added retry assoc req when assoc timeout to increase connection probability.
+2.) Wait 10ms after write FW 14KB and wait 10ms after launch FW.
+3.) Correct pAd->MlmeAux.BssIdx with checking pAd->MlmeAux.SsidBssTab.BssNr. Avoid to get wrong Bss index.
+4.) Blink LED from D3 to D0.
+
+[V5.0.3.0K]
+1.) Fixed load firmware failed for RTxx devices.
+
+[V5.0.3.0J]
+1.) Reduce memory allocation with IndicateNetBufferList.
+2.) A stable version of loading FW. Reduce 0x9F caused by timeout of WdfUsbTargetDeviceSendControlTransferSynchronously and install/uninstall hanging problem.
+
+[V5.0.3.0I]
+1.) Reduce delay time in N6Halt when surprise remove device.
+2.) Improve load firmware performace. Write 14KB at one time. This can improve fast plug-in/out device withoud lower failed rate.
+3.) Delay ASSOC_TIMEOUT from 300ms to 1000ms to increase connection stability. But it's a temporary workaround for WNC. Recover it when find root cause.
+
+[V5.0.3.0H]
+1.) Moved N6UsbXmitStart before Loadfirmware and added error handle. enable bulk out pipe then can send command packet and can prevent timeout of WdfUsbTargetDeviceSendControlTransferSynchronously.
+
+[V5.0.3.0G]
+1.) Re-align structure of MLME_QUEUE. Pointer cast will be error on x64 OS. Prevent BSOD.
+
+[V5.0.3.0F]
+1.) Re-align structure of MLME_QUEUE_ELEM. Pointer cast will be error on x64 OS.
+
+[V5.0.3.0E]
+1.) Patch 0x9F driver_power_state_failure BSOD. Call N6UsbStopAllPipes at last when run into D3 state in N6UsbSetPowerbyPort.
+    The SendPowerOperationCMDToAndes send command packet through bulk pipe. So don't call N6UsbStopAllPipes if command packet is not
+    finished.
+
+[V5.0.3.0D-inf]
+1.) INF: Add product ID for ZyXEL (USB\VID_0586&PID_3425)
+
+[V5.0.3.0D]
+1.) Patch 0x9F driver_power_state_failure BSOD and resursive call BSOD issue on N6USBBulkRxComplete
+2.) Update MT7601 frequencytracking threshold
+3.) Update MT7601 Dynamic AuxLNA Gain and init value by registry
+4.) Update MT7601 Firmware beta0.4
+5.) Add Device Description for 11ac NICs in the Device Manager in Windows 8 (801.11ac Wireless LAN Card)
+6.) Fix RT6x9x RSSI report issue
+7.) Patch TGn CounterMeasure issue
+8.) Patch connect to hidden SSID issue
+9.) Remove MAC 0x1810 init setting in MacInitRegTable7650E3
+
+[V5.0.3.0C]
+1.) modify last time discussed with UI team:when query RT_OID_QUERY_PORT_USAGE response 0xA0000000 to UI  //0xA0000000 not support Ralink P2P, it only happened in USB Win8 driver 
+
+[V5.0.3.0B]
+1.) fix WHQL WFD issue: commonCH and CentralCH are not sync with BW_20, it will cause testing can't terminate in WFD_concurrent test case
+
+[V5.0.3.0]
+1.) WHQL Release
+
+[V5.0.2.0A]
+1.) fix WHQL WFD issue: when driver initial the BW should be 20
+
+[V5.0.2.0]
+1.) Add MT7601/MT7610 chip. Sync to V5.0.2.7 in //SE1/Main/Wi-Fi/Driver/VHT/USB/Win8Win7/
+
+[V5.0.1.8]
+1.) INF: Add product ID for D-Link (USB\VID_2001&PID_3C20 & USB\VID_2001&PID_3C21)
+
+[V5.0.1.7]
+1.) fix WPS IOT issue: HW will indicate retry eapol frame to driver, it will caused HMAC error at m6 handshake
+
+[V5.0.1.6]
+1.) Added ChannelMode switch in driver.
+
+[V5.0.1.5]
+1.) INF: Add product ID for Movistar (USB\VID_0846&PID_9013)
+
+[V5.0.1.4]
+1.) For RT3573 (FW Version 222): Support switch channel off load FW 
+
+[V5.0.1.3]
+1.)fix violate P2P spec issue:  The GRPCAP_OWNER bit can't in Nego Req when rule not confirm to be GO
+
+[V5.0.1.2]
+1.) INF: Add ChannelMode.reg registry for all default band device.
+
+[V5.0.1.1]
+1.) Reset LostAckRetryCounter when trigger new ms p2p action frame
+2.) Avoid Port0 autoreconnection during ms p2p connection
+3.) Remove registry ForPassP2PWHQL
+4.) Handle msp2p action frame before os indication
+Regression passed all Ndis WFD and WHCK WFD test cases
+
+[V5.0.1.0]
+1.) For 3573: Disable HW_GPIO checking Radio On/Off
+2.) For 3573: Set VCO to be the middle value
+3.) Fix: cannot scan 5G channel if manually set 5G channel in the efus
+
+[V5.0.0.6]
+1.) INF: Add product ID for D-link   (USB\VID_2001&PID_3D02)
+2.) INF: Add product ID for TRENDnet (USB\VID_20F4&PID_724A)
+
+[V5.0.0.0K update]
+1.) Fixed Win7 WHCK test about pending OID_DOT11_ENUM_BSS_LIST issue. Pending OID_DOT11_ENUM_BSS_LIST only used for BVTs of Win8 WHCK.
+
+[V5.0.0.0K - V5.0.0.0 Passed WHQL Formal Release]
+1.) fix BSOD of WLanPowerTest
+2.) enhanced pass rate of WLanPowerTest
+3.) fix BSOD of VWifiTest on Win7 testing WHCK.
+4.) patch WPS scan
+
+[V5.0.0.0J]
+1.) Reject AutoReconnection when Win8 WFD is in provision phase.
+2.) Reject AutoScan when Win8 WFD is in provision phase.
+3.) Enhanced pass rate of WLanPowerTest. (2 seconds association)
+
+[V5.0.0.5]
+1.) Declare Bssid for MlmeSyncScanMlmeSyncNextChannel.
+
+[V5.0.0.4]
+1.) Fix BSOD for test WLanPowerTest of WHCK.
+
+[V5.0.0.3]
+1.) A source tree for Win8+Win7 Single Source
+
+[V5.0.0.2]
+1.) INF: Update to default 2.4+5G for the ChannelMode.reg.
+
+[V5.0.0.1]
+1.) INF: Add product ID for Sitecom (USB\VID_0DF6&PID_006E)
+
+[V5.0.0.0I]
+1.) Enhanced scan with NLO detected nothing when testing InstantConnect.
+
+[V5.0.0.0H]
+1.) Enhanced association time for InstantConnect Test again.
+
+[V5.0.0.0G]
+1.) Fixed 802.11w connection problem.
+2.) Enhanced association time for InstantConnect Test.
+
+[V5.0.0.0F]
+1.) Add flag to tell the Win8WFD or RalinkWFD
+2.) Wake up device in normal mode when OS trigger P2P device to be available
+
+[V5.0.0.0E]
+1.) Sync With Win 7 code. From 3.2.9.2 to 3.2.11.1
+
+[V5.0.0.0D]
+1.) To avoid Auto Reconnect to inturrept other port connection.
+
+[V5.0.0.0C]
+1.) Memory Leak caused BSOD.
+
+[V5.0.0.0B]
+1.) Fixed Ndis6CommonPortDeleteMacHandler port reference issue.
+2.) Trigger AsisRadioOn when P2pMs set device to be available.
+3.) Sync. PCI STAMlmePeriodicExec AsicRadioOff control logic.
+
+[V5.0.0.0A]
+1.) 2 BSODs of WHCK.  1: RxContext's InUse state must refresh after radio on/off. 2: Selective Suspend spin lock flag reinitialize problem.
+
+[V5.0.0.0]
+1.) WHQL Release
+2.) Fixed adhoc indicate association and roaming issue on WHCK testing.
+3.) Patch : Athreos SoftAp with WHCK seems to have a bug.  Athreos SoftAp turned on pirvacy bit of capabilityInfo has timing issue and  will not sync with our scan table.
+4.) Header setting of PowerManagementCapabilitiesEx is wrong in N6SetGeneralAttributes.
+
+[V4.0.1.22]
+1.) INF: Add product ID for D-Link (USB\VID_2001&PID_3C1F)
+
+[V4.0.1.21]
+1.) INF: Add product ID for ZYXEL (USB\VID_0586&PID_3421)
+
+[V4.0.1.20]
+1.) RT3573 Only care GPIO4 to be LNA, because the GPIO7 will be used for LED
+
+[V4.0.1.19]
+1.) INF: Add product ID for Sitecom (USB\VID_0DF6&PID_006F)
+
+[V4.0.1.18]
+1.) New add Netgear 4200 LED for RT3573
+
+[V4.0.1.17]
+1.) Update RT5572/92, RT5372/92/62 BBP 148=0x84 to enhance RX angle sensitivity issue.
+2.) Update RT5390/70, RT3593/73 BBP 31=0x09 to fix RX max high power input issue.
+
+[V4.0.1.16]
+1.) Only modify inf file(For Fujitsu) 
+Updated WiFi Driver and Device management settings don't become to the default value
+
+[4.0.1.15]
+1.) Enhance scan process during mulitchannel
+
+[4.0.1.14]
+1.) Remove disconnect BA delay to avoid dispatch level crash
+
+[4.0.1.13]
+1.) Sync to 2860 Ralink WFD if defines WIN8_RALINK_WFD_SUPPORT
+
+[4.0.1.12]
+1.) Fixed AP side multichannel send packet issue
+2.) Reject Driver auto scan during WFD performance test
+3.) Handle channel restore after receiving WFD PD RSP
+Pass WHCK 8441 WFD Performance Test
+
+[4.0.1.11]
+1.) INF: Add product ID for D-Link (USB\VID_2001&PID_3C1E)
+
+[V4.0.1.10]
+1.) Fixed BSOD of NdisCloseConfiguration with a wrong status of handle. Check the ndisStatus after NdisOpenConfigurationEx.
+
+[V4.0.1.9]
+1.) INF: Fix RT5370/RT5372 PID/VID issue.
+
+[V4.0.1.8]
+Fixed sync. issue in V4.0.1.5
+
+[V4.0.1.7]
+1.) Fix the size mismatch of BeaconFrame and ProbeRspFrame in P2PDiscEntry.
+
+[V4.0.1.6]
+1.) INF: Add product ID for NETGEAR (USB\VID_0846&PID_9019)
+
+[V4.0.1.5]
+Sync. 2860 branch V4.0.1.0020 multichannel to 2870
+
+[V4.0.1.4]
+1.) INF: Add product ID for EnGenius (USB\VID_1740&PID_0602)
+
+[4.0.1.3]
+1.) INF: merge with Win7 setting.
+
+[4.0.1.2]
+1.) fix WHCK WFD join issue: it will hit cpucheck condition and GO will stop beacon
+
+[4.0.1.1]
+1.) Use static array for ProbeReqBuffer to avoid race condition  
+
+[4.0.1.0]
+1.) Integrate Win8 and Win7 source code.
+    Win7: code base V3.2.9.2
+    Win8: code base V4.0.0.204
+    OS/SDK/DDK:8370, VS11:11.0.50503
+
+2.) Remove bScanClockwise used
+3.) Reduce RestoreChannel times for p2p quck scan
+
+==================================================================================================================================
+
+[V3.2.9.2]
+1.) Fix P2P Parse Sub-Element length setting issue.
+
+[V3.2.9.1]
+1.) Correct pointer and size used for NdisAllocateMdl.
+
+[V3.2.9.0B]
+1.) (RT3573) Fix issue: Scan No AP. Solution: Read registry before loading firmware.
+2.) (RT3573) Firmware update.
+3.) (RT5572) Add new condition for setting RF R55 value. 
+
+[V3.2.9.0]
+1.) WHQL Release
+2.) (RT3573) Update the specific Firmware for channel switching offloading to FW. 
+3.) Disable the feature of Ralink frame aggregation by default.
+
+[V3.2.8.6]
+1.) INF: add CarrierDetect.reg for ASUS (USB\VID_0B05&PID_17AD)
+
+[V3.2.8.5]
+1.) (RT3573)Fix issue: Channel switch in Usb 3.0 is too slow. 
+                     Solution: Offload Channel Switch from driver to firmware.
+2.) (RT5572)Fix Issue: the power of CCK in normal driver  is over 4 db than QA .
+
+[V3.2.8.4]
+1.)fix CQ issue: P2P Client invites P2P devices to join my group Fail. STA2 can¡¦t show a pop-up window from DUT.
+
+[V3.2.8.3]
+1.)Fix Issue: (RT3573) TX Power is higher 3 db than QA driver. 
+   Sync with XP: change the value of RF 53, 54, 55  from 0x48 to 0x40 
+
+[V3.2.8.2]
+1.)Fix Issue: In auto config, WPS AP would not show off when carrier dectec is on or 80211H is on.
+2.)Sync with v3.2.7.0C: WPS Failed with WPS Plan 5.3.6
+[V3.2.8.1]
+1.)reduce P2P scan time from 60 seconds to 15 seconds
+2.)P2P scan will follow OS scan rule that scan per minute. In MlmeSyncScanMlmeSyncNextChannel, After normal probe request will send p2p probe request
+3.)fix P2P client autoReconnect will interrupt each client
+4.)add a special deauth reason code "REASON_P2P_PEER_MANUAL_DEAUTH 51" only for P2P GO using
+5.) fix CQ bug: when p2p concurrent, GO use enter pin method to connect peer and port 0 will only scan channel 11
+6.) fix CQ bug: P2P persistent connection sometimes UI show icon error
+7.)when p2pconnectoingchannel != 0 will stay at peer listen channel 1.5 sec and other channel 50ms
+8.) update beacon time when scan complete to avoid beacon lost 
+9.)fix bug: after S3/S4 port0 will can not auto reconnect to profile AP
+10.) fix bug: in p2p concurrent after wps, reassociation will use port0
+11.) fix bug: in p2p concurrent after wps, reauth will use port0
+12.) fix bug: if p2p connection fail, Go still need call stopGOtimer
+
+[V3.2.8.0]
+1.)WHQL Release 
+
+[V3.2.7.16]
+1.) INF: Modify product ID for EnGenius (USB\VID_1740&PID_0300 to USB\VID_1740&PID_0600)
+
+[V3.2.7.15]
+1.) Add Patch for Customer: (Cisco) Patching power-related issues for Product AE3000.
+
+[V3.2.7.14]
+1.) Add new Feature for Customer: Support multi country target TX power table.
+
+[V3.2.7.13]
+1.) Support TDT(Throughput Debugging Tool) Feature
+
+[V3.2.7.12]
+1.) Support OIDs  RT_OID_SET_DISABLE_ANTENNA_DIVERSITY, 
+RT_OID_SET_FIXED_MAIN_ANTENNA,RT_OID_SET_FIXED_AUX_ANTENNA for RSSI tool.
+
+[V3.2.7.11]
+1.) The crash is caused by an Rx request memory to be reused after power up without re-initialize before power down.
+        Fixed method is to clean requests pending in pipe before power down.
+
+[V3.2.7.10]
+1.) INF:Add reg CustomizedPowerMode for ASUS (USB\VID_0B05&PID_17AD)
+
+[V3.2.7.9]
+1.) Add new Feature for Customer: Add customized power Mode (Adjust tx power by band)
+2.) Add new feature: Add new HW PBC Mode (0: HW PBC Delay over 3 secs, 1 HW PBC Delay 1 secs)
+3.) Fix Bug : RT_OID_WSC_SET_CUSTOMIZED_IE_PARAM not add into support oid list 
+
+[V3.2.7.8]
+1.) INF: Add product ID for EnGenius (USB\VID_1740&PID_0300)
+
+[V3.2.7.7]
+1.) INF: Add product ID for Azurewave (USB\VID_13D3&PID_3400)
+
+[V3.2.7.6]
+1.) INF: Change the value of WSC20Testbed from 0x08 to 0x0c. (Disable carring RSN IE in WPS assoiation)
+
+[V3.2.7.5]
+1.)Fix bug : The security is WEP, run multicast T4 from other STA (broadcom/atheros) to DUT fail.
+
+[V3.2.7.4]
+1.)INF: Add product ID for ASUS (USB\VID_0B05&PID_17BC)
+
+[V3.2.7.3]
+1.)INF: Add product ID for I-O DATA (USB\VID_04BB&PID_094E)
+
+[V3.2.7.2]
+1.)INF: Set IEEE802.11H for Netgear (USB\VID_0846&PID_9012)
+
+[V3.2.7.1]
+1.)Fix Bug: Reset the flag WscEnAssociateIE and WscEnProbeReqIE after WSC_STATE_OFF.
+2.)Fix Bug: (3573) Set wrong setting in Tx_Pin_Cfg after link A Band 3x3 AP . 
+
+[V3.2.7.0]
+Base on V3.2.6.1 and include the following solution.
+1.)Fix Bug: Reset the flag WscEnAssociateIE and WscEnProbeReqIE after WSC_STATE_OFF.
+2.)Fix Bug: (3573) Set wrong setting in Tx_Pin_Cfg after link A Band 3x3 AP . 
+V3.2.7.0 is available on \\192.168.22.33\Department2\Software\OCA\Drivers\RT2870Win7
+
+[V3.2.6.3]
+1.) INF: add PMF define and remove control flag in Advanced page
+
+[V3.2.6.2]
+1.) Add PMF (11w) feature
+2.) INF: Add "Protect Management Frame" control flag in Advanced page
+
+[V3.2.6.1]
+1.)INF: Add product ID for Azurewave     (USB\VID_13D3&PID_3401)
+
+[V3.2.6.0F]
+1.)Fix Bug: Take the flag fOP_STATUS_WMM_INUSED into consideration as transmitting QOS Data. 
+
+[V3.2.6.0E]
+1.)Fix Issue: It does not work on turning on/off Registry WMMCapable. 
+
+[V3.2.6.0D]
+1.)Fix BSOD bug : overlapping Oid complete to NDIS. Modified Oid complete to NDIS only for Scan Oid and SetPower Oid.
+
+[V3.2.6.0C]
+1.)INF: Add product ID for Azurewave     (USB\VID_13D3&PID_3399 / USB\VID_13D3&PID_3340)
+
+[V3.2.6.0b]
+1.) Fix issue: LED abnormal during WPS in led mode 10 . 
+
+[V3.2.6.0]
+1.)WHQL Release
+2.) Correct "pAd->bAPStart == true" to "pAd->bAPStart == TRUE"
+
+[V3.2.5.17]
+1.)INF: Add product ID for Sitecom                    (USB\VID_0DF6&PID_006A)
+2.)INF: Modify 2T3R/show dynamic Rx rate for Sitecom  (USB\VID_0DF6&PID_0067)
+
+[V3.2.5.16]
+1.)Fix issue : SoftAp in Port_0 doesn't update beacon TIM after getting PS-POLL when connected STA is in Power Saving Mode.
+2.)Fix issue : Some command will get wrong default pPort in CommandThread. 
+3.)Enhanced : Reduce write to MAC register. Changed location of AsicAdjustTxPower from ApMlmePeriodicExec and STAMlmePeriodicExec to CommandThread.
+4.)Enhanced : Reduce write to MAC register. Prevent to write same value too frequency in AsicUpdateProtect.
+
+
+[V3.2.5.15]
+1.)INF: Fix CoInstOpt_DisableN.reg (set CountryWirelessMode=0x00001000)
+
+[V3.2.5.14]
+1.)INF: Add registry "StreamMode.reg" & "AdTxPwrForFCCTest.reg" for Netgear (USB\VID_0846&PID_9012)
+
+[V3.2.5.13]
+1.) Fix issue: LED abnormal during WPS handshaking.
+2.) Add new Oid for customer: Customerized WSC IE for Probe request and association request.
+3.) Add new Oid for customer: Querying ssid during wps handshaking.
+4.) Add new registry AdTxPwrForFCCTest for FCC test.
+5.) Add new stream mode which enable stream by specific MCSs. 
+
+[V3.2.5.12]
+1.) Ignore AutoConfig auto-scan if SmartScan enable when APStart(Client+SoftAP mode)
+
+[V3.2.5.11]
+1.) Fix issue: RT5572 Throughput drop in legacy 5G ad hoc mode 
+
+[V3.2.5.10]
+1.) For 11n tx burst time test, adjust the AMPDU_MAX_LEN of each MCS.
+2.) Add Registry for setting default tx power.
+3.) Add registry for Enable/Disable Stream mode
+
+[V3.2.5.9]
+1.) Updates several GLRT registers for 5572/5592.
+
+[V3.2.5.8]
+1.)Fix issue: RT5572 in concurrent mode STA+SoftAp will reconnect sometimes.
+
+[V3.2.5.7]
+1.)INF: Add product ID for NETGEAR         (USB\VID_0846&PID_9012)
+
+[V3.2.5.6]
+1.) Fix issue: displaying wrong radio type on Netsh command "netsh wlan show Interface" after link up in ad hoc mode.
+
+[V3.2.5.5]
+1.)INF: Modify descritpion name for ASUS form ASUS USB-N63 Dual Band N Network Adapter
+                    to ASUS USB-N66 Dual Band N Network Adapter
+
+[V3.2.5.4]
+1.)in RTUSBWriteBBPRegister, if Id >= MAX_NUM_OF_BBP_LATCH(255) will return STATUS_UNSUCCESSFUL
+
+[V3.2.5.3]
+1.)fix bug: eFuse write failure
+
+[V3.2.5.2]
+1.) Not reset if SoftAP is ON -- test SoftAp in shielding room will hit reset
+
+[V3.2.5.1]
+1.)INF: Modify descritpion name for D-Link 
+2.)INF: Add product ID for Hawking (USB\VID_0E66&PID_0020)
+
+[V3.2.5.0B]
+1.) Part II of Fuji's BSOD issue.
+2.) Changed Adhoc indication order.
+
+[V3.2.5.0]
+WHQL Release
+
+[V3.2.4.28]
+1.)Fix issue: Fast roaming to Hidden Ssid AP failed.
+2.)Fix issue: (3573) Should not disable Rx RDG as linked up to 2x2 or 1x1 AP.
+
+
+[V3.2.4.27]
+1.)INF: Add product ID for D-Link         (USB\VID_2001&PID_3C1C & USB\VID_2001&PID_3C1C)
+2.)INF: Add TssiPatchForAntennaVariation.reg (USB\VID_2001&PID_3C19
+                                              USB\VID_2001&PID_3C1C
+                                              USB\VID_2001&PID_3C1C)
+
+[V3.2.4.26]
+1.) 5370: TSSI patch for antenna variation (TSSI compensation range limit, upperbound 4 steps)
+
+[V3.2.4.25]
+1.)INF: Add product ID for Sitecom         (USB\VID_0DF6&PID_0069)
+
+[V3.2.4.24]
+1.)fix bug: Send BAR condition checking is error in ORIBATimerTimeout.
+2.)fix bug: RTSThreshold value checking is error ing NICInitializeAsic.
+3.)fix bug: BSOD after S3/S4. Reuses a WDFREQUEST problem. N6UsbSetPowerbyPort & N6USBBulkRxComplete
+ 
+
+[V3.2.4.23]
+1.)fix bug: concurrent mode, p2p scan will non stop, because no scan complete
+
+[V3.2.4.22]
+1.)fix bug: AutoGO can just scan 1, 6, 11 and central channels
+2.)sync P2P_CHECK_CLIENT_TIMER = 120000
+3.) P2P_SCAN_EARLYSTAGE early stage scan social channel time change to 80 sec
+
+[V3.2.4.21]
+1.(3573)Fix IOT Issue: Disable Tx bust when RT3573 link up with Netgear 3x3 Broadcom AP.
+
+[V3.2.4.20]
+1.fix bug: p2p probe request use 11b rate.
+2.fix bug: can't find p2p devices with multi-P2PIEs and non-P2PIE in the end of frame
+
+[V3.2.4.19]
+1.)fix bug :both p2p concurrent mode, after first connection will pop a warning message "channel mismatch"
+2.)fix bug :in p2p conncurrent mode, the number of AP port0 scan will decrease 
+3.)always turn off led when doing WPS under p2p connection
+4.)fix sigma fail items : 5.1.4, 5.1.9, 5.1.10, 5.1.13, 5.1.14, 7.1.3, 7.1.4 
+5.)when scan not Calculate beacon lost
+
+[V3.2.4.18]
+1.)fix bug :if not in concurrent mode, GO will not go in ApMlmePeriodicExec 
+
+[V3.2.4.17]
+1.)fix linux IOT : carzy pin lost , „»  Linux beacon brings unexpected NOA
+
+[V3.2.4.16]
+1.)Move RT_OID_SET_SUPPRESS/QUERY_SCAN from port 0 processing routine to port 1 processing routine for ozmodevices 
+
+[V3.2.4.15]
+1.) fix bug : p2p concurrent mode, port0 beacon lost and p2p will also beacon lost
+
+[V3.2.4.14]
+1.) Update register based on RT5592_RT5592EP_RT5572_RF_BBP_MAC register_2011_1014.xls.
+
+[V3.2.4.13]
+1.) extern the p2p connection time to 2 minutes
+2.) change the connection rule that connection start from provision state
+3.)fix mantis bug : legacy STA can connect to GO
+4.) fix the issue that only listen channel can send p2p probe response
+5.) fix p2p test plane 3.2.2
+6.) fix bug : if p2p disconnect, p2p client will not delete the bss table which last it connected.
+7.) fix bug : In P2P concurrent mode, use auto GO connection way port 0 will break
+
+
+[V3.2.4.12]
+1.) Add WPS LED Mode 0x0E 
+2.) (3573)Fix Issue: throughput drop between RT3573 and Netgear 3x3 Broadcom AP with A band and BW 20.
+
+[V3.2.4.11]
+1. INF: Modify VID to 0df6 and description to "Wireless Dualband Network Adapter 450N X6" for sitecom.
+
+[V3.2.4.10]
+1. Remove unnecessary messages.
+
+[V3.2.4.9]
+1. V3.2.4.7 Missed.
+
+[V3.2.4.8]
+1.) Fixed incorrect GroupID within p2p provision discovery request.
+
+[V3.2.4.7]
+1. Reduce redundancy periodic function call of ApMlmePeriodicExec.
+
+[V3.2.4.6]
+1. Setting WPS LED by Enqueue
+2. Fix issue: Enrollee would not re-do WPS after receiving M2D when AutoConnection = 0
+
+[V3.2.4.5]
+1.) Update Firmware to V0.35.
+
+[V3.2.4.4]
+1.) INF: Modify IEEE802.11H for dual band only.
+2.) INF: Fixed single band Section setting for single band chip.
+
+[V3.2.4.3]
+1.)(3573)Fix issue: TxBeforming related info would be updated by wrong port periodically.
+
+[V3.2.4.0B]
+1.) fix P2P scan no other devices: because use port 2 to send probe request
+2.) fix: in P2PUpdateCapability func, ConfigMethods and DevPwdId should bitwise
+
+[V3.2.4.2]
+1.) FilterCalibration should be applied on 5572.
+
+[V3.2.4.1]
+1.)fix p2p protential issue: in P2PSendGoNegoConfirm, P2pCapability update twice 
+
+[V3.2.4.0]
+WHQL Release
+
+[V3.2.3.22]
+1.) Update Firmware to V0.34 for fixing WPS LED issue.
+2.) Change LED mode 6 behavior, blinking from triggering WPS to end of WPS.
+
+[V3.2.3.21]
+1.)with win8 p2p IOT: P2P carried completed WSC IE on Probe Response
+2.)Add GroupID to provision request frame when Client is connecting to GO. Store Group Device Address to p2pcfg
+3.) Follow p2p spec to fill Address 3 of Invite/Nego/Provision action frames
+4.) Correct p2p capabilities within action frames and assoc request frame
+5.) Use p2p port address as SA of probe request frame (instead of port 0)
+6.) take off the parameter of P2pGOResetInProgress
+
+[V3.2.3.20]
+1.)Windows UI show Dynamic Rx Rate For Belkin
+
+[V3.2.3.19]
+1.)Configure supported Phy mode by reading EEPRom setting
+2.)Disable stream mode and configure PAPE by current streams
+
+[V3.2.3.18]
+1.INF: Modify "Background scan" to "Background Scan"
+
+[V3.2.3.17]
+1.)fix issue 2063: the sta can't rejoin after the ad hoc creater hibernation
+
+
+[V3.2.3.16]
+1.)INF: Add product ID for AirLive         (USB\VID_1B75&PID_7733)
+        Add product ID for Hawking         (USB\VID_0E66&PID_0021)
+        Add product ID for Planex          (USB\VID_2019&PID_ED19)
+
+[V3.2.3.15]
+1.)INF: Add product ID for Sitecom
+         (USB\VID_0DF6&PID_0068)
+
+[V3.2.3.14]
+1.) Fix CKIP issue
+
+[V3.2.3.13]
+1.)INF: fixed FastRoamingSensitivity registry.
+
+[V3.2.3.12]
+1.)Add new function for mapping RA wireless mode to native WIFI Phy type.
+2.)Update for MlmeInfoGetLinkQuality for win7 API wlanSignalQuality on display signal strength icon
+
+
+[V3.2.3.11]
+1.)INF: Modify product ID for Fujitsu (Askey)
+         (USB\VID_1690&PID_0761)
+        Roaming Sensitivity Strings modify
+        "Multimedia/Gaming Environment" strings change to "Background scan"
+
+[V3.2.3.10]
+1.) Fix issue: in concurrent mode, if show the pin code error message the common channel and p2p listen channel will not synchronization
+
+[V3.2.3.9]
+1.)INF: Modify product ID for Fujitsu (Askey)
+         (USB\VID_1690&PID_0761)
+        Roaming Sensitivity priority and set default:medium 
+
+[V3.2.3.8]
+1.)fix Group roaming issue
+2.)fix the p2p connection way for enter pin
+3.)fix hardware issue: rx filter will not filter duplicate package during WPS m1~m8 & 4way handshake 
+4.)fix p2p would not show pop window second times if not receive negotiation confirm
+5.)fix mantis bug 0003091: [V3.2.2.503- RT3592BC8]P2P-Sometimes,Persist connect successed , but icon error
+6.) fix UI set inforeset between m1 and m4(4wayHS)
+7.)in p2p concurrent mode, the listen channel should be common channel
+8.)fix p2p concurrent mode : port2 disconnect and the port0 will beacon lost
+
+[V3.2.3.7]
+1.) Fix issue: Wrong Mac address in HW PBC
+2.) Fix issue: (WPS)Enrollee should not reject Registrar with TKIP-only profile.
+
+[V3.2.3.6]
+1.) INF: add product ID for D-Link (Alpha)
+         (USB\VID_2001&PID_3C1A)
+2.) INF: Fix inf V3.2.3.1 issue.
+
+[V3.2.3.5]
+1.) Support RT5572.
+
+[V3.2.3.4]
+1.) Fix issue that new beaconing mechanism does not take ralink softap on port 0 into consideration.
+2.) Fix port issue in ralink softap mode.
+3.) No need to update beacon offset in MgntPktConstructAPBeaconFrame().
+4.) Fix pPort is NULL and causes crash issue.
+5.) Fix Pending Rx IRP not return in 10 minutes issue.
+
+[V3.2.3.3]
+1.)Fix Issue: (3573) Wrong Value in BBP register R65.(2.4G:0x62, 5G:0x82)
+
+[V3.2.3.2]
+1.)Antenna Diversity, Force to Main Antenna if scan ==> to patch Antenna Diversity card but just with one antenna connected.
+
+[V3.2.3.1]
+1.) INF: add product ID for Logitec
+         (USB\VID_0789&PID_016B)
+
+[V3.2.3.0]
+WHQL Release
+ - Fujitsu 3572, WirelessModeSwitch.reg
+
+[V3.2.2.11]
+1.) Sync with XP: the sequence number of NDP Anouncement is same with normal data packet.
+
+[V3.2.2.10]
+1.) (3573) Disable TxBeforming in SoftAp Mode
+2.) Add new mode of Auto-Select multicasting rate for SoftAP multicasting
+
+[V3.2.2.9]
+1.) INF: add product ID for Edimax
+         (USB\VID_7392&PID_7733)
+
+[V3.2.2.8]
+1.)add enter pin method for GO
+2.)P2P quick connect 
+3.)fix ch140 issue
+4.)Eazy P2P connect 
+5.)auto reconnect can connect to A band channel
+6.)disconnect per client
+7.)add cancel connection button
+8.)Per-Client P2P dismiss.
+9.)IOT enhancement
+10.) 4 digital pin method for wps
+11.) fix the issue of only one side has persistent table
+12.)fix after s3/s4 resume p2p connection fail
+
+[V3.2.2.7]
+1.) 1.) Modify beaconing mechanism.
+
+[V3.2.2.6]
+1.) Add OnTestingWHQL registry value to control some settings for WHQL test usage.
+
+[V3.2.2.5]
+1.) The TxBurst should not been enabled if 1. Legacy AP WMM on  2. 11n AP, AMPDU disable.
+
+[V3.2.2.4]
+1.) Fix issue: 3573 throughput problem in ad hoc mode
+
+[V3.2.2.3]
+1.) INF: add product ID for ASUS
+         (USB\VID_0B05&PID_17AD )
+2.) INF: modify FAST_ROAMING_SENSITIVITY_STR Strings for Japanese
+3.) INF: modify product ID for Belkin (edimax)
+         (USB\VID_050D&PID_1003 to USB\VID_050D&PID_1103 )
+
+[V3.2.2.2]
+1.) INF: Fix x64 issue for Sweex Europe BV.
+
+[V3.2.2.1]
+1.) INF: add product ID for Sitecom
+         (USB\VID_3574&PID_0065 / USB\VID_3574&PID_0066 / USB\VID_3574&PID_0067 )
+
+[V3.2.2.0]
+1.) WHQL Release
+
+[V3.2.1.29]
+1.) Registry: CoefficientAlcRefValue - Coefficient for 2.4 internal ALC reference value (in percentage)
+
+[V3.2.1.28]
+1.) Modify v3.2.1.26 check in error
+
+[V3.2.1.27]
+1.) Calibration control registry
+
+
+[V3.2.1.26]
+1.)Patching for mulit-bssid beacon problem.
+2.)Fix the problem of wrong packet filter setting in different operation mode (AP/Staion/Concurrent)
+3.) Sync Oid RT_OID_QUERY_SS_NUM with XP for querying stream number
+4.) Fix WPS issue of invalid length of condition judgment in function WscMfNeedBuf
+
+[V3.2.1.25]
+1.) fix FAE issue that can not enable autoGO on channel 140
+
+[V3.2.1.24]
+1.) Formal release firmware V37(PCI) V32(USB)  <<=== Fix S3/S4 device may gone
+        1.  Fix CarrierDetection issue ¡V use read BBP 184 as carrier detection
+        2.  Use 0x400 bit8 as FW ready, for speed up USB driver init.
+        3.  In power saving wakeup process, program RF R8 register to 0x80 for fixing 3572 b version issue.
+2.) Support force PSM off even Windows is PSM
+
+
+[V3.2.1.23]
+1.) HW_BEACON_BASE modification.
+    BT3.0„³ HW_BEACON_BASE3
+    P2P„³ HW_BEACON_BASE4 (the same as SoftAP)
+2.) BT3.0 should follow the P2PGO¡¦s channel.
+3.) SoftAP+BT3.0 Hang.
+    Table Selection is not correct in BT3.0
+4.) BTHSMlmeEnqueue add port information.
+5.) Enhance Tx Rate table.
+6.) Avoid Tx Rate table length has chance to be wrong.
+7.) ApMlmeDynamicTxRateSwitching add MACTabSize to avoid changing the BT3.0 TxRate.
+8.) RTNdisCommonDeQueuePacket add IS_SIGMA_ON to avoid P2P disable BT3.0 transition.
+
+
+[V3.2.1.22]
+1.) INF: Modify DeviceDesc for ASUS "ASUS 150Mbps 11n Wireless USB dongle" to 
+        "ASUS USB-N10H 150Mbps 11n Wireless USB dongle"
+    (USB\VID_050D&PID_1003)
+
+[V3.2.1.21]
+1.) INF: add product ID for D-Link
+         (USB\VID_2001&PID_3C1B )
+
+[V3.2.1.20]
+1.) fix mantis bug #0002876
+
+[V3.2.1.19]
+1.) (5370/5372)Fix xtal code setting issue.
+
+[V3.2.1.18]
+1.) INF: add product ID for D-Link
+         (USB\VID_2001&PID_3C15 & USB\VID_2001&PID_3C19 )
+2.) INF: Fix FAST_ROAMING_SENSITIVITY_STR define.
+
+[V3.2.1.17]
+1.) INF: add product ID for ASUS
+         (USB\VID_0B05&PID_17A7)
+
+[V3.2.1.16]
+1.) PM5 None-Associate Power Save
+    - Turn Radio Off at PM5 non-associate to save power
+    - Turn off radio immediatly after scan done
+    -   Not doing VCOCalibration in PM5 non-associate to reduce power consumption
+2.) Set 10sec time out NdisWaitEvent for BtClosedEvent to avoid waiting to dead on WHQL test
+
+
+[V3.2.1.15]
+1.) Disabled Aggregation check in SoftAp mode.
+
+[V3.2.1.14]
+1. (3573) Allow 3SS NDP sounding even if NIC is configured as 1R or 2R.
+
+[V3.2.1.13]
+1.) Resume from S3/S4, Flush BSS table if radio off or device is gone
+
+[V3.2.1.12]
+1.) Fix p2p STA1 can not scan STA2 p2p device when STA2 connect to A_Band AP
+2.) Fix p2p STA1 can not connect STA2 p2p device when STA2 connect to A_Band AP
+
+[V3.2.1.11]
+1.) Fix RaDbg tool dump HW register cause BSOD
+2.) Default enable PSControl (USB SS) for Ralink Pid
+3.) FastRoaming in AdvancePage
+
+[V3.2.1.10]
+1.) Sync with XP(V3.2.1.8) Should not hold the spinlock(SendTxWaitQueueLock) before RELEASE NDIS Packet
+
+[V3.2.1.9]
+1.) (5392) Update BBP.
+(Y:\Public\RTxx\RT539x_RT5362_RT5592_RT3290\Register\RT5392_RT5372_RT5362\RT5392_RT5372_RT5362_RF_BBP_MAC register_2011_0503.xls)
+
+[V3.2.1.8]
+1.) Make P2P can scan when throughput is high.
+2.) Fix the scan problem in function MpScanRequest
+3.) Fix SoftAP set idle time fail. 
+
+[V3.2.1.7]
+1.) Fix MANTIS#1749 but: RT8070 BW20 connection fail 
+2.) Fix indicating wrong data rate in Legacy SoftAP
+3.) Update 3573 register.
+
+[V3.2.1.6]
+1.) INF: Fix Wireless mode switch value for Belkin
+         (USB\VID_050D&PID_1003)
+
+[V3.2.1.5]
+1.) INF: add Wireless mode switch for Belkin
+         (USB\VID_050D&PID_1003)
+
+[V3.2.1.4]
+1.) INF: modify product ID for Sweex Europe BV
+    (USB\VID_177F&PID_0254)
+
+[V3.2.1.0H]
+WHQL Release
+
+[V3.2.1.3]
+1. fix mantis 2766: [V3.2.1.0]RT2860-P2P-DUT didn't connect auth:WPA or cipher:TKIP AP in GO mode
+
+[V3.2.1.2]
+1.) Fix N6OIDRequest PortNumber check bug.
+
+[V3.2.1.1]
+1. (5370) I/Q compensation (via BB/RF backdoor in eFuse)
+
+[V3.2.1.0F]
+WHQL Release
+
+[V3.2.1.1]
+1.) (rt5392)Fix issue that tx power will be compensated for 2 times.
+
+[V3.2.1.0E]
+P2P data Eid parsing
+
+[V3.2.1.0D]
+1.) Add notify AMP Status Chage event in Hardware Radio On/Off.
+
+[V3.2.1.0B]
+1.) Fix Aid check fail issue.
+
+[V3.2.1.0]
+WHQL Release
+
+[V3.1.10.10]
+1.) INF: add product ID for TP-LINK (Zioncom) 
+    (USB\VID_177F&PID_0254)
+
+[V3.1.10.9]
+1.) (5370G) PPAD (per-packet antenna diversity)
+
+[V3.1.10.8]
+1.) Fix issue that port will not be deactivated in N6Halt().
+
+[V3.1.10.7]
+1.) Modify the sequence of new port creation for NDIS test.
+2.) Remove non-used definitions.
+
+[V3.1.10.6]
+1.) INF: Modify registry for Wireless BGN mode only 
+
+[V3.1.10.5]
+1.) Fix Mantis 2671: Wi-Fi Test 5.2.15 item Pre-authentication Function is fail
+2.) Fix Compile error
+
+[V3.1.10.4]
+1.) (5370/5372) Disable PPAD (Per-Packet Antenna Diversity) by default
+
+[V3.1.10.3]
+1.) Create virtual port 2 for Win7 P2P. (OPMODE_STAP2P) 
+    Support completed concurrency with wlanSTA+p2pClient or wlanSTA+p2pGO.
+2.) Replace port numbers with new definitions.(PORT_0/PORT_1/PORT_2)
+3.) Modify the selection of Active Port due to two-client mode.
+4.) Use the fixed wcid as 23 for concurrent P2P Client.
+5.) Remove the older design for concurrent GO with port 1.
+6.) Move PsPollFrame and NullFrame buffers from pAd to pPort.
+7.) Fixed no wsc ie in wsc assoc request.
+
+[3.1.10.2]
+1.) fix the potential problem of DRS crash
+
+[V3.1.10.1]
+1.) INF: add product ID & Wireless Mode BGN only for Cameo 
+    (USB\VID_148F&PID_F301)
+2.) INF: Modify DeviceDesc for BelKin "N450 USB adapter" to "Belkin Wireless Adapter"
+    (USB\VID_050D&PID_1003)
+
+[V3.1.10.0]
+1.) WHQL Release
+
+[V3.1.9.27]
+1.) P2P+WPS2.0: Add PIN Length with 4 digits or 8 digits for P2P.
+2.) P2P+WPS2.0: Integrate WSC IE in Probe Request frame.
+3.) P2P+WPS2.0: Add WPS2.0 version attributes to P2P releated packets. 
+    And fix incorrect wsc ie length in some of p2p action frames.
+
+[V3.1.9.26]
+1.) 3573 change BBP_R82 back to 0x82 in 2.4G band
+
+[V3.1.9.25]
+1.) Fix BSOD Issue of doing WPS in P2p mode. 
+
+[V3.1.9.24]
+1.) STA using PSM may have long PING latency and/or poor throughput with Linksys WRT600N AP.
+It seems that Linksys WRT600N AP checks the power management bit of the 802.11 frame control field in the control frame.
+
+[V3.1.9.23]
+1.) 3573 set BBP_R82=62 in 2.4G band
+
+================================================
+[V3.1.9.0] WHQL special relase for Fujitsu
+1.) "netsh" 11a issue
+2.) 3572B Unknown device after S5 - FW v.232
+3.) IPv6 Patch
+
+Source is on: \Software\OCA\Drivers\RT2870Win7\v3.1.9.0
+================================================
+[V3.1.8.22]
+1.) Fixed the crash issue on invalid WPS IE.
+2.) Add P2PVideoBoost to Registry and INF. Force to use VO priority in Ralink P2P Group.
+3.) Update P2P operation channel according to common supported channels.
+4.) Modify sequences on P2pDown func.
+5.) Prevent complete p2p scan when STA is waiting for packets from peers
+6.) Let Driver can disable/enable dhcp in concurrent mode and disabled ICS status.
+7.) Modify changing back to 20MHz by ApInfoResetRequest() called. 
+
+[V3.1.8.21]
+1.) support Suppress Scan
+2.) fix rate not support issue.
+
+[V3.1.8.20]
+1.) 3572 Unknown device issue- Fujitsu
+      -- Code update according to Xtal Programming v0.3
+
+[V3.1.8.19]
+1.) add country region for Russia
+
+[V3.1.8.18]
+1.) (3572) Frequency calibration
+
+[V3.1.8.17]
+1.) Sync 3573 EEPROM with Ver0.4
+2.) Modify WSC2.0 related DBGPRINT information
+
+[V3.1.8.16]
+1.) INF: add product ID for AirTies
+    (USB\VID_1EDA&PID_2210)
+
+[V3.1.8.15]
+1.) Fix unexpected SoftAP disassociation indication issue on WLK 1.6 NDISTest "SoftAP_AssociationCompletion_ext".
+
+================================================
+[V3.1.9.0] WHQL special relase for Fujitsu
+1.) "netsh" 11a issue
+2.) 3572B Unknown device after S5 - FW v.232
+3.) IPv6 Patch
+
+Source is on: \Software\OCA\Drivers\RT2870Win7\v3.1.9.0
+================================================
+
+[V3.1.8.14]
+1. Add IPv6 DHCP patch
+
+[V3.1.8.13]
+1. Fixed the issue that "netsh wlan show i" command response is not correct.
+
+[V3.1.8.12]
+1. WPS 2.0
+2. Fix 3573 IOT Issue: Lower Throughput with Marvell 3x3
+
+[V3.1.8.11]
+1.) Fixed Mantis #2409: In SoftAP WPA2 mix cipher mode, Intel 1000 STA can't connect SoftAP after changing cipher mode.
+
+[V3.1.8.10]
+1. (5390U) Support 5390U
+
+[V3.1.8.9]
+1.) (3370): Ignore TSSI in short distance.
+
+[V3.1.8.8]
+1.) INF: add product ID for TP-LINK
+         (USB\VID_F201&PID_5370)
+
+[V3.1.8.7]
+1.) (3370) Scan-no-AP
+
+[V3.1.8.6]
+1.) Enable PsControl for USB\VID_1690&PID_0761 and USB\VID_13D3&PID_3365.
+
+[V3.1.8.5]
+1.) INF: Add Product ID for Askey
+        (USB\VID_1690&PID_0761)
+    Add Product ID for AzureWave
+        (USB\VID_13D3&PID_3365)
+
+[V3.1.8.4]
+1.) Fix Mantis#1915. Radio type and Tx/Rx rate are not consistent for netsh wlan command.
+
+[V3.1.8.3]
+1.) Support rt5372.
+
+[V3.1.8.2]
+1.) INF: Add Product ID for AirTies
+        (USB\VID_1EDA&PID_2012)
+
+[V3.1.8.0D]
+1.) Fixed Timer issue.(WHQL may fail)
+
+[V3.1.8.1]
+1.) INF: Add Product ID for Belkin
+        (USB\VID_050D&PID_1003)
+
+[V3.1.8.0C]
+1.) Fix Sigma 6.1.11 by sending fake QoS packets after ping
+2.) INF: Add Product ID for Sitcom
+        (USB\VID_0DF6&PID_005F)
+
+[V3.1.8.0B]
+1.) Modify driver behavior for Sigma test 6.1.10
+
+[V3.1.8.0]
+1.) WHQL Release
+
+[V3.1.7.3]
+1.) Reinforce ACK check to improve robustness of P2P handshake (can be disabled from registry "P2PAckCheck")
+2.) Improve GO rate indication
+
+[V3.1.7.2]
+1. (3573) 2x3 3573 NIC
+
+[V3.1.7.1]
+1.) Fix Scan-No-AP issue when device constantly switches between 40/20 MHz channels
+2.) Fix legacy site survey fail under GO mode
+
+[V3.1.7.0]
+1.) WHQL Release
+
+[V3.1.6.7]
+1.) Fix OPPS and NoA sequence and behavior
+2.) Reduce TX rate to 54Mbps for all Sigma tests
+3.) Wi-Fi Direct Logo ready
+
+[V3.1.6.6]
+1.) Mark data and downgrade tx rate on PSQue when Sigma Test is on
+2.) Fix that GO can't disconnect wpa clients due to the expired pmk
+3.) Fix that GO can't pass the next invitation if the previous connection didn't complete
+4.) Fix that parsing incorrect length of P2P IE. And zero peer's address when delete GroupTable
+5.) To Pass Sigma 6.1.9, we don't need to include NoA descriptor in response frame
+6.) When WscEAPRxTimeoutTimerCallback, don't disconnect StaPort link
+7.) Disable LastTxRate update in multicast frame (debug mode)
+8.) Fix Sigma 7.1.3 fail due to packet-out-side CTWindow
+9.) Fix Sigma 6.1.10 by forcing sending second DevDisRsp with fail status
+
+[V3.1.6.5]
+1.) Improve WHQL: VwifiInfraSoftAP_Ext
+
+[V3.1.6.4]
+1.) Fix p2p issue, Error handling when the previous connection didn't complete.
+
+[V3.1.6.3]
+1.) For WlanQueryInterface(wlan_intf_opcode_rssi)
+2.) Fixed Invalid duration
+
+[V3.1.6.2]
+1.) P2P Client can invite other P2P Device to join its group
+2.) Fix that show connecting status at GO side after P2P Client press "disconnect button"
+3.) Use the new event to inform GUI that P2P connetion is finished (Mantis #0002088)
+4.) Fix Sigma section 6.1.3 issue that NoA can't interrupt the wmm service period
+5.) Fix Sigma section 6.1.8 issue that Client as power active mode can't send packets outside CTWindows 
+6.) Restrict P2P to enter idle-radio-off (fix no response from peer's connection action)
+7.) Fix use incorrect bssid to connect GO 
+8.) Fix Sigma section 4.1.3 issue that P2P station does not carry beacon interval in ProbeRsp (Mantis #0002093)
+9.) Fix P2P site survey fail after radio on/off (Mantis #0002103)
+10.) Fix Client+Wifi Direct mode connection fail when STA port connects to AP that is not in social channels (Mantis #0002098)
+11.) Fix that P2P in concurrency can't scan any device after RadioOff/Hibernate (Mantis #0002102)
+12.) Allow AP and GO to send PSM B/MCast during PSM mode
+13.) Add 5 seconds GOInfoResetTimeout to diable GOInfoReset flag
+14.) Fix P2P throughput issue due to GO fails to create BA session with clients
+
+[V3.1.6.1]
+1.)INF: Add Product ID for ZyXEL
+    (USB\VID_0586&PID_341A)
+    (USB\VID_0586&PID_341E)
+    (USB\VID_0586&PID_343E)
+
+[V3.1.6.0]
+1.) WHQL Release
+
+[V3.1.5.15]
+1.) Add BBP R66 tuning when starting GO
+2.) Fix P2P GO 4Way HS fail when creating an ad hoc profile for GO
+3.) Prevent GO sending beacon at non-operating channels
+
+[V3.1.5.14]
+1.) Fix disconnection issue under concurrent mode while the client joins or leaves.  
+2.) Improve GO scan by returning to operating channel on every 3 channels scanned.
+
+[V3.1.5.13]
+1.) Improve P2P topology display timing
+2.) Avoid adding P2P stations (except GOs) in legacy site survey table
+3.) Fix P2P GO RSSI and link quality indication issues on RaUI
+4.) Disallow any scan during first 30 seconds of a P2P connection
+5.) Disable ImproveGOScan functions in registry
+6.) Fix P2P event handle reference fail on x64 driver 
+7.) Fix P2P GO 4Way HS fail when coincide with RTMPInfoResetRequest
+8.) Avoid updating WifiDirect link state during concurrent mode
+9.) Fix dual band device can't find AP at 5G.
+
+[V3.1.5.12]
+1.) INF: Add Product ID for Sitecom(USB\VID_0DF6&PID_0060 & USB\VID_0DF6&PID_0062)
+
+[V3.1.5.11]
+1.) Fix reference unknow memory caused by wrong NdisRequest->PortNumber.
+
+[V3.1.5.10]
+1.) (3370) Tx spectrum mask failure
+
+[V3.1.5.9]
+1.) Fix RT5370/RT3573 P2P GO no beacon issue (Mantis #0001953 and #0001979)
+
+[V3.1.5.8]
+1.) INF: Add Product ID for AzureWave(USB\VID_13D3&PID_3329)
+
+[V3.1.5.7]
+1.) Fix empty site survey table during p2p scan (Mantis #0001958)
+2.) Allow P2P device to transmit management frames on non-operating channel during NoA
+3.) Clear existing NoA queue when starting new NoA session
+4.) Prevent stations to flush BSS table without doing scan
+
+[V3.1.5.6]
+1.) Fix MCS0 jumps to MCS7 if RSSI is high, but air is busy, which may cause chariot stop running
+2.) 5390 shall select correct antenna after BBPReset->PostBBPInitialization
+
+[V3.1.5.5]
+1.) Fix Throughput problem that set incorrect value to RF R24 and R31.
+
+[V3.1.5.4]
+1.) Add UAPSD on P2PGO
+2.) Remove RTS flag from MiniportReserved. Set UAPSD flags with remaining fields.
+3.) Remove globe parameter pP2pCtrll
+4.) Add RT_OID_QUERY_WIFI_DIRECT_LINKSTATE for querying p2p network state
+5.) Fixed unknown device type in updating discovery table
+6.) Handle P2pStopWpsTimer reset
+7.) Let Registrar as AP/GO matains EapId counter
+8.) Use correct RxAntEval functions on P2PGO
+
+[V3.1.5.3]
+1.) Fix P2P ping loss issue
+2.) Avoid p2p scan during heavy traffic
+3.) Avoid array out-of-bound during P2P_SCAN in MlmeSyncScanMlmeSyncNextChannel()
+4.) Remove P2pCrednTabDelete() from p2p_table.c
+5.) Change IS_P2P_PEER_PROVISIONING condition from && to || 
+
+[V3.1.5.2]
+1.) INF:Fix RT3573 Section name issue
+
+[V3.1.5.1]
+1.) (5390) Lower down the HT40 MCS5, MCS6 and MCS7 power by 1dB to generate the EVM performance
+
+[V3.1.5.0B]
+1.) WHQL Release
+
+[V3.1.5.1]
+1.) Write RF R17 by set MCU command, not write directly. 
+2.) No initial value of RF R17, R17 will be accessed value in switch channel.
+
+[V3.1.5.0]
+1.) WHQL Release
+
+[V3.1.4.35]
+1.) Fix : Free memory when function exit.
+2.) To maintain P2P Device being discoverable in some state.
+3.) Delete GO from P2P table when link down.
+
+[V3.1.4.34]
+1.) Indicate AMP_STAUS_02 to disable BTHS if Adhoc on.
+
+[V3.1.4.33]
+1.) Disable the RSSI indication mode if the EEPROM doesn't define the RF IC type.
+2.) Vista doesn't support bPSnonPoll
+
+[V3.1.4.32]
+1.) Fix Scan not Confirm of bFastRoamingScan in BT scan
+
+[V3.1.4.31]
+1.) ignore normal scan when a P2p connect command just be activated within 30 seconds.
+2.) Set stop timer for p2p connect command. So if it timed out, we can set ConfigMethod setting to default.
+
+[V3.1.4.30]
+1.) Modify the query OID for SNR 2 and RSSI 2.
+
+[V3.1.4.29]
+1.) Fix WPA2, CCKM, WPA TKIP+AES mixed mode issue.
+
+[V3.1.4.28]
+1.) Fix double spinlock issue.
+
+[V3.1.4.27]
+1.) Add 5370-3573 code.
+    a) Mid-range throughput (Tx-HT40 in 5Hz)
+    b) Long-range throughput (Tx-HT40 in 5Hz)
+    c) Peak throughput improvement (Tx-HT20/HT40 in 5GHz)
+    d) Low throughput (Tx-HT40) after the AP is link-down
+    e) Initial value
+      e.1) BBP R83: Rx AGC LNA MM select threshold in log2
+      e.2) BBP R84: Rx AGC VGA/LNA delay
+    f) RF ALC boundary verification (Tx power control based on eFuse content)
+    g) USB-layer power save improvement.
+
+[V3.1.4.26]
+1.) INF: Add Product ID for ASUS(USB\VID_0B05&PID_179D)
+
+[V3.1.4.25]
+1.) Add RT3573 Code
+2.) Add TxBF code.
+3.) Add 5370
+4.) Modify STA opmode : Can become P2P client or P2P GO or Station rules.
+5.) Add STAP2P opmode : can be concurrently be Station rule and P2P GO rule.
+
+[V3.1.4.24]
+1.) Remove RT3070 Dlink patch(only apply RTS fallback)
+
+[V3.1.4.23]
+1.) INF: Add Product ID for I-O DATA(USB\VID_04BB&PID_094B)
+
+[V3.1.4.22]
+1.) TX_SW_CFG1(MAC 0x1334) must set to 0x0 for RT3070
+
+[V3.1.4.21]
+1.) Patch for Marvell new WPS testbed AP: Queue EAP-Identify from Marvell AP before we link up under doing WPS.
+
+[V3.1.4.20]
+1.) Fixed Mantis #001712 - Disconnected occurs during throughput test for VWifi.
+
+[V3.1.4.19]
+1.) Fixed: DRS may cause BSOD Issue(Divide zero)
+2.) Fixed: DRS when MCS=7 we still indicate short GI in 2x2 STA.
+
+[V3.1.4.18]
+1.) Correct the value in Radio Type column when user querying the command "netsh wlan show interface".
+
+[V3.1.4.17]
+1.) Mantis #1779 -- It takes about 1 min to show disconnected at vWifi icon while switching from AP-CLIENT to STA mode.
+
+[V3.1.4.16]
+1.) INF: modify .delreg all in one
+
+[V3.1.4.15]
+1.) INF: Fixed Disable ch14 for MSI (USB\VID_0DB0&PID_822C & USB\VID_0DB0&PID_871C & USB\VID_0DB0&PID_822B & USB\VID_0DB0&PID_871B)
+2.) INF: Fixed RT8070 to singleband.
+
+[V3.1.4.14]
+1.) INF: Add Product ID for MSI(USB\VID_0DB0&PID_822C & USB\VID_0DB0&PID_871C).
+2.) INF: remove all channel 14 for MSI(USB\VID_0DB0&PID_822B & USB\VID_0DB0&PID_871B).
+
+[V3.1.4.13]
+1.) Fix DRS Timing Issue.
+
+[V3.1.4.12]
+1.) Support Single LED for BT/WiFi, BT LED control by OID(Service) for MSI USB\VID_0DB0&PID_3871
+    To enabled this feature, turn on bit 0 on registry key "FeatureSetting"
+     Service source code on $802.11-HOST/Application/Bluetooth/RaBTSrv/RaBTSrv
+
+[V3.1.4.11]
+1.) Reset WscStatus before starting HW PBC
+2.) INF: Add RTWLANR_C11.ndi, and WepConnectCheckEncry.reg, and check security when setting WEP to connect AP
+
+[V3.1.4.10]
+1.) Fix: using element's addr in ActHeaderInit of MlmeDELBAAction().
+
+[V3.1.4.9]
+1.) INF: Replace D-Link (USB\VID_2001&PID_3C17) from D-Link DWA-113 Wireless N 150 USB Adapter to D-Link DWA-123 Wireless N 150 USB Adapter
+
+[V3.1.4.8]
+1.) (BTHS)Add spinlock for halt notify IRP.
+
+[V3.1.4.7]
+1.) Fix: Indicate AMP status to HIGH capacity available after STA connect a network fail.
+2.) Call BT_Create_Phy_Link() directly when we get Create_Physical command (not enqueue). 
+    Since we will restart Mlme state machine in BtStartUp(), this action may progress with enqueuing HCI_Create_Physical_Link at the same time.
+    It may cause enqueue HCI_Create_Physical_Link fail.
+3.) We will skip auto reconnection periodically when BTHS is doing 4-way handshaking.
+4.) Use KeSetEvent rathern than call MlmeHandle() after BtMlmeEnqueue.
+
+[V3.1.4.6]
+1.) Fixed country selection problem when an invalid country region code is configured in EEPROM
+
+[V3.1.4.5]
+1.) 1.) INF: Add Product ID for AboCom(USB\VID_07B8&PID_3073 & USB\VID_07B8&PID_3074).
+
+[V3.1.4.4]
+1.) Reset OPMode to STA if doing RadioOff at AP_CLIENT mode.
+
+[V3.1.4.0D]
+1.) WHQL Release
+
+[V3.1.4.3]
+1.) Fix: IRP_MJ_DEVICE_CONTROL in NICDispatch(), make sure the ContolCode is correct. Sync RT2860.
+
+[V3.1.4.2]
+1.) Fixed: Bandwidth information in the SoftAP's beacon may be incorrect.
+
+[V3.1.4.0C]
+1.) Fixed excludeunencrypted_ext.htm of WHQL.
+
+[V3.1.4.1]
+1.) Prevent potential memory violation.
+
+[V3.1.4.0B]
+1.) Solved WHQL bugcheck issue.
+
+[V3.1.4.0]
+1.) WHQL Release
+
+[V3.1.3.32]
+1.) Fix LED won't turn on after WPS success, for some APs send disconnection after WPS success: Skip LED turn off after WPS success 4.5 sec when receive disassociation or deauthentication from peer AP.
+
+[V3.1.3.31]
+1.) FW v.25
+        //                      1.  Add 0x40/0x41 command for GPIO polling
+        //                      2.  Fix GPIO programming for WPS mode
+        //                      3.  Remove RF R8 programming code for 3572
+        //                      4.  Add 0x91 command for BT co-exist function
+        //                      5.  Modify power solution 3 for force RF XTAL on.
+
+[V3.1.3.30]
+1.) Registry control: Disable frequency calibration and write specific BBP value
+
+[V3.1.3.29]
+1.) Reset PortSubtype for extensible STA mode. 
+
+[V3.1.3.28]
+1.) INF: Add Product ID for Huawei(USB\VID_148F&PID_F101)
+
+[V3.1.3.27]
+1.) External ALC behavior for STA and SoftAP during low temperature
+
+[V3.1.3.26]
+1.) Skip scan OID under doing WPS.
+
+[V3.1.3.25]
+1.) Call AsicRadioOn when BT start up.
+
+[V3.1.3.24]
+1.) Fix Ralink-SoftAP beaconing issue.
+
+[V3.1.3.23]
+1.) Phymode can downgrade to legacy depends on RFIC type.
+
+[V3.1.3.22]
+1.) Fixed: WiFi 11n 5.2.36 using Sigma
+
+[V3.1.3.21]
+1.) INF: Add Product ID for Logitec(USB\VID_0789&PID_0169)
+
+[V3.1.3.20]
+1.) Add Auto-WEP mode for Ralink-SoftAP.
+
+[V3.1.3.19]
+1.) Enhance for CCX DC, "Diagnostic Channel" will always turn on DC control
+
+[V3.1.3.18]
+1.) Support Ralink-SoftAP mode.
+2.) Sync to RT2860, move several configurations from CommonCfg to PortCfg.
+
+[V3.1.3.17]
+1.) Do not set MPDU density to less than 5(4us), to enhance IOT issue with Atheros AP/station in AES security.
+
+[V3.1.3.16]
+1.) INF: Add Product ID for MSI(USB\VID_0DB0&PID_822B & USB\VID_0DB0&PID_871B)
+
+[V3.1.3.15]
+1.) Add BT 3.0 HS.
+
+[V3.1.3.14]
+1.) INF: Add smart scan registry for Allied(USB\VID_07AA&PID_003F)
+
+[V3.1.3.13]
+1.) Modify for Gemtek WCN issue. 
+    a.) Add checking PrivacyExemptionEntries->usEtherType to decide the connecion is for WCN or not.
+    b.) Delay one second to initialize WPS after trigger HW PBC, in order to wait the disconnection from UI.
+    c.) Set MlmeAux.HtCapabilityLen to 0 if we is legacy mode.
+
+[V3.1.3.12]
+1.) INF: Add Product ID for Alpha(USB\VID_2001&PID_3C17)
+
+[V3.1.3.11]
+1.) (3370) The extended TSSI mode
+
+[V3.1.3.10]
+1.) Periodic VCO calibration
+
+[V3.1.3.9]
+1.) (3370) Configurable RF settings
+2.) (3370) Enlarge TSSI range over OFDM 54Mbps
+
+[V3.1.3.8]
+1.) Fixed Mantis#0001546 -- BSOD occurs when enabling Single-Sign-On.
+
+[V3.1.3.7]
+1.) INF: Fix Add Product ID for 2L Central Europe BV(USB\VID_7392&PID_4085)
+
+[V3.1.3.6]
+1.) INF: Add Product ID for 2L Central Europe BV(USB\VID_7392&PID_4085)
+
+[V3.1.3.5]
+1.) INF: Add ¡§CoInstOpt_DisableN.reg¡¨ for ¡§USB\VID_148F&PID_2070¡¨ and ¡§USB\VID_8516&PID_2070¡¨.
+
+[V3.1.3.4]
+1.) Implememt ForceSleep mechanism to further reduce the power consumption.
+
+[V3.1.3.3]
+1.) Coinstaller: update to V1.0.8.0 (Support back door to launch a exe file after driver install.)
+
+[V3.1.3.2]
+1.) LED mode 9 modification.
+
+[V3.1.3.1]
+1.) INF: Replace D-Link (VID_07D1&PID_030D) from D-Link DWA-125 Wireless 150 USB Adapter to D-Link DWA-125 Wireless 150 USB Adapter(rev.A2)
+
+[V3.1.3.0]
+1.) WHQL Release
+2.) Update LastRxRate, only for U2M data
+
+[V3.1.2.6]
+1.) Coinstaller: update to V1.0.7.3 
+    Fix a back door issue, RaCoinst can't write REG_DWORD value at the first.
+
+[V3.1.2.5]
+1.) RSSI indication mode
+
+[V3.1.2.4]
+1.) Add Country Region 32 and 33
+
+[V3.1.2.3]
+1.) Fixed: Desired TSSI table selection
+
+[V3.1.2.2]
+1.) Solved Mantis #0001380 - Fixed throughput drop with legacy AP.   
+2.) Solved Mantis #0001341 - Switch to first available channel when the selected channel is not valid in ad hoc mode
+3.) Sync MlmeDynamicTxRateSwitching code with XP
+
+[V3.1.2.1]
+1.) INF: Add Product ID for Sitecom(USB\VID_0DF6&PID_0053)
+
+[V3.1.2.0]
+1.) WHQL Release
+
+[V3.1.1.8]
+1.) Update RaCoinst.dat 
+
+[V3.1.1.7]
+1.) Fixed the issue that LED still on after SW Radio-off.
+2.) Fixed potential TxBurst not working.
+
+[V3.1.1.6]
+1.) Classify PS-Poll and Data with Power-active when we queued packets for client.
+
+[V3.1.1.5]
+1.) INF: Add Product ID for Edimax(USB\VID_7392&PID_7722)
+2.) INF: Add Product ID for Logitec(USB\VID_0789&PID_0168)
+
+[V3.1.1.4]
+1.) INF: Add Product ID for PEGATRON(USB\VID_0B05&PID_166A)
+
+[V3.1.1.3]
+1.)Add customized led mode.
+
+[V3.1.1.2]
+1.) Force RTS threshold to default(0xFFFF) when SoftAP is on.
+
+[V3.1.1.1]
+1.) WHQLTest: We can only set back APStatus when we are in ap port.
+
+[V3.1.1.0B]
+1.) Remove double irp complete patch for ndistest issue.
+
+[V3.1.1.0A]
+1.) INF: Add Product ID for Sitecom(USB\VID_0DF6&PID_0051)
+
+[V3.1.1.0]
+1.) WHQL Release
+
+[V3.1.0.23]
+1.) Update INF for Cisco FlipShare TV
+
+[V3.1.0.22]
+1.) Enable Japan filter at channel 14
+2.) For Spreading Bandwidth Fail issue, clear RF R24 Bit[3:0] at channel 14 CCK mode.
+3.) Add option of HT20 only mode for BT Combo device.
+
+[V3.1.0.21]
+1.) Fixed disconnect issue during throughtput test.
+
+[V3.1.0.20]
+1.) TDLS: Modify the behavior of TdlsTeardown. Make sure that we sent the teardown data frame out before deleting tdls tables.
+
+[V3.1.0.19]
+1.) Support CCX v5.
+
+[V3.1.1.18]
+1.) Fixed double wdf request crash when S3/S4.
+
+[V3.1.1.17]
+1.) Set pPort->CommonCfg.DesiredHtPhy.ChannelWidth when we connect to AP with Channel 11 BW 40 Above.
+
+[V3.1.0.16]
+1.) INF: Replace D-Link (VID_07D1&PID_3C17) from D-Link DWA-121 Wireless N 150 Compact USB Adapter to D-Link DWA-121 Wireless N 150 USB Adapter
+2.) INF: Add Product ID for RadioShack(USB\VID_08B9&PID_1197)
+3.) INF: Add Product ID for KEEBOX(USB\VID_14B2&PID_3C2C)
+
+[V3.1.0.15]
+1.) Fixed the power consumption is slightly higher than v3.0.11.5.
+
+[V3.1.0.14]
+1.) Add Link Quality Setting Control.
+
+[V3.1.0.13]
+1.) Add: (3370 only) RF DAC extension
+2.) Add: (3370 only) New EEPROM for RF registers
+
+[V3.1.0.12]
+1.) INF: Add Product ID for PLANEX(USB\VID_2019&PID_5201)
+
+[V3.1.0.11]
+1.) Add fast-roaming sensitivity property on advanced page of device.
+    (Note: the INF file will be updated later)
+
+[V3.1.0.10]
+1.) Add external registrar code.
+
+[V3.1.0.9]
+1.) Extend MAX_NUM_OF_BBP_LATCH to 255 to prevent overflow
+
+[V3.1.0.8]
+1.) Coinstaller: Update Signed Coinstaller
+
+[V3.1.0.7]
+1.) Coinstaller: Update to V1.0.7.2
+
+[V3.1.0.6]
+1.) Remove VID_083A&PID_F511
+
+[V3.1.0.5]
+1.) TDLS: Fixed dead lock in while loop.
+
+[V3.1.0.4]
+1.) Ignore broadcast/multicast DeAuthReq/DeAssocReq for SoftAP
+
+[V3.1.0.3]
+1.) Replace D-Link (VID_07D1&PID_3C17) from D-Link Wireless N 150 USB Adapter to D-Link DWA-121 Wireless N 150 Compact USB Adapter
+
+[V3.1.0.2]
+1.) INF: remove adhocNmode when we add CoInstOpt_DisableN in section.
+
+[V3.1.0.0B]
+1.) WHQL Release
+
+[V3.1.0.1]
+1.) RTS rate fallback enable
+
+[V3.1.0.0]
+1.) WHQL Release
+
+[V3.0.11.8]
+1.) Update FW to V23 to fix the led behavior in USB suspend mode for all RT3x7x.
+2.) Fix BaldEagleSSID overflow issue on converting
+
+[V3.0.11.7]
+1.) Implement Bald Eagle mechanism. Bald Eagle mechanism define a BaldEagleSSID, the STA with Bald Eagle Mechanism enabled can only connect to this specific AP.
+
+[V3.0.11.6]
+1.) Solved Mantis #0000997 and #0000984. Throughput test failed while PSmode is enabled.
+
+[V3.0.11.5]
+1.) INF: Add Product ID for Sitecom(USB\VID_0DF6&PID_0050)
+2.) INF: Rename Logitec(USB\VID_0789&PID_0166) to "Logitec LAN-W300N/U2 LAN Adapter"
+
+[V3.0.11.4]
+1.) Add: Configurable GPIO pin-sharing mode (GpioPinSharingMode_DefaultMode and GpioPinSharingMode_Mode1)
+
+[V3.0.11.3]
+1.) INF: Remove Edimax(USB\VID_0789&PID_0166)
+2.) INF: Add Product ID for HAWKING(USB\VID_0E66&PID_0017 & USB\VID_0E66&PID_0018)
+
+[V3.0.11.2]
+1.) Update DecryptSuccessCount if decrypted packet successfully, required by new WLK 1.5
+
+[V3.0.11.1]
+1.) Set MIN_MPDU_LEN to 14 bytes(including FCS 4 bytes).
+
+[V3.0.11.0]
+1.) WHQL Release
+
+[V3.0.10.9]
+1.) Add patch for shutdown handler wait too long issue.
+
+[V3.0.10.8]
+1.) Add patch for ndistest issue when PsControl flag turn on.
+
+[V3.0.10.7]
+1.) Add: Add new OID RT_OID_QUERY_PORT_USAGE for GUI to query and know whether the Port[1] is used by our adapter.
+
+[V3.0.10.6]
+1.) Fixed: Maximum input power issue (3370 only)
+
+[V3.0.10.5]
+1.) Add patch in AsicSendCommanToMcu to prevent crash when system in state s5
+
+[V3.0.10.4]
+1.) Update copyright year
+
+[V3.0.10.3]
+1.) Add patch for shutdown handler wait too long issue, add counter to prevent  crash.
+
+[V3.0.10.2]
+1.) Fix SoftAP_OIDs_ext due to the side effect from V3.0.9.25
+
+[V3.0.10.1]
+1.) Fixed: Dangling switch-case problem
+
+[V3.0.9.41]
+1.) Fix rt3572 card detect issue.
+2.) Add PsControl registry setting for MSI.
+
+[V3.0.9.40]
+1.) Fixed bugs occurred in Ndistest.
+2.) Add spinlock in AsicRadioOn/AsicRadioOff to prevent intercepting mutually.
+3.) Add counterdown timer to prevent calling AsicRadioOff too frequently.
+
+[V3.0.9.39]
+1.) To not ignore the first ScanRequest from AutoConfig after HW/SW radio_on
+
+[V3.0.9.38]
+1.) Block sending AssocReq to "Diagnostic Channel" but DC is OFF
+
+[V3.0.9.37]
+1.) INF: Add Product ID for PEGATRON(USB\VID_1D4D&PID_0011)
+
+[V3.0.9.36]
+1.) Support RaUI's 802.11n page
+
+[V3.0.9.35]
+1.) If STA+AP channel changed, there is no need to send DISASSOC frames to STAs.
+
+[V3.0.9.34]
+1.) WiFi Test should not force to use short slot time when TxBurst on.
+
+[V3.0.9.33]
+1.) Init BssTable to avoid reporting wrong channel APs when change country region
+
+[V3.0.9.32]
+1.) Sync from 2860[V3.0.14.7], Fix Resume from S3/S4, Radio Off but connected 
+
+[V3.0.9.31]
+1.) INF: Add Product ID for azurewave(USB\VID_13D3&PID_3322)
+2.) INF: Add Product ID for Ovislink(USB\VID_1B75&PID_3071)
+
+[V3.0.9.30]
+1.) INF: Add Product ID for SMC(USB\VID_083A&PID_A703)
+
+[V3.0.9.29]
+1.) Add: Frequency calibration (3370 only)
+
+[V3.0.9.28]
+1.) Lessen the retry limit for CCX RF-Parameter roaming test.
+
+[V3.0.9.27]
+1.) Patch the bug of Cisco AP for smooth testing.
+2.) Correct the debug message.
+3.) Remove CCKM_ON(pAd) conditions in RTMPHardTransmit() to send ciphertext frames in CCKM cases.
+4.) Sync code with XP.
+5.) Correct pAd to pPort.
+
+[V3.0.9.26]
+1.) Fixed (Mantis bug #0000798): Windows Wireless LAN 802.11 Extensibility Framework has stopped working.
+
+[V3.0.9.25]
+1.) Fixed HW Radio on failed issue when enabled Virtual Wi-Fi
+2.) Indicate HW/SW Radio status individually if its value was different than the previous value.
+
+[V3.0.9.24]
+1.) Cacel ChannelTimer salely when driver unload, otherwise crash is latent.
+
+[V3.0.9.23]
+1.) "Selective suspended" partially supported. CPU can enter C3 or C4 state.
+
+[V3.0.9.22]
+1.) INF: Add Product ID for D-Link(USB\VID_07D1&PID_3C17)
+
+[V3.0.9.21]
+1.) Define an OID to return available bandwidth set in EEPROMM(0x37).
+
+[V3.0.9.20]
+1.) CoInstaller: Update Coinstaller to 1.0.7.0 Support COINST_OPT_REMOVEADHOCNMODE (Default enabled) to remove AdHocNMode from driver property if 11n is not allowed.
+
+[V3.0.9.19]
+1.) INF: Add Product ID for Azurewave(USB\VID_13D3&PID_3307 & USB\VID_13D3&PID_3321) Edimax(USB\VID_07FA&PID_7712 & USB\VID_0789&PID_0166)
+
+[V3.0.9.18]
+1.) Modify the status of WMM INUSED using pPort in tdls functions.
+
+[V3.0.9.17]
+1.) INF: Add Product ID for Logitec(USB\VID_0789&PID_0166)
+
+[V3.0.9.16]
+1.) Fixed: Incorrect RSSI #2 when the NIC is in channel 169 or 173
+
+[V3.0.9.15]
+1.) Add patch for link rate display, use short guard intervel rate to replace 
+    long guard intervel rate when rate is 270M.
+
+[V3.0.9.14]
+1.) BW40 could be disabled by setting EERPOM 0x37h.
+
+[V3.0.9.13]
+1.) Expand the size of TDLS searching table and protect the older searching entry from cover.
+2.) Send a TDLS confirm frame with error to notify the peer and fix memory leakage issue here . 
+
+[V3.0.9.12]
+1.) INF: Add product ID for IOMagic(USB\VID_083A&PID_A703)
+
+[V3.0.9.11]
+1.) Fix bugID 681 ,beacon not generate after radion off/on.
+
+[V3.0.9.10]
+1.) Restore WMM capability on channel 14.
+
+[V3.0.9.9]
+1.) Fixed: The mapping of short/long preamble CCK for 3370 TSSI calibration
+
+[V3.0.9.8]
+1.) Add Product ID for Hawking(USB\VID_0E66&PID_0013)
+
+[V3.0.9.0B]
+1.) Revise B for WHQL release.
+
+[V3.0.9.7]
+1.) Compatible BT Coexistence method in NicConfig3
+
+[V3.0.9.6]
+1.) Update BTCoexist.reg and default value
+
+[V3.0.9.5]
+1.) Fixed the bug on TKIP fragment for direct link data.
+
+[V3.0.9.4]
+1.) Fixed MSI 3070 Combo Hardkey makes GPIO0 floating issue
+
+[V3.0.9.3]
+1.) Add Product ID for ASUS(USB\VID_1761&PID_0B05)
+
+[V3.0.9.2]
+1.) Add dropping packet mechanism to meet CCX test scenario.
+2.) Correct the transition code of roaming log to 5.
+3.) Enhance the roaming behaviors for CCX drastic roaming, meet the CCX v5.21 criteria.
+4.) Update BSSID in MlmeAssocPeerReassocRspAction().
+5.) Print out the CCX parameters set down from RT_OID_802_11_CCX20_INFO.
+6.) To avoid that the first frame can't be sent out after radio-on, send probe request twice to meet CCX5 4.1.4.1 (for RT3572)
+
+[V3.0.9.1]
+1.) TDLS: Set the protection to make sure only one thread doing discovery action at that time.
+
+[V3.0.9.0]
+WHQL release
+
+[V3.0.8.0]
+Base on V3.0.7.2 and fixed S3/S4 resume bluescreen issue
+Source code are on OCA.
+
+[V3.0.7.40]
+1.) Fix our driver does not disable WPS after AP reset(NDISTest SoftAP_WPS_ext) by Frank Yang
+2.) CH14 only supports 11b
+
+[V3.0.7.39]
+1.) BT Coexistence at Ad-Hoc Mode
+
+[V3.0.7.38]
+1.) Sync RF_R08 with XP/Vista
+
+[V3.0.7.37]
+1.) Add patch for Mantis BugID 622, when station port disconnect, do not keep on
+    scanning to prevent softAP port beacon timeout.
+
+[V3.0.7.36]
+1.) Add Product ID for PEGATRON(USB\VID_1D4D&PID_0010 & USB\VID_05A6&PID_0101 & USB\VID_0B05&PID_1790)
+
+[V3.0.7.35]
+1.) update INF to enable SmartScan for USB\VID_167B&PID_4001
+
+[V3.0.7.34]
+1.) Do not AutoReconnect if Radio is Off
+
+[V3.0.7.33]
+1.) IOT issue with DIR-655: STA Channel Width is 20MHz but 2nd Channel Offset is not zero.
+
+[V3.0.7.32]
+1.) BT Coexistence
+
+[V3.0.7.31]
+1.) Add code to protect it may get NULL pointer when calling MlmeSyncGetApPort.
+
+[V3.0.7.30]
+1.) Patch crash issue for resume from s3/s4,cause by bbp busy.
+
+[V3.0.7.29]
+1.) eFuse is used if OPMode is CD-ROM
+
+[V3.0.7.28]
+1.) Fix NDISTest Statistics_ext fail item.(Statistics counter incorrect)
+
+[V3.0.7.27]
+1.) TDLS: Fixed teardown issue on changing direct link capability. 
+2.) TDLS: Fixed crash issue on switching from STA to AP+STA.
+
+[V3.0.7.26]
+1.) Add Product ID for ALLWIN(USB\VID_8516&PID_2870 & USB\VID_8516&PID_2770 & USB\VID_8516&PID_2070 & USB\VID_8516&PID_3070 & USB\VID_8516&PID_3071 & SB\VID_8516&PID_3072 & USB\VID_8516&PID_3572).
+
+[V3.0.7.25]
+1.) Only Call Linkdown when Media conneted in N6UsbSetPowerbyPort
+
+[V3.0.7.24]
+1.) Disable AutoReconnect immediatelly
+        -- MlmeRadioOff: To avoid reconnect if radio off
+        -- OID_DOT11_CONNECT_REQUEST: Enqueue SSID connect may be updated by previous AutoReconnectSSID
+
+[V3.0.7.23]
+1.) Modify code to fix UI still shows AP page after resuming from S3/S4.
+
+[V3.0.7.22]
+1.) Add Product ID for MSI(USB\VID_0DB0&PID_3822 & USB\VID_0DB0&PID_822A & USB\VID_0DB0&PID_3871 & USB\VID_0DB0&PID_871A).
+
+[V3.0.7.21]
+1.) Update TDLS to 802.11z Draft6.0.
+2.) Add the Peer TDLS STA with WMM enable while associated to non-WMM AP.
+
+[V3.0.7.20]
+1.) Replace D-Link(USB\VID_07D1&PID_3C16) Description from "D-Link DWA-125 Wireless 150 USB Adapter(rev.A2)" to "D-Link DWA-125 Wireless N 150 USB Adapter(rev.A2)"
+
+[V3.0.7.19]
+1.) Patch Beacon distribution test case of WiFi 11n.
+2.) RT3070: Fixed WiFi 11n 5.2.39 overlapping test case.
+
+[V3.0.7.18]
+1.) Add: a) PLL charge pump design change, b) Avoid crystal oscillator startup problem (wrong frequency) and c) Reduce potential yiled loss due to PLL locking
+
+[V3.0.7.17]
+1.) Fix: Disable re-modulation until further verification (poor Rx throughput with Atheros APs)
+
+[V3.0.7.16]
+1.) Downgrade Adhoc mcast rate to 20MHz.
+
+[V3.0.7.15]
+1.) Remove force setting BW_20 in RtmpSetHT, let UI descide this setting.
+
+[V3.0.7.14]
+1.) Fixed: Mantis#281, RTS threshold not work after ResumeMsduTransmmision.
+
+[V3.0.7.13]
+1.) Add: RT3370
+
+[V3.0.7.12]
+1. Fixed ping lost issue for TDLS caused by incorrect sequence numbers.
+
+[V3.0.7.11]
+1.) Fixed bug for ineffective teardown on TDLS.
+2.) Fixed the disappearance for Peer TDLS entry caused by lost null frame.
+3.) Turn off TDLS in WEP and WPA/WPA-PSK mode.
+4.) Error handling on TDLS seaching table.
+
+[V3.0.7.10]
+1.) INF: Change device name for RT3070(802.11n USB Wireless LAN Card)
+
+[V3.0.7.9]
+1.) Add Product ID for D-Link (USB\VID_07D1&PID_3C15)
+
+[V3.0.7.8]
+1.) Fix: Mantis#432. Add checking WSCInfoAtProbeRsp information to search WPS AP (The Origin only use WSCInfoAtBeacons).
+
+[V3.0.7.7]
+1.) Fix: The State of Conrtol State Machine using pPort rather than pAdapter in WPS Scan.
+
+[V3.0.7.6]
+1.) Fix softap issue that client will disconnect after station port's connection attemp fails.
+
+[V3.0.7.5]
+1.) Remove Product ID for Ralink(USB\VID_0930&PID_0A07)
+2.) Update RaCoinst.dat 
+
+[V3.0.7.4]
+1.) Fix UI radio off crash issue, initial port number to fix this issue.
+
+[V3.0.7.3]
+1.) Fix change country region but SoftAP beacon not use correct primary channel.
+2.) Fix when station port cgange BW from 20 to 40 dynamicly but SoftAP beacon 
+      not rebuild with correct BW issue.
+3.) Fix OCA crash at RECBATimerTimeout() stack buffer over run issue, report reorder buffer to upper 
+     layer one by one.
+      
+[V3.0.7.2]
+1.) RT3070 for 802.11n WiFi WMM Test
+
+[V3.0.7.1]
+1.) Fixed bugcheck(0xCE) caused by JunkThread
+2.) ProbeReq of legacy Adhoc should not include HtCapIE.
+3.) Send QoS NULL when APSD on.
+
+[V3.0.7.0]
+1.) WHQL Release
+
+[V3.0.3.36]
+1.) FW v.20 - Fix TRSW_en setting bug on single antenna with PSM mode
+
+[V3.0.3.35]
+1.) Add Product ID for SMC(USB\VID_083A&PID_A701 &USB\VID_083A&PID_A702)
+
+[V3.0.3.34]
+1.) Improve site survey mechanism when traffic very low(ping test) to 2-step scan.
+
+[V3.0.3.33]
+1.) Add: The driver reads the eFuse by accessing the MAC registers instead of the firmware command.
+
+[V3.0.3.32]
+1.) Clean up PsQueue for Ndis6CommonRejectPendingPackets()
+
+[V3.0.3.31]
+1.) Improve ndisttest vwifiinfra_softap test, set non-zero tx retry count.
+
+[V3.0.3.30]
+1.) Fixed: Gemtek LED mode 9 issues.
+
+[V3.0.3.29]
+1.) Use independent HT phymode for softap port.
+
+[V3.0.3.28]
+1.) The Win7 driver (AP+STA) should not drop the EAPOL packets.
+2.) PMK cache enhancement: The driver cache the latest disassociated BSS entry that the STA can potentially roam to.
+
+[V3.0.3.27]
+1.) Support Fixed Antenna Selection. EEPROM v1.63
+        // ========================
+        // Bit12 Bit11  Definition
+        // ========================
+        //   0     0    Default
+        //   0     1    Diversity
+        //   1     0    Main antenna
+        //   1     1    Aux antenna
+
+[V3.0.3.26]
+1.) Fix bug for Adhoc won't recover the TxRty value back to the original
+    value after DRS set the TxRty value as 0.
+
+[V3.0.3.25]
+1.) Use independent phy mode and HT setting for softap port.
+
+[V3.0.3.24]
+1.) Fix "System - Disable Enable with IO - No DV" issue for System Logo Test
+
+[V3.0.3.23]
+1.) Correct TxSTBC checking in MlmeUpdateHtTxRates
+
+[V3.0.3.22]
+1.) Add Product ID for I-O DATA(USB\VID_04BB&PID_0947 & USB\VID_04BB&PID_0948)
+1.) Add Product ID for EnGenius(USB\VID_1740&PID_9707 & USB\VID_1740&PID_9708 & USB\VID_1740&PID_9709)
+
+[V3.0.3.21]
+1. Adhoc: Turn OFF 40MHz bandwidth on channels of ch140 and behind ch161.
+2. Adhoc: Patched 40MHz bandwidth with the same control and central channel.
+3. Adhoc: Be effective in beacon info update.
+4. Adhoc: Set BG protection ON while any legacy STA joins. 
+
+[V3.0.3.20]
+1.) Enable 20/40 Coexistence in INF
+
+[V3.0.3.19]
+1.) Support draft dot11z TDLS - Tunnled Direct Link Setup. 
+Enable TDLS by set registries 'DirectMode=1' and 'DLSCapable=1'.
+
+[V3.0.3.18]
+1.) Fix for extensible AP driver spec in Section 1.4.4.1 (Packet Reception in Non-Promiscuous and Non-Raw Mode)
+2.) Fix Ralink frame aggregation issue
+
+[V3.0.3.17]
+1.) Fix calling WdfUsbTargetPipeWdmGetPipeHandle with a NULL UsbPipe handle. (Reportd from MS RT73)
+
+[V3.0.3.16]
+1.) Remove four extra dummy bytes when total bulk out size is a multiple of bulk size.
+2.) Enhancement for  multiple endpoints bulkout reset
+
+[V3.0.3.15]
+1.) Add PsQueue lock to fix MSFT report bug ID 18385 dead lock issue.
+
+[V3.0.3.14]
+1.) Fix OCA crash issue, drop zero length packet
+
+[V3.0.3.13]
+1.) Add Product ID for MSI(USB\VID_0DB0&PID_3821 &USB\VID_0DB0&PID_821A)
+
+[V3.0.3.12]
+1.) TGn Plugfest
+
+[V3.0.3.11]
+1.) Add Product ID for Ralink(USB\VID_0930&PID_0A07)
+
+[V3.0.3.10]
+1.) Fix the ReqVarIEs & ResVarIEs may be truncate when it larger than 255 Bytes
+
+[V3.0.3.9]
+1.) Fix UI swithc to station only mode cause station port disconnect.
+
+[V3.0.3.8]
+1.) Fix FastRoamingScan may cause futher scan cannot be completed when not connected
+
+[V3.0.3.7]
+1.) Turn on BGProtection bit of ERP ie in Beacon from SoftAp if a B-only device is detected.
+
+[V3.0.3.6]
+1.) Support 40MHz Adhoc. Add registry AdhocN40MHzAllowed for switch.
+2.) Change Adhoc rate maintenance from unified to per-entry.
+
+[V3.0.3.5]
+1.) Prevent STAMlmePeriodicExec from being called twice in one second.
+
+[V3.0.3.4]
+1.) Add 3070 Product ID for AzureWave(USB\VID_13D3&PID_3305)
+
+[V3.0.3.0B]
+1.) WHQL release
+
+[V3.0.3.3]
+ 1.) Sync UI opmode mode display when radio off and UI have to return station 
+      only mode.
+      
+[V3.0.3.2]
+1.) return NDIS_STATUS_INVALID_DATA instead of NOT_SUPPORTED when receive OID OID_GEN_CURRENT_PACKET_FILTER
+
+[V3.0.3.1]
+1.) Add 3070 Product ID for Encore(USB\VID_203D&PID_14A9)
+
+[V3.0.3.0]
+WHQL_Release
+
+[V3.0.2.40]
+1.) Wait 2ms for 0x31 MCU Cmd
+
+[V3.0.2.39]
+1.) Add Product ID for MSI(USB\VID_0DB0&PID_899A)
+                          (USB\VID_0DB0&PID_3870)
+                          (USB\VID_0DB0&PID_870A)
+
+[V3.0.2.38]
+1.) FW v.19
+            For fixing BBP read/write fail issue.
+            This issue happens on PCIE/power saving mode, read/write BBP may fail occasionally
+            This version firmware can make the probability of this issue lower.
+
+[V3.0.2.37]
+1.) Modify the PLM (Pathloss Measurement) functions.
+2.) Define the PLM-related parameters.
+3.) Move PLMTimer canceling from MlmeCntLinkUp() to MlmeCntLinkDown().
+4.) Add "RT_OID_CCX_SEND_PLM_Message" for sending PLM message use.
+5.) Re-declare the PLM functions.
+6.) Set "bAckRequired" to FALSE for sending WDS packet of CCX PLM use.
+7.) Add internal cmd "RT_OID_CCX_SEND_PLM_Message" to send PLM message.
+
+[V3.0.2.36]
+1.) Remove bShowHiddenSSID from code and INF file. This is not necessary in Vista/Win7.
+
+[V3.0.2.35]
+1.) Correct BW of TxWI for Legacy rate
+
+[V3.0.2.34]
+1.) Add 3072 Product ID for Sitecom(USB\VID_0DF6&PID_004D)
+
+[V3.0.2.33]
+1.) Add Product ID for Cisco(USB\VID_167B&PID_4001)
+
+[V3.0.2.32]
+1.) Modify Product ID for Encore(USB\VID_203D&PID_14A1) device name from No Geek Needed 802.11n USB Adapter to No Geek Needed¡¦s 802.11n USB Adapter
+
+[V3.0.2.31]
+1.) Fixed: Do software Radio Off, RT3572B is not detected at some platform(ex. ASUS N80)occasionally after S5.
+    -- This is a temporal patch.
+
+[V3.0.2.30]
+1.) Re sync code with vista 2.3.5.31
+
+[V3.0.2.29]
+1.) Delete the associated AP from RogueAP Table to avoid not sending adjacent AP report at link up.
+2.) Ignore redundant code in LeapSendRogueAPReport().
+3.) Clear RogueAP Table for recording another report on next association.
+
+[V3.0.2.28]
+1.) Add checking bCheckHWPBCCustomerStateMachine flag in HW PBC to make sure that UI is really want to use the WPS of driver.
+
+[V3.0.2.27]
+1.) JoinWaitBeacon, add beacons into BssTab if this entry doesn't exist
+
+[V3.0.2.27]
+1.) Fix the issue that DynamicTxRateSwitch delay process will cause system lag 
+
+[V3.0.2.26]
+1.) Modify MAX_LEN_CFG for SoftAP
+
+[V3.0.2.25]
+1.) Modify Product ID for Encore(USB\VID_203D&PID_14A1) device name from NGN 802.11n USB Adapter to No Geek Needed 802.11n USB Adapter
+
+[V3.0.2.24]
+1.)Patch PER too high issue after enable/disable RT3070 device(touch RF_R27)
+
+[V3.0.2.23]
+1.) Add Product ID PARA(USB\VID_20B8&PID_8888)
+
+[V3.0.2.22]
+1.) Add CKIP support.
+
+[V3.0.2.21]
+1.) Add Product ID for Encore(USB\VID_203D&PID_14A1)
+
+[V3.0.2.20]
+1.) Default disable APSD APSDCapable in All D-Link Device
+
+[V3.0.2.19]
+1.) Fixed: DLS is treadown immediately when not traffic.
+
+[V3.0.2.18]
+1.) Fixed: Enabled LinkSpeedStatus in registry caused low throughput.
+
+[V3.0.2.17]
+1.) Make sure pTimer->Valid = TRUE after NdisMInitializeTimer() is completed.
+
+[V3.0.2.16]
+Enhancement for connection in noise environment
+1.) set retry_limit to 0x3 when trying to connect
+2.) Reset TX_RTY_CFG only if CNTL_IDLE in STAMlmePeriodic
+
+[V3.0.2.15]
+1.) Update RaCoinst.dat for channel change.
+
+[V3.0.2.14]
+1.) Add Product ID for Zinwell(USB\VID_5A57&PID_0284)
+
+[V3.0.2.13]
+1.) Fixed incorrect length for key copying.
+
+[V3.0.2.12]
+1.) Add Product ID for D-Link(USB\VID_07D1&PID_3C15)
+
+[V3.0.2.11]
+1.) Sync RT2870 Vista to fix RTS issue
+
+[V3.0.2.10]
+1.) Update RaCoinst.dat for channel change.
+
+[V3.0.2.9]
+1.) Fix long ping issue for AdHoc 802.11n
+
+[V3.0.2.8]
+1.) Ack is required for PS-POLL
+
+[V3.0.2.7]
+1.) Fix Ad hoc RX rate incorrect issue.
+
+[V3.0.2.6]
+1.) Fixed: DLS not work when timeout value set 1 or 2 seconds.
+
+[V3.0.2.5]
+1.) Fix SoftAP channel issue when client switch cipher fom tkip to aes, soft AP do not 
+     disconnect client station.
+
+[V3.0.2.0B]
+1.) Default Enable WMMCapable APSDCapable ShowHiddenSSID TXBurst FrameAggregation DLSCapable in All D-Link Device
+2.) Fix ndistest vitrualinfra_SoftAP_ext test issue, alway switch channel in join request.
+
+[V3.0.2.0A]
+1.)WHQL release
+
+[V3.0.2.3]
+1.) Fix adhoc join b-only station , tx rate is still at 54 M issue 
+
+[V3.0.2.2]
+1.) Make Traffic Stream Rate Set IE in ADDTS from Script 5.20.
+2.) Fix: If not sending empty Aironet report, the Azimuth script will present error of no response from DUT.
+3.) Correct the update order of AP's information.
+4.) Update the incoming BSSID as early as possible to get rid of the unexpected packets from previous AP.
+5.) To pass CCX4 6.2.4.3, back to do fast-roaming after complete scan.
+6.) Just send adjacent AP report in CCX use.
+7.) Reset the Aironet AP Name in MlmeCntLinkDown().
+8.) To pass CCX4 6.2.4.3, roam to candidate AP regardless of the RSSI value.
+9.) If on the same channel, switching channel is unnecessary in MlmeSyncJoinReqAction().
+10.) Correct the pAd->MlmeAux.Channel value in MlmeSyncScanTimeoutAction() for CCX scan.
+
+[V3.0.2.1]
+1.) Modify VID_07D1/PID_3C0F Device Description from "D-Link AirPlus G DWL-G122 Wireless Adapter(rev.D)" to "D-Link AirPlus G DWL-G122 Wireless Adapter(rev.E)"
+
+[V3.0.2.0]
+1.)WHQL pretest
+
+[V3.0.1.28]
+1.) Modify the LED MODE 9 issue: If AP change the security, WPS LED still on.
+
+[V3.0.1.27]
+1.) Modify Product ID for Allied(USB\VID_07AA&PID_0041 & USB\VID_07AA&PID_0042) Manufacture name from "corega K.K." to "Allied Telesis K.K"
+
+[V3.0.1.26]
+1,) Fix typo issue.
+
+[V3.0.1.25]
+1.) Fix AdHoc AES connection issue with Intel 4965 v12.4.0.21
+
+[V3.0.1.24]
+1.) Add Product ID for Sitecom(USB\VID_0DF6&PID_004A)
+
+[V3.0.1.23]
+1.) Remove unused structure.
+
+[V3.0.1.22]
+1.) Modify Corega(VID_07AA&PID_003F) Manufacture name from "corega" to "Allied Telesis K.K."
+
+[V3.0.1.21]
+1.) Sync with vista 2.3.4.35
+
+[V3.0.1.20]
+1.) Move out LedCtrlConnectionCompletion from PlatformIndicateConnectionCompletion. In CNTL_WAIT_SCAN_FOR_CONNECT case of MlmeCntlMachinePerformAction, it must update LED behavior whether we indicate connection or not.
+
+[V3.0.1.19]
+1.) Add Product ID for D-Link(USB\VID_07D1&PID_3C0F)
+2.) Fixed typo. for D-Link DWA-140 RangeBooster N USB Adapter(rev.B2)
+
+[V3.0.1.18]
+1.) Add an registry LinkSpeedStatus to enable showing fixed rate in wireless connection status windows.
+2.) Apply 1.) to VID_13D3&PID_3273 and VID_13D3&PID_3284.
+
+[V3.0.1.17]
+1.) Patch for scan list issue, just delete bssid list for current scan table
+
+[V3.0.1.16]
+1.) Fixed the issue--
+    In RaUI advanced page, clicked apply without changing any setting. Central channel would be displayed incorrectly.
+
+[V3.0.1.15]
+1.) Add Product ID for ASKEY(USB\VID_1690&PID_0740 & USB\VID_1690&PID_0744)
+
+[V3.0.1.14]
+1.) Fix patch for ap mode reassociation mode AddHTInfo.
+
+[V3.0.1.13]
+1.) Sync RT2860 Win7 driver to fix AdHoc "Connecting to the network is taking longer than usual" issue
+
+[V3.0.1.12]
+Remove disassociation indication for softap when association is not completed successfully, to pass new softap_security NDIS test.
+
+[V3.0.1.11]
+1.)sync with code 2,3,4,23
+
+[V3.0.1.10]
+1.) Add Product ID for ASUS(USB\VID_0B05&PID_1784)
+
+[V3.0.1.9]
+1.) Add patch for WCN connecttion when AP mode is n-only
+
+[V3.0.1.8]
+1.) Default remove "Safely Remove Icon" for USB\VID_148F&PID_2870
+                                            USB\VID_148F&PID_2770
+                                            USB\VID_148F&PID_2070
+                                            USB\VID_148F&PID_3070
+                                            USB\VID_148F&PID_3071    
+                                            USB\VID_148F&PID_3072
+                                            USB\VID_148F&PID_3572
+                                            
+[V3.0.1.7]
+1.) Add Product ID for SiteCom(USB\VID_0DF6&PID_0047 & USB\VID_0DF6&PID_0048)
+
+[V3.0.1.6]
+1.) Drop not unicast to me MGMT packet.
+2.) Fix IE missing report to OS issue.
+
+[V3.0.1.5]
+1.) Fix Typo: RT2870 CG-WLCB300GNM to CG-WLUSB300GNM and RT2870 CG-WLCB300GNS to RT2870 CG-WLUSB300GNS
+
+[V3.0.1.4]
+1.) Add Product ID for Corega(USB\VID_07AA&PID_0041 & USB\VID_07AA&PID_0042)
+
+[V3.0.1.0H]
+1.) Fix ndistest block issue.
+
+[V3.0.1.3]
+1.) Fix DLS duplicate mac entry issue.
+
+[V3.0.1.2]
+1.) Fix b/g adhoc mix station join two N mode adhoc station issue.
+2.) Fix multibulk out fail, sendond irp do not resend issue.
+3.) Patch for 0x404 HOT_CMD_CSR write fail issue.
+4.) Remove patch for ndistest mpe_wireless test,this patch easy cause crash.
+5.) Fix tkip fragment MIC error issue when ping size is 56424 and packet size is 608.
+
+[V3.0.1.1]
+1.) Fix DLS issue.
+
+[V3.0.1.0F]
+1.) Fix adhoc b-only sta join ,but tx rate is n rate issue.
+2.) Fix DLS rx wcid table update issue
+3.) Fix UI switch wireless mode fail issue.
+4.) Fix icv error counter issue.
+5.) Fix stack over flow issue.
+6.) Fix  Change from connection from tkip to open-none mode,
+    rate do not switch to n rate issue.
+
+[V3.0.1.0E]
+1.) Add Product ID for Ralink(USB\VID_1690&PID_0744 & USB\VID_1690&PID_0740)
+
+[V3.0.1.0D]
+1.) Fix start softAP and connect to b-only AP , txrate use 54 M issue
+2.) Fix SoftAP started ,scan time over 10 secs issue.
+
+[V3.0.1.0C]
+1.) Add init value for tkip, wep mode do not support N rate.
+
+[V3.0.1.0B]
+1.) Fix bug for opmode flag
+
+[V3.0.1.0A]
+1.) Fix bug for addkey_in_progress flag
+
+[V3.0.1.0]
+1.) Release
+
+[V3.0.0.95]
+1.) Update INF File.
+
+[V3.0.0.94]
+1.) Modify the issue of searching WPS AP.
+2.) WPS profile issue (SSID and NETWORK_KEY).
+3.) Sync LED MODE 9 from vista.
+
+[V3.0.0.93]
+1.) Update INF.
+2.) Update RaCoinstaller to 1.0.6.2
+
+[V3.0.0.92]
+1.) Add patch for support Win7 UI AP+STA mode
+
+[V3.0.0.91]
+1.) Fix prefast check.
+
+[V3.0.0.90]
+1.) Patch for atheros station, send BAR when txfail counter not zero.
+
+[V3.0.0.89]
+1.) Add support AP port multicast list , to fix sta port multicast list 
+    overwrite by ap port.
+2.) Add support for SoftAP power save mode.
+3.) Add pathc for athero over night test issue, use mpdu density 7. 
+
+[V3.0.0.88]
+1.) Add Product ID for Encore(USB\VID_203D&PID_1480)
+
+[V3.0.0.87]
+1.) Add Product ID for MSI(USB\VID_0DB0&PID_3820) and Enable SafeRemoveFlagOff in USB\VID_0DB0&PID_6899 & USB\VID_0DB0&PID_3820
+
+[V3.0.0.86]
+1.) Add Product ID for I-O Data(USB\VID_04BB&PID_0944 & USB\VID_04BB&PID_0945)
+
+[V3.0.0.85]
+1.) Add Product ID for Zinwell(USB\VID_5A57&PID_0283 & USB\VID_5A57&PID_5257) 
+
+[V3.0.0.84]
+1.) Add Product ID for PEGATRON(USB\VID_1D4D&PID_000E) 
+
+[V3.0.0.83]
+1.) Add patch for possible memory leak.
+ 
+[V3.0.0.82]
+1.) Sync with Vista 2.3.1.16
+
+[V3.0.0.81]
+1.) Modify RemoveFlag.reg for AzureWave(USB\VID_13D3&PID_3284)
+
+[V3.0.0.80]
+1.) Modify USB\VID_100D&PID_9031 Driver Description from 802.11n Dualband USB Wireless Adapter to Motorola 802.11n Dualband USB Wireless Adapter
+           USB\VID_100D&PID_9032 Driver Description from 802.11n 5G USB Wireless Adapter to Motorola 802.11n 5G USB Wireless Adapter
+           
+[V3.0.0.79]
+1.) Update INF file ControlFlags section
+
+[V3.0.0.78]
+1.) Remove product ID for D-Link (USB\VID_07D1&PID_3C0F}
+2.) Modify USB\VID_0789&PID_0164 Driver Description from Logitec LAN-WN11/U2 Wireless LAN Adapter to Logitec LAN-W150/U2M Wireless LAN Adapter
+
+[V3.0.0.77]
+1.) Add product ID for D-Link (USB\VID_07D1&PID_3C0D & USB\VID_07D1&PID_3C0E & USB\VID_07D1&PID_3C0F}
+
+[V3.0.0.76]
+1.) Add product ID for Sitecom (USB\VID_0DF6&PID_0041 & USB\VID_0DF6&PID_0042)
+
+[V3.0.0.75]
+1.) Default disable 802.11H for Sercomm (USB\VID_100D&PID_9031 & USB\VID_100D&PID_9032)
+
+[V3.0.0.74]
+1.) Sync with vista 2.3.1.1,add SEND BAR in tx queue
+2.) Roll baack firmware version to 0.13,beacause 0.14 firmware has issue with power save function.
+3.) Fix MSFT report issue, add indicate port number with NDIS_STATUS_DOT11_PHY_STATE_CHANGED
+
+[V3.0.0.73]
+1.) Update INF format for Win7
+
+[V3.0.0.72]
+1.) Add USB\VID_148F&PID_3572
+1.) Update device description for RT3071/RT3072
+
+[V3.0.0.71]
+1. Add support for logo test
+2. Fix for WDF logo test
+3. Fix MSFT report addition IE cause bugcheck issue
+4. Fix netsh command cause autoconfig service hang issue
+
+[V3.0.0.70]
+1.) Add product ID for Ralink (USB\VID_0DB0&PID_6899)
+
+[V3.0.0.69]
+1.) Add product ID for Linktek (USB\VID_14B2&PID_3C08)
+
+[V3.0.0.68]
+1.) Change ndis minor version to 20
+
+[V3.0.0.67]
+1.) Default Enable IEEE80211H for Sercom(USB\VID_100D&PID_9031 & USB\VID_100D&PID_9032)
+
+[V3.0.0.66]
+1.) remove A band association response , and probe response 1,2,5.5, 11 rate
+2.) Merge old scan table to prevent scan list count un stable.
+3.) compare probe response and beacon  WPS IE length and report larger length IE first.
+
+[V3.0.0.65]
+1.) Add product ID for EnGenius (USB\VID_1740&PID_9706)
+
+[V3.0.0.64]
+1.) Remove duplicate PnPIDs
+USB\VID_2019&PID_AB24
+USB\VID_14B2&PID_3C06
+USB\VID_14B2&PID_3C28
+
+2.) Add PnPID for Linktek
+USB\VID_14B2&PID_3C11
+
+[V3.0.0.63]
+1.) Update Linksys_AG.DeviceDesc
+
+[V3.0.0.62]
+1.) Fix AP link up at 20 Mhz ,but SoftAP switch to centeral channel issue.
+2.) Follow station mode STBC setting.
+3.) Remove 1,2,5.5,11 in Aband softap beacon.
+4.) Fix AP + Station mode , station into powersave cause crash issue.
+5.) Fix AP 203 Soft tkip decrypt crash system issue.
+6.) Fix A band SotfAP started at centeral channel and station mode list use central channel
+    as AP channel number in scan list.
+
+[V3.0.0.61]
+1.) Add product ID for EnGenius(USB\VID_1740&PID_9705 & USB\VID_1740&PID_9801).
+2.) Add product ID for AzureWave(USB\VID_13D3&PID_3284).
+3.) Disable RemoveFlag for Pegatron(USB\VID_1D4D&PID_0002).
+4.) Remove product ID for EnGenius(USB\VID_1740&PID_9801) RT3572 has not support in Win7 yet.
+
+[V3.0.0.60]
+1.) Fix only one port and two port exist , key maintain issue.
+2.) Fix SoftAP do not delete pairwise key correctly issue.
+
+[V3.0.0.59]
+1.) Fix first time AP port create ,channel reset to 1 issue .
+
+[V3.0.0.58]
+1.) Fix SoftAP show 412 gbps issue.
+
+[V3.0.0.57]
+1.) Fix SoftAP beacon control channel issue.
+
+[V3.0.0.56]
+1.) Fix SoftAP issue, if client use un-support AUTH. alg. ,driver will crash.
+2.) Update PNPID for linksys for  into in-box driver.
+
+[V3.0.0.55]
+1.) Fix beacon IE offset
+2.) Re-enable  rx urb no respond patch.
+
+[V3.0.0.54]
+1.) Modify roaming timing for new logo requirement.
+2.) Fix issue about queued too many bulk in irp issue.
+3.) Fix 0x9f issue, add check roaming indicate event in info reset handler.
+
+[V3.0.0.53]
+1.) Modify device desc for Sitecom (USB\VID_0DF6&PID_003B) from "Sitecom Intelligent Wireless Gaming Adapter WL-321" to " Sitecom 300N USB Gaming Adapter WL-321"
+
+[V3.0.0.52]
+1.) Add product ID for Motorola (USB\VID_100D&PID_9031 & USB\VID_100D&PID_9032).
+2.) Remove product ID for Dlink (USB\VID_2001&PID_3C09 & USB\VID_2001&PID_3C0A).
+3.) Add product ID for DLink (USB\VID_07D1&PID_3C0A). 
+4.) Rename D-Link Manufacture Name to D-Link Corporation.
+
+[V3.0.0.50]
+1.) Modify USBFilterCalibration to speed up wake up from sleep.
+2.) Add beacon IE in association complete.
+
+[V3.0.0.49]
+1.) Remove usb endpoint check to fix install issue.
+2.) Add product ID for Sitecom(USB\VID_0DF6&PID_003F).
+
+[V3.0.0.48]
+1.) Sync endurence patch
+2.) Add 3071 inf define
+3.) Sync 2.2.5.9 3071 update
+
+[V3.0.0.47]
+1.) Change WDM to WDF
+
+[V3.0.0.46]
+1.) Add Fix for ndistest WCNIE_ext , association_ext
+
+[V3.0.0.45]
+1.) Add OID_GEN_MEDIA_IN_USE OID and OID_DOT11_ASSOCIATION_PARAMS OID support.
+2.) Fix WPS device with no WPS IE to association with SoftAP issue.
+
+[V3.0.0.44]
+1.) Remove country region selection from INF
+
+[V3.0.0.43]
+1.) Add product ID for D-Link(USB\VID_2001&PID_3C09 and USB\VID_2001&PID_3C0A).
+
+[V3.0.0.42]
+1.) Add patch for Win7 WCN function.let station can connect with open-wep WPS AP
+    which AP with no privcy bit on.
+
+[V3.0.0.41]
+1.) Fix MSFT report additional IE buffer size issue.
+2.) Disable SoftAP beacon when Scan in progress.
+3.) Fix Ndistest SoftAP_security_ext issue, Ap show not response de-auth packet 
+     with no reason code.
+
+[V3.0.0.40]
+1.) Fix MSFT report stackbuffer  over run issue
+
+[V3.0.0.39]
+1.) Fix Soft AP scan issue ,intel 3945 client will beacon timeout
+2.) Add patch for Intel 4965,4965 easy disconnect when4965 client into power 
+     save.
+     
+[V3.0.0.38]
+1.) Correct Sitecom device(USB\VID_0DF6&PID_003E) description from "Sitecom 150 N USB Adapter X1 WL-343" to "Sitecom 150N USB Adapter X1 WL-343".
+
+[V3.0.0.37]
+1.) Fix issue when ageout mac entry but driver do not indicate disassociation 
+     status to OS.
+2.) Fix can not display network status when use netsh command with AP mode 
+     started.
+
+[V3.0.0.35]
+1.) Fix Ndistest SoftAP related test item issue.
+2.) Fix crash issue when mac table exceed range.
+
+[V3.0.0.34]
+1.) Add product ID for Sitecom (USB\VID_0DF6&PID_003E).
+
+[V3.0.0.33]
+1.) Sync AP mode group key Bssidx issue
+2.) Fix send out probe request when Soft AP stop 
+3.) Fix OS Build 6801 site sitesuvery page open always issue scan request issue.
+    This issue will cause Dual Band device hard to connect.
+
+[V3.0.0.32]
+1.) Add product ID for Sitecom (USB\VID_0DF6&PID_003D).
+
+[V3.0.0.31]
+1.) Fix STA mode MCS change to 0 issue,because APstart() reset TxRateIdx to 0.
+
+[V3.0.0.30]
+1.) Fix Tkip MIC error issue, when bulk out buffer write pointer equal bulk out pointer.
+2.) Fix SDV CheckforHang issue.
+
+[V3.0.0.29]
+1.) Sync code with vista V2.2.3.0(except N mode ADHOC support and WAPI support).
+
+[V3.0.0.28]
+1.) Add some code to fix SDV IRQ Level chekcking 
+
+[V3.0.0.27]
+1.) Remove ID(USB\VID_1D4D&PID_0001) for PEGATRON.
+
+[V3.0.0.26]
+1.) Add some code to fix SDV IRQ Level chekcking 
+2.) Fix bssindex issue when 3 adhoc station join
+
+[V3.0.0.25]
+1.) Add product ID for AboCom(USB\VID_07B8&PID_3072).
+
+[V3.0.0.24]
+1.) Add SDV Infomation
+
+[V3.0.0.23]
+1.) Add product ID for AirTies (USB\VID_1EDA&PID_2310).
+
+[V3.0.0.22]
+1.) Code Alignment (Remove blank space)
+
+[V3.0.0.21]
+1.) Correct the DisplayName of product (USB\VID_083A&PID_7511).
+
+[V3.0.0.20]
+1.) Try to probe inactive IBSS station(no beacon) before disassociation.
+
+[V3.0.0.19]
+1.) Fix ndistest packetfilter issue.
+
+[V3.0.0.18]
+1.) Fix MSFT report bugs about pPort maybe delete in any time .
+2.) Fix MSFT report bugs about 1x WEP security in two mac mode.
+3.) Sync with vista.
+4.) Fix Ndistest SoftInfra_ext issue.
+
+[V3.0.0.17]
+1.) Add product ID for Logitec (USB\VID_0789&PID_0162, USB\VID_0789&PID_0163 and USB\VID_0789&PID_0164).
+
+[V3.0.0.16]
+1.) Add product IDs for Zinwell (USB\VID_5A57&PID_0280 and USB\VID_5A57&PID_0282).
+
+[V3.0.0.15]
+1.) Add product ID for AzureWave(USB\VID_13D3&PID_3273) with RemoveFlag.
+
+[V3.0.0.14]
+1.) Fix indicate packet in network monitor mode with CRC.
+2.) In network minitor mode  add 4 bytes back for CRC.
+3.) The miniport should start in the Paused state
+4.) Fix SW Radio in RTMPSetRegistrySwRadioOff with using string type not Double word
+
+[V3.0.0.13]
+1.) Add product ID for Gigabyte (USB\VID_1044&PID_800D).
+
+[V3.0.0.12]
+1.) Modify RTUSB_CallUSBD prefast issue.
+2.) Patch for NetMonitor mode , indicate packet include crc.
+
+[V3.0.0.11]
+1.) Modify description for D-Link DWA-160B(USB\VID_07D1&PID_3C11) to "D-Link DWA-160 Xtreme N Dual Band USB Adapter(rev.B)".
+
+[V3.0.0.10]
+1.) Modify io cancel mechanism
+2.) Fix ext-ap channel issue.
+
+[V3.0.0.9]
+1.) Fix MSFT report issue,possible delete un-exist mac.
+
+[V3.0.0.8]
+1.) remove un-used mac setting.
+
+[V3.0.0.7]
+1.) Restore to original description for D-Link DWA-160B(USB\VID_07D1&PID_3C11) to "D-Link DWA-160 Xtreme N Duo USB Adapter(rev.B)".
+
+[V3.0.0.6]
+1.) Add support A band channel setting for soft AP
+2.) Patch MAC address carry issue.
+
+[V3.0.0.5]
+1.) Fix when fast pnp device will cause crash issue.
+
+[V3.0.0.4]
+1.) Add patch to fix scan not confirm issue.
+2.) Add patch to fix only one port and start EXTAP ,but can't set channel issue.
+
+[V3.0.0.3]
+1.) Add product ID for Quanta (USB\VID_1A32&PID_0304).
+2.) Change corega device(USB\VID_18C5&PID_0012) description from "CG-WLUSBN10 corega Wireless USB Adapter" to "CG-WLUSB10 corega Wireless USB Adapter".
+
+[V3.0.0.2]
+1.) Add product ID for EnGenius(USB\VID_1740&PID_9703).
+
+[V3.0.0.1]
+1.) First release
+
+[V0.0.0.38]
+1.) Add Watch dog for TX Stall 
+
+[V0.0.0.37]
+1.) Fix two concurrent scan set down two port to cause port sync state machine not back to idle.
+     
+[V0.0.0.36]
+1.) Repalce MAX_LEN_CFG from 0x00000FFF to 0x000A0FFF.
+        Fix : Rx will receive mpdutotalbytecount = 0 packet problem.
+
+[V0.0.0.35]
+1.) Pass Prefast
+
+[V0.0.0.34]
+1.) fix scan confirm issue, when auto reconnect scan request confilict with 
+     system scan.
+2.) Change rx filter register when AP+client mode start up
+3.) Add support for AP port set power oid.
+4.) Add patch to fix scan table display issue after system resum form sleep.
+
+[V0.0.0.33]
+1.) Fix 20M mode ABand extoffset issue.
+2.) Fix SoftAP + STA mode TX rate indicate issue 
+
+[V0.0.0.32]
+1.) Add 3070 Devices & CoInstaller
+
+[V0.0.0.31]
+1.) Fix WSC IE buffer not free in peerbeacon.
+2.) Fix set channel problem in last channel of country region.
+
+[V0.0.0.30]
+1.) Fix ExtAP mode start at 20M and A band 40M issue. 
+2.) Mark 802.11n D 4.0 patch
+3.) Change x64 inf to support ndis6.2
+4.) Fix driver verify dead lock issue , use read write lock for mac table 
+
+[V0.0.0.29]
+1.) Add WCN: Separate Beacon & Probe IE
+2.) Add dot11_phy_type_ht
+
+[V0.0.0.28]
+1.) Sync vista 2.2.0.4 driver
+2.) Change MacTableReset and MacTableLookup
+
+[V0.0.0.27]
+1.) Update sources file, fix win7 driver install issue on Vista RTM

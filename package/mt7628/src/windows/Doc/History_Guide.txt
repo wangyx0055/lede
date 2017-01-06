@@ -1,0 +1,106 @@
+
+USAGE: 
+    [DriverVersion]
+    [Interface] [OS] [IC] [WCNCR] [BSOD] [Customer]
+    1) [Feature] 
+        [Description] 
+        [Solution] 
+    2) [Issue] 
+        [Description] 
+        [Solution] 
+    ...
+    
+where
+    options: 
+        [DriverVersion]
+        * Driver version
+        * Va.b.c.d
+
+        [Interface: Interface#1/.../Interface#n]
+        * Chip interface
+        * All
+        * PCIe
+        * USB
+        * SDIO
+        * ...
+
+        [OS: OS#1/OS#2/.../OS#n]
+        * OS type
+        * All
+        * Mac OS
+        * XP
+        * Vista
+        * 7
+        * 8
+        * 8.1
+        * ...
+
+        [IC: IC#1/IC#2/.../IC#n]
+        * IC number
+        * All
+        * 2860
+        * 2870
+        * 3090
+        * 3070
+        * 5390
+        * 3593
+        * 3573
+        * 7630
+        * 7650
+        * 7662
+        * 7603
+        * 7606
+        * ...
+
+        [WCNCR: WCNCR]
+        * WCN CR number
+        * WCNCR12345678
+        * N/A
+        
+        [BSOD: Bug check code]
+        * Bug check code of BSOD
+        * 0x9F
+        * 0xC4
+        * ...
+        
+        [Customer: Customer name]
+        * Customer name
+        * HP
+        * Edmax
+        * ...
+        
+        [Feature/Issue]
+        * New feature or bug fix (report from ACS/SQA/...)
+        * List 'feature' or 'issue' in []
+        * ...
+        
+        [Description]
+        * Description of a new feature or a bug fix
+        
+        [Solution]
+        * Solution of a new feature or a bug fix
+
+EXAMPLES: 
+    [V6.7.1.1]
+    [Interface: All] [OS: All] [IC: 7662] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+    1) [Feature] 
+        [Description] Support VHT 2x2 protocol
+        [Solution] Implementation of IEEE 802.11ac protocol (specification v0.9)
+    
+    [V6.7.1.0]
+    [Interface: PCIe/USB] [OS: Windows 7/8] [IC: 7630/7650] [WCNCR12455678] [BSOD: N/A] [Customer: HP]
+    1) [Issue] 
+        [Description] Firmware update, V1.2.3.4
+        [Solution] Lower the Tx power criteria when enabling BT
+
+    [V6.7.0.3]
+    [Interface: PCIe] [OS: Windows 7/8] [IC: 7603] [WCNCR: N/A] [BSOD: N/A] [Customer: N/A]
+    1) [Feature] 
+        [Description] TSSI
+        [Solution] Implementation of MT7603 TSSI (doc: link)
+    
+    [V6.7.0.5]
+    [Interface: PCIe] [OS: Windows 8.1] [IC: All] [WCNCR: N/A] [BSOD: 0xC4] [Customer: HP]
+    1) [Issue] 
+        [Description] BSOD during connection attempt
+        [Solution] Free memory if the sanity check failure

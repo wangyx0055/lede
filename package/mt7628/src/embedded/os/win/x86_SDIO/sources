@@ -1,0 +1,29 @@
+TARGETNAME=MTKSQ
+TARGETTYPE=DRIVER
+KMDF_VERSION_MAJOR=1
+TARGETLIBS=     $(DDK_LIB_PATH)\sdbus.lib \
+                $(DDK_LIB_PATH)\ntstrsafe.lib
+
+INF_NAME=MTKSQ
+NTTARGETFILE0=$(OBJ_PATH)\$(O)\$(INF_NAME).inf
+PASS0_BINPLACE=$(NTTARGETFILE0)
+
+C_DEFINES=$(C_DEFINES) -DRTMP_SDIO_SUPPORT \
+
+INCLUDES = $(INCLUDES)
+
+SOURCES=..\adapter.c \
+	..\loopback.c \
+	..\txbf.c \
+	..\data_packet.c \
+	..\Hal.c \
+	..\HwHalProcess.c \
+	..\devioctl.c \
+	..\fw_cmd.c \
+	..\driver_common.c \
+	..\sdio_read.c \
+	..\sdio_write.c \
+	..\sdio.c \
+	..\QA.rc \
+
+TARGET_DESTINATION=wdf

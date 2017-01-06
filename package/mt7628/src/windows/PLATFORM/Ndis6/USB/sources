@@ -1,0 +1,69 @@
+!if $(AMD64)
+TARGETNAME=mtkwlux
+!else
+TARGETNAME=mtkwlu
+!endif
+#TARGETPATH=obj
+TARGETTYPE=DRIVER
+TARGETPATH=.
+
+#
+# Optimize and Level 4 warnings
+#
+MSC_OPTIMIZATION=/Oi /Od
+MSC_WARNING_LEVEL=/W4
+
+KMDF_VERSION_MAJOR=1
+
+C_DEFINES=$(C_DEFINES) -DNDIS_MINIPORT_DRIVER -DNDIS620_MINIPORT=1 -DNDIS61_MINIPORT=1 -DNDIS60=1 -DBINARY_COMPATIBLE=0 -DNDIS_WDM=1
+
+INCLUDES= $(INCLUDES);                      \
+                    $(SRC_ROOT)\Inlcude;            \
+                    $(DDK_INC_PATH);                \
+                    .;                                          \
+                    ..;                                         \
+          $(SRC_ROOT)\hal\common;   \
+          $(SRC_ROOT)\hal\mt7603; \
+
+TARGETLIBS= $(DDK_LIB_PATH)\ndis.lib                                        \
+            $(DDK_LIB_PATH)\usbd.lib                                        \
+            $(SRC_ROOT)\Common\$(CPUTYPE)\Common.lib                \
+            $(SRC_ROOT)\hal\mt7603\$(CPUTYPE)\mt7603.lib                \
+            $(SRC_ROOT)\hal\common\$(CPUTYPE)\hal_common.lib        \
+
+SOURCES = \
+        ..\Ndis6Transmit.c              \
+                ..\Ndis6Common.c \
+        N6UsbSS.c                       \
+        N6UsbMain.c                     \
+        N6UsbXmit.c                      \
+        N6UsbRecv.c                     \
+        ..\N6Indicate.c \
+        ..\OidP2pWfdSet.c           \
+        ..\OidP2pWfdQuery.c         \
+        ..\OidPortQuery.c           \
+        ..\OidPortSet.c             \
+        $(SRC_ROOT)\Platform\Oid\OidApQuery.c     \
+        $(SRC_ROOT)\Platform\Oid\OidApSet.c       \     
+        $(SRC_ROOT)\Platform\Oid\OidMtkQuery.c    \
+        $(SRC_ROOT)\Platform\Oid\OidMtkSet.c      \
+        $(SRC_ROOT)\Platform\Oid\OidStaQuery.c    \
+        $(SRC_ROOT)\Platform\Oid\OidStaSet.c      \
+        $(SRC_ROOT)\Platform\Oid\OidQaQuery.c    \
+        $(SRC_ROOT)\Platform\Oid\OidQaSet.c      \
+        $(SRC_ROOT)\Platform\NdisCommon\Thread.c            \
+        $(SRC_ROOT)\Platform\NdisCommon\Memory.c            \
+        $(SRC_ROOT)\Platform\NdisCommon\NdisCommon.c        \
+        $(SRC_ROOT)\Platform\NdisCommon\NdisCommonUsb.c    \
+        $(SRC_ROOT)\Platform\NdisCommon\NdisInit.c          \
+        $(SRC_ROOT)\Platform\NdisCommon\PlatformIndicate.c      \
+        ..\Ndis6Init.c                  \
+        ..\Ndis6Main.c                  \
+        N6UsbInfo.c                     \
+        N6UsbPower.c                    \
+        N6UsbIO.c                       \
+        N6UsbBulk.c                     \
+        Tpc.c      \
+        Rt6x9x.c \
+        Oid6x9x.c       \
+        $(SRC_ROOT)\PLATFORM\INF\USB\mtkwlu.rc  \

@@ -1,0 +1,73 @@
+
+TARGETNAME=Common
+TARGETTYPE=DRIVER_LIBRARY
+TARGETPATH=.
+
+MSC_OPTIMIZATION=/Oi /Od
+MSC_WARNING_LEVEL=/W4
+MSC_OPTIMIZATION=/Oi /Od
+
+KMDF_VERSION_MAJOR=1
+
+C_DEFINES=$(C_DEFINES) -DNDIS_MINIPORT_DRIVER -DNDIS620_MINIPORT=1 -DNDIS61_MINIPORT=1 -DNDIS60=1 -DBINARY_COMPATIBLE=0 -DNDIS_WDM=1
+
+INCLUDES= $(INCLUDES) ;                 \
+                    $(SRC_ROOT)\Inlcude;        \
+                    $(DDK_INC_PATH);            \
+          ..;                           \
+          .;                            \
+
+TARGETLIBS= $(DDK_LIB_PATH)\ndis.lib;                                   \
+                        $(DDK_LIB_PATH)\usbd.lib;                                   \
+                $(DDK_LIB_PATH)\ntstrsafe.lib;                          \
+            $(SRC_ROOT)\hal\mt7603\$(CPU_X)\mt7603.lib;         \
+            $(SRC_ROOT)\hal\common\$(CPU_X)\hal_common.lib; \        
+
+SOURCES = \
+        MtCommon.c                  \
+        MtFw.c                      \
+        Ap\ApData.c                 \
+        Ap\ApMain.c                 \
+        Ap\ApAssoc.c                \
+        Ap\ApAuth.c                 \
+        Ap\ApAuthrsp.c              \
+        Ap\ApConnect.c              \
+        Ap\ApInfo.c                 \
+        Ap\ApMlme.c                 \
+        Ap\ApSanity.c               \
+        Ap\ApSync.c                 \
+        Ap\ApWpa.c                  \
+        Ap\ApUapsd.c                \
+        p2p\P2pMain.                \
+        p2p\P2pTable.c              \
+        p2p\P2pPacket.c             \
+        p2p\P2pAction.c             \
+        Xmit\Xmit.c                 \
+        Recv\Recv.c                 \
+        P2p\P2pMs.c                 \
+        Action.c                    \
+        Mlme\MlmeAssoc.c            \
+        Mlme\MlmeAuth.c             \
+        Mlme\MlmeAuthRsp.c          \
+        Mlme\MlmeMgntPkt.c          \
+        Mlme\MlmeInfo.c             \
+        mlme\MlmeConnect.c          \        
+        Dls.c                       \
+        Crypto\CryptoMd4.c          \
+        Crypto\CryptoMd5.c          \
+        Mlme\Mlme.c                 \
+        Sanity.c                    \
+        Tdls\Tdls.c                 \
+        Vht\Vht.c                   \
+        Wpa.c                       \
+        Wsc\Wsc.c                   \
+        Wsc\WscCrypto.c             \
+        Mlme\MlmeSync.c                 \
+        Oem.c                       \
+        Recv\RecvPktCmdRspEvt.c     \
+        Crypto\CryptoCkipmic.c      \
+        Crypto\CryptoTkip.c         \
+        Crypto\CryptoWep.c          \
+        Pmf\Pmf.c                   \
+        Led\LedCtrl.c               \
+        Utility\Utility.c           \

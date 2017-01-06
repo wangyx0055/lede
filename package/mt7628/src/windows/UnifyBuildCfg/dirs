@@ -1,0 +1,4 @@
+DIRS= \
+    common \
+    mt6630 \
+    mt7603

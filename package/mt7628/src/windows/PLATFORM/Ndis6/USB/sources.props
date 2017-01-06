@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Choose>
+    <When Condition="'$(AMD64)'!='' And $(AMD64)!=0">
+      <PropertyGroup>
+        <TARGETNAME Condition="'$(OVERRIDE_TARGETNAME)'!='true'">mtkwlux</TARGETNAME>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <TARGETNAME Condition="'$(OVERRIDE_TARGETNAME)'!='true'">mtkwlu</TARGETNAME>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+  <PropertyGroup>
+    <TARGETTYPE Condition="'$(OVERRIDE_TARGETTYPE)'!='true'">DRIVER</TARGETTYPE>
+    <TARGETPATH Condition="'$(OVERRIDE_TARGETPATH)'!='true'">.</TARGETPATH>
+    <MSC_OPTIMIZATION Condition="'$(OVERRIDE_MSC_OPTIMIZATION)'!='true'">/Oi /Od</MSC_OPTIMIZATION>
+    <MSC_WARNING_LEVEL Condition="'$(OVERRIDE_MSC_WARNING_LEVEL)'!='true'">/W4</MSC_WARNING_LEVEL>
+   </PropertyGroup>
+    <Import Project="$(SRC_ROOT)\$(PLATFORM_INC).props" />
+   <PropertyGroup>  
+    <INCLUDES Condition="'$(OVERRIDE_INCLUDES)'!='true'">
+        $(INCLUDES);
+        $(SRC_ROOT)\Include;
+    		$(SRC_ROOT_UNIFY)\Include;        
+        $(DDK_INC_PATH);
+        .;
+        ..;
+        $(SRC_ROOT)\hal\common;
+        $(SRC_ROOT)\hal\mt7603;
+    </INCLUDES>
+    <TARGETLIBS Condition="'$(OVERRIDE_TARGETLIBS)'!='true'">
+        $(DDK_LIB_PATH)\ndis.lib
+        $(DDK_LIB_PATH)\usbd.lib
+        $(SRC_ROOT)\Common\$(CPU_X)\Common.lib
+        $(SRC_ROOT)\hal\mt7603\$(CPU_X)\mt7603.lib
+        $(SRC_ROOT)\hal\common\$(CPU_X)\hal_common.lib
+    </TARGETLIBS>
+    <SOURCES Condition="'$(OVERRIDE_SOURCES)'!='true'">
+        ..\Ndis6Transmit.c
+        ..\Ndis6Common.c
+        N6UsbSS.c
+        N6UsbMain.c
+        N6UsbXmit.c
+        N6UsbRecv.c
+        ..\N6Indicate.c
+        ..\OidP2pWfdSet.c
+        ..\OidP2pWfdQuery.c
+        ..\OidPortQuery.c
+        ..\OidPortSet.c
+        $(SRC_ROOT)\Platform\Oid\OidApQuery.c
+        $(SRC_ROOT)\Platform\Oid\OidApSet.c
+        $(SRC_ROOT)\Platform\Oid\OidMtkQuery.c
+        $(SRC_ROOT)\Platform\Oid\OidMtkSet.c
+        $(SRC_ROOT)\Platform\Oid\OidStaQuery.c
+        $(SRC_ROOT)\Platform\Oid\OidStaSet.c
+        $(SRC_ROOT)\Platform\Oid\OidQaQuery.c
+        $(SRC_ROOT)\Platform\Oid\OidQaSet.c     
+        $(SRC_ROOT)\Platform\NdisCommon\Thread.c
+        $(SRC_ROOT)\Platform\NdisCommon\Memory.c
+        $(SRC_ROOT)\Platform\NdisCommon\NdisCommon.c
+        $(SRC_ROOT)\Platform\NdisCommon\NdisCommonUsb.c
+        $(SRC_ROOT)\Platform\NdisCommon\NdisInit.c
+        $(SRC_ROOT)\Platform\NdisCommon\PlatformIndicate.c
+        ..\Ndis6Init.c
+        ..\Ndis6Main.c
+        N6UsbInfo.c
+        N6UsbPower.c
+        N6UsbIO.c
+        N6UsbBulk.c
+        Tpc.c
+        Rt6x9x.c
+        Oid6x9x.c
+        $(SRC_ROOT)\PLATFORM\INF\USB\mtkwlu.rc      
+    </SOURCES>
+  </PropertyGroup>
+</Project>

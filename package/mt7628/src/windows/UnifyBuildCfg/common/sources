@@ -1,0 +1,28 @@
+
+TARGETNAME=hal_common
+TARGETTYPE=DRIVER_LIBRARY
+TARGETPATH=.
+
+MSC_OPTIMIZATION=/Oi /Od
+MSC_WARNING_LEVEL=/W4
+
+KMDF_VERSION_MAJOR=1
+
+C_DEFINES=$(C_DEFINES) -DNDIS_MINIPORT_DRIVER -DNDIS620_MINIPORT=1 -DNDIS61_MINIPORT=1 -DNDIS60=1 -DBINARY_COMPATIBLE=0 -DNDIS_WDM=1
+
+INCLUDES= $(INCLUDES) ;  				\
+					$(SRC_ROOT)\Inlcude;		\
+          .;            				\
+          ..;            				\
+          $(DDK_INC_PATH);			\
+
+TARGETLIBS=	$(DDK_LIB_PATH)\ndis.lib; 			\
+    				$(DDK_LIB_PATH)\usbd.lib; 			\
+        		$(DDK_LIB_PATH)\ntstrsafe.lib;	\
+
+SOURCES = \
+    	Hal_common.c                                \
+        $(SRC_ROOT)\hw_ctrl\cmm_asic_mt_unify.c     \
+        $(SRC_ROOT)\mac\mt_mac_unify.c              \
+        $(SRC_ROOT)\rate_ctrl\alg_grp.c             \
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TARGETNAME Condition="'$(OVERRIDE_TARGETNAME)'!='true'">Common</TARGETNAME>
+    <TARGETTYPE Condition="'$(OVERRIDE_TARGETTYPE)'!='true'">DRIVER_LIBRARY</TARGETTYPE>
+    <TARGETPATH Condition="'$(OVERRIDE_TARGETPATH)'!='true'">.</TARGETPATH>
+    <MSC_OPTIMIZATION Condition="'$(OVERRIDE_MSC_OPTIMIZATION)'!='true'">/Oi /Od</MSC_OPTIMIZATION>
+    <MSC_WARNING_LEVEL Condition="'$(OVERRIDE_MSC_WARNING_LEVEL)'!='true'">/W4</MSC_WARNING_LEVEL>
+    <MSC_OPTIMIZATION Condition="'$(OVERRIDE_MSC_OPTIMIZATION)'!='true'">/Oi /Od</MSC_OPTIMIZATION>
+   </PropertyGroup>
+    <Import Project="$(SRC_ROOT)\$(PLATFORM_INC).props" />
+   <PropertyGroup>  
+        <INCLUDES Condition="'$(OVERRIDE_INCLUDES)'!='true'">
+            $(INCLUDES);
+            $(SRC_ROOT)\Include;
+    				$(SRC_ROOT_UNIFY)\Include;            
+            $(DDK_INC_PATH);
+            ..;
+            .;
+        </INCLUDES>
+    <TARGETLIBS Condition="'$(OVERRIDE_TARGETLIBS)'!='true'">
+        $(DDK_LIB_PATH)\ndis.lib;
+        $(DDK_LIB_PATH)\usbd.lib;
+        $(DDK_LIB_PATH)\ntstrsafe.lib;
+        $(SRC_ROOT)\hal\mt7603\$(CPU_X)\mt7603.lib;
+        $(SRC_ROOT)\hal\common\$(CPU_X)\hal_common.lib;
+    \</TARGETLIBS>
+    <SOURCES Condition="'$(OVERRIDE_SOURCES)'!='true'">
+        Common.c
+        Fw.c
+        Ap\ApData.c
+        Ap\ApMain.c
+        Ap\ApAssoc.c
+        Ap\ApAuth.c
+        Ap\ApAuthrsp.c
+        Ap\ApConnect.c
+        Ap\ApInfo.c
+        Ap\ApMlme.c
+        Ap\ApSanity.c
+        Ap\ApSync.c
+        Ap\ApWpa.c
+        Ap\ApUapsd.c
+        p2p\P2pMain.c
+        p2p\P2pTable.c
+        p2p\P2pPacket.c
+        p2p\P2pAction.c
+        Xmit\Xmit.c
+        Recv\Recv.c
+        P2p\P2pMs.c
+        Action.c
+        Mlme\MlmeAssoc.c
+        Mlme\MlmeAuth.c
+        Mlme\MlmeAuthRsp.c
+        Mlme\MlmeMgntPkt.c
+        Mlme\MlmeInfo.c
+        mlme\MlmeConnect.c
+        Dls.c
+        Crypto\CryptoMd4.c
+        Crypto\CryptoMd5.c
+        Mlme\Mlme.c
+        Sanity.c
+        Tdls\Tdls.c
+        Vht\Vht.c
+        Wpa.c
+        Wsc\Wsc.c
+        Wsc\WscCrypto.c
+        Mlme\MlmeSync.c
+        Oem.c
+        Recv\RecvPktCmdRspEvt.c
+        Crypto\CryptoCkipmic.c
+        Crypto\CryptoTkip.c
+        Crypto\CryptoWep.c
+        Pmf\Pmf.c
+        Led\LedCtrl.c
+        Utility\Utility.c
+    </SOURCES>
+  </PropertyGroup>
+</Project>

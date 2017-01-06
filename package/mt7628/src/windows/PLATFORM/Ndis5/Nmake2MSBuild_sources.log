@@ -1,0 +1,87 @@
+Convert:	Verbose  : 1/14/2014 5:25:54 PM
+    ConvertFile:	Information  : Converting "D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7
+                                	_MT7603_E1_DVT\NDIS63\sources"
+        Parse  :	Verbose  : File contents after preprocessing:
+                            	TARGETNAME=mtkwlu
+                            	TARGETTYPE=DRIVER
+                            	MSC_OPTIMIZATION=/Oi /Od
+                            	MSC_WARNING_LEVEL=/W4
+                            	KMDF_VERSION_MAJOR=1
+                            	C_DEFINES=$(C_DEFINES) -DNDIS_MINIPORT_DRIVER -DNDIS630_MINIPORT=1 -DBINARY_COMPATIBLE=0 -DNDIS_WDM=1 -DRALINK_AP=1 -DOID_SPEC_1_4 -D_MFP
+                            	C_DEFINES=$(C_DEFINES) -DRTMP_INTERNAL_TX_ALC
+                            	INCLUDES= $(INCLUDES) ;             ..;                       $(DDK_INC_PATH)
+                            	TARGETLIBS=$(DDK_LIB_PATH)\ndis.lib      $(DDK_LIB_PATH)\usbd.lib          $(DDK_LIB_PATH)\ntstrsafe.lib
+                            	SOURCES =          ..\usb_main.c            ..\usb_xmit.c            ..\usb_recv.c            ..\usb_ss.c            ..\rtusb_data.c            ..\rtmp_init.c            ..\rtmp_main.c              ..\ioctl.c                ..\rtmp_info.c            ..\rtmp_cobt.c            ..\mlme.c                 ..\rtmp_power.c            ..\aironet.c            ..\rtusb_io.c            ..\rtmp_wep.c            ..\rtmp_tkip.c            ..\assoc.c                ..\auth.c                 ..\auth_rsp.c             ..\sync.c                 ..\connect.c              ..\sanity.c               ..\leap.c                ..\p2p.c                 ..\p2p_table.c            ..\p2p_packet.c            ..\p2p_action.c            ..\ms_p2p.c                   ..\rtusb_bulk.c            ..\ap_data.c               ..\ap.c                   ..\action.c            ..\acm_action.c            ..\ap_assoc.c              ..\ap_auth.c               ..\ap_authrsp.c            ..\ap_connect.c            ..\ap_info.c               ..\ap_mlme.c               ..\ap_sanity.c             ..\ap_sync.c               ..\ap_wpa.c                ..\dls.c                 ..\rtmp_ckipmic.c            ..\oem.c                  ..\md5.c                  ..\wpa.c                  ..\md4.c                 ..\wsc.c             ..\wsc_crypto.c            ..\Ap_wapi.c             ..\ccx.c                   ..\ccx_events.c            ..\Sta_wapi.c            ..\tpc.c                 ..\tdls.c                  ..\mtkwlu.rc           ..\bt_hci_cmd.c             ..\bt_hci_event.c             ..\bt.c             ..\bt_mlme.c             ..\bt_auth.c             ..\bt_assoc.c             ..\bt_sync.c             ..\bt_wpa.c             ..\bt_data.c            ..\vht.c            ..\rt6x9x.c            ..\pktcmdrspevt.c            ..\oid_rt6x9x.c                  ..\pmf.c            ..\ap_uapsd.c
+            ParseIfApplies:	Verbose  : "TARGETNAME=mtkwlu" was parsed as a"MacroDefinition"
+            ParseIfApplies:	Verbose  : "TARGETTYPE=DRIVER" was parsed as a"MacroDefinition"
+            ParseIfApplies:	Verbose  : "MSC_OPTIMIZATION=/Oi /Od" was parsed as a"MacroDefinition"
+            ParseIfApplies:	Verbose  : "MSC_WARNING_LEVEL=/W4" was parsed as a"MacroDefinition"
+            ParseIfApplies:	Verbose  : "KMDF_VERSION_MAJOR=1" was parsed as a"MacroDefinition"
+            ParseIfApplies:	Verbose  : "C_DEFINES=$(C_DEFINES) -DNDIS_MINIPORT_DRIVER -DNDIS630_MINIPORT=1 -DBINARY_COMPATIBLE=0 -DNDIS_WDM=1 -DRALINK_AP=1 -DOID_SPEC_1_4 -D_MFP" was parsed as a"MacroDefinition"
+            ParseIfApplies:	Verbose  : "C_DEFINES=$(C_DEFINES) -DRTMP_INTERNAL_TX_ALC" was parsed as a"MacroDefinition"
+            ParseIfApplies:	Verbose  : "INCLUDES= $(INCLUDES) ;             ..;                       $(DDK_INC_PATH)" was parsed as a"MacroDefinition"
+            ParseIfApplies:	Verbose  : "TARGETLIBS=$(DDK_LIB_PATH)\ndis.lib      $(DDK_LIB_PATH)\usbd.lib          $(DDK_LIB_PATH)\ntstrsafe.lib" was parsed as a"MacroDefinition"
+            ParseIfApplies:	Verbose  : "SOURCES =          ..\usb_main.c            ..\usb_xmit.c            ..\usb_recv.c            ..\usb_ss.c            ..\rtusb_data.c            ..\rtmp_init.c            ..\rtmp_main.c              ..\ioctl.c                ..\rtmp_info.c            ..\rtmp_cobt.c            ..\mlme.c                 ..\rtmp_power.c            ..\aironet.c            ..\rtusb_io.c            ..\rtmp_wep.c            ..\rtmp_tkip.c            ..\assoc.c                ..\auth.c                 ..\auth_rsp.c             ..\sync.c                 ..\connect.c              ..\sanity.c               ..\leap.c                ..\p2p.c                 ..\p2p_table.c            ..\p2p_packet.c            ..\p2p_action.c            ..\ms_p2p.c                   ..\rtusb_bulk.c            ..\ap_data.c               ..\ap.c                   ..\action.c            ..\acm_action.c            ..\ap_assoc.c              ..\ap_auth.c               ..\ap_authrsp.c            ..\ap_connect.c            ..\ap_info.c               ..\ap_mlme.c               ..\ap_sanity.c             ..\ap_sync.c               ..\ap_wpa.c                ..\dls.c                 ..\rtmp_ckipmic.c            ..\oem.c                  ..\md5.c                  ..\wpa.c                  ..\md4.c                 ..\wsc.c             ..\wsc_crypto.c            ..\Ap_wapi.c             ..\ccx.c                   ..\ccx_events.c            ..\Sta_wapi.c            ..\tpc.c                 ..\tdls.c                  ..\mtkwlu.rc           ..\bt_hci_cmd.c             ..\bt_hci_event.c             ..\bt.c             ..\bt_mlme.c             ..\bt_auth.c             ..\bt_assoc.c             ..\bt_sync.c             ..\bt_wpa.c             ..\bt_data.c            ..\vht.c            ..\rt6x9x.c            ..\pktcmdrspevt.c            ..\oid_rt6x9x.c                  ..\pmf.c            ..\ap_uapsd.c" was parsed as a"MacroDefinition"
+        GenerateMsBuildFile:	Information  : Generated file "D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8
+                                            	Win7_MT7603_E1_DVT\NDIS63\sources.props"
+            IsPropertyElementSetConditionally:	Verbose  : Property DriverType is set conditionally. Immediate condition ="'$(PlatformToolset)'=='WindowsApplicationForDrivers8.1'". Conditional parent element = Microsoft.Build.Construction.ProjectPropertyGroupElement
+        PostProcessing                       :	Verbose  : Extracted property "PlatformToolset" with a value of "WindowsKernelModeDriver8.1" from sources.
+        PostProcessing                       :	Verbose  : Extracted property "ConfigurationType" with a value of "Driver" from sources.
+        PostProcessing                       :	Verbose  : Extracted property "DriverType" with a value of "KMDF" from sources.
+        PostProcessing                       :	Verbose  : Extracted property "TARGETNAME" with a value of "mtkwlu" from sources.
+        PostProcessing                       :	Verbose  : VcxProj file copied to "mtkwlu.vcxproj"
+        PostProcessing                       :	Verbose  : Added Project GUID: {DE268431-6FF4-4BAE-B7B5-903C282ADFAD}
+        PostProcessing                       :	Information  : Generated Project File mtkwlu.vcxproj
+        AddIDESupport                        :	Verbose  : Attempting to add propery page support for converted targets and macros in project D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj
+            CheckForWellKnownTargets         :	Verbose  : Attempting to find and convert nmake targets to well-known MSBuild items, as appropriate.
+            CheckForWellKnownTargetMacros:	Verbose  : Attempting to find and convert nmake target macros to well-known MSBuild items, as appropriate.
+        AddIDESupport                    :	Verbose  : Finished adding propery page support for converted targets and macros, changes saved to D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj
+        AddOverrideConditionsToProperies :	Verbose  : Appended override conditions to properties in file 'D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\sources.props' and its imports
+GetDependencyInformation                 :	Information  : Checking for external project dependencies
+GetDependencyInformation                 :	Verbose  : Processing the following list of primary projects
+                                                      	D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj
+    AddPrerequisitesToSolution           :	Verbose  : Finding prerequisites for D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj
+        GetPrerequisiteProjects          :	Verbose  : Scanning for prerequisites for project D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj
+        EvaluateProject                  :	Verbose  : $(O) set to 06c760d4-df54-403f-865c-6d3b1e42f565
+        ExtractIncludesFromItem          :	Verbose  : Extracting include elements from all items of type ClCompile
+        ExtractIncludesFromItem          :	Verbose  : Extracting include elements from all items of type MessageCompile
+        ExtractIncludesFromItem         :	Verbose  : Didn't find any items of type MessageCompile in project D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj
+        ExtractIncludesFromItem         :	Verbose  : Extracting include elements from all items of type Midl
+        ExtractIncludesFromItem:	Verbose  : Didn't find any items of type Midl in project D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj
+        ExtractIncludesFromItem:	Verbose  : Extracting include elements from all items of type ResourceCompile
+        ExtractIncludesFromItemMetadata:	Verbose  : Extracting include elements from metadata AdditionalDependencies on item type Link, using splitter ;
+        ExtractIncludesFromItemMetadata:	Verbose  : Extracting include elements from metadata AdditionalIncludeDirectories on item type ClCompile, using splitter ;
+            FindPreReqProjectsInReferences:	Verbose  : Ignoring following path since it references the project's own $(O) D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\06c760d4-df54-403f-865c-6d3b1e42f565
+        GetPrerequisiteProjects           :	Verbose  : No prerequisite projects found for project D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj
+    AddPrerequisitesToSolution            :	Verbose  : Project D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj had no prerequisites, adding to solution
+GetDependencyInformation                  :	Information  : The primary project collection does not contain any projects that depend on
+                                                           	 others.
+CreateSolutionIncludingDependencies       :	Verbose  : Attempting to generate solution file D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.sln from projects list
+    CreatePackage                         :	Verbose  : Checking if any of the following projects should be packaged
+                                                       	 D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj
+    CreatePackage                         :	Verbose  : Project mtkwlu.vcxproj will be packaged because it is a driver project
+    CreatePackage                         :	Verbose  : Generating package project
+    CreatePackage                         :	Verbose  : Adding reference to project ..\mtkwlu.vcxproj with project guid {DE268431-6FF4-4BAE-B7B5-903C282ADFAD}
+    CreatePackage                         :	Verbose  : Setting package project DebuggerFlavor to: DbgengKernelDebugger
+    CreatePackage                  :	Information  : Generated Package Project file 'D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Drive
+                                                    	r\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu-Package\mtkwlu-Package.vcx
+                                                    	proj'
+        InitializeProjectsForSolution:	Information  : Generating solution D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\
+                                                      	Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.sln from:
+                                                      	    D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603
+                                                      	_E1_DVT\NDIS63\mtkwlu-Package\mtkwlu-Package.vcxproj
+                                                      	    D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603
+                                                      	_E1_DVT\NDIS63\mtkwlu.vcxproj
+        ExtractProjectGuid           :	Verbose  :  GUID {F606A109-95CF-4966-83CB-86E671518D9E} was extracted from project D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu-Package\mtkwlu-Package.vcxproj
+        ExtractProjectGuid           :	Verbose  :  GUID {DE268431-6FF4-4BAE-B7B5-903C282ADFAD} was extracted from project D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj
+        InitializeProjectsForSolution:	Verbose  : Project D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu-Package\mtkwlu-Package.vcxproj does not depend on others
+        InitializeProjectsForSolution:	Verbose  : Project D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj does not depend on others
+        WriteProjectEntries          :	Verbose  : Added project mtkwlu-Package to solution with a GUID of {F606A109-95CF-4966-83CB-86E671518D9E}
+        WriteProjectEntries          :	Verbose  : Added project mtkwlu to solution with a GUID of {DE268431-6FF4-4BAE-B7B5-903C282ADFAD}
+    WriteProjectConfigurations       :	Verbose  : Writing project configurations for D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu-Package\mtkwlu-Package.vcxproj
+    WriteProjectConfigurations       :	Verbose  : Writing project configurations for D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT7603_E1_DVT\NDIS63\mtkwlu.vcxproj
+CreateSolutionIncludingDependencies  :	Information  : Solution D:\Project\CodeBase\Seattle\DEV\Wi-Fi\Driver\RT2860USB\Win8Win7_MT
+                                                      	7603_E1_DVT\NDIS63\mtkwlu.sln was created successfully
+Convert                              :	Information  : ========== Project Conversion Finished: 1 Solution created with 2 Projects 
+                                                      	==========
+Convert                              :	Verbose  : 1/14/2014 5:25:54 PM

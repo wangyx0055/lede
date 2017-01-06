@@ -1,0 +1,83 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0
+MinimumVisualStudioVersion = 12.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mtkwlux-Package", "Mtkwlux-Package", "{6515B9F9-2C77-4864-8A83-EBAE9BF151F8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mtkwlux-Package", "mtkwlux-Package\mtkwlux-Package.vcxproj", "{EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mtkwlux", "mtkwlux.vcxproj", "{8A54658C-A9C6-4216-89CA-7957585B01A6}"
+EndProject
+Global
+    GlobalSection(SolutionConfigurationPlatforms) = preSolution
+        Win8.1 Debug|Win32 = Win8.1 Debug|Win32
+        Win8.1 Debug|x64 = Win8.1 Debug|x64
+        Win8.1 Release|Win32 = Win8.1 Release|Win32
+        Win8.1 Release|x64 = Win8.1 Release|x64
+        Win8 Debug|Win32 = Win8 Debug|Win32
+        Win8 Debug|x64 = Win8 Debug|x64
+        Win8 Release|Win32 = Win8 Release|Win32
+        Win8 Release|x64 = Win8 Release|x64
+        Win7 Debug|Win32 = Win7 Debug|Win32
+        Win7 Debug|x64 = Win7 Debug|x64
+        Win7 Release|Win32 = Win7 Release|Win32
+        Win7 Release|x64 = Win7 Release|x64
+    EndGlobalSection
+    GlobalSection(ProjectConfigurationPlatforms) = postSolution
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8.1 Debug|Win32.ActiveCfg = Win8.1 Debug|Win32
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8.1 Debug|Win32.Build.0 = Win8.1 Debug|Win32
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8.1 Debug|x64.ActiveCfg = Win8.1 Debug|x64
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8.1 Debug|x64.Build.0 = Win8.1 Debug|x64
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8.1 Release|Win32.ActiveCfg = Win8.1 Release|Win32
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8.1 Release|Win32.Build.0 = Win8.1 Release|Win32
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8.1 Release|x64.ActiveCfg = Win8.1 Release|x64
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8.1 Release|x64.Build.0 = Win8.1 Release|x64
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8 Debug|Win32.ActiveCfg = Win8 Debug|Win32
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8 Debug|Win32.Build.0 = Win8 Debug|Win32
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8 Debug|x64.ActiveCfg = Win8 Debug|x64
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8 Debug|x64.Build.0 = Win8 Debug|x64
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8 Release|Win32.ActiveCfg = Win8 Release|Win32
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8 Release|Win32.Build.0 = Win8 Release|Win32
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8 Release|x64.ActiveCfg = Win8 Release|x64
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win8 Release|x64.Build.0 = Win8 Release|x64
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win7 Debug|Win32.ActiveCfg = Win7 Debug|Win32
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win7 Debug|Win32.Build.0 = Win7 Debug|Win32
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win7 Debug|x64.ActiveCfg = Win7 Debug|x64
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win7 Debug|x64.Build.0 = Win7 Debug|x64
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win7 Release|Win32.ActiveCfg = Win7 Release|Win32
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win7 Release|Win32.Build.0 = Win7 Release|Win32
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win7 Release|x64.ActiveCfg = Win7 Release|x64
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3}.Win7 Release|x64.Build.0 = Win7 Release|x64
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8.1 Debug|Win32.ActiveCfg = Win8.1 Debug|Win32
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8.1 Debug|Win32.Build.0 = Win8.1 Debug|Win32
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8.1 Debug|x64.ActiveCfg = Win8.1 Debug|x64
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8.1 Debug|x64.Build.0 = Win8.1 Debug|x64
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8.1 Release|Win32.ActiveCfg = Win8.1 Release|Win32
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8.1 Release|Win32.Build.0 = Win8.1 Release|Win32
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8.1 Release|x64.ActiveCfg = Win8.1 Release|x64
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8.1 Release|x64.Build.0 = Win8.1 Release|x64
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8 Debug|Win32.ActiveCfg = Win8 Debug|Win32
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8 Debug|Win32.Build.0 = Win8 Debug|Win32
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8 Debug|x64.ActiveCfg = Win8 Debug|x64
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8 Debug|x64.Build.0 = Win8 Debug|x64
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8 Release|Win32.ActiveCfg = Win8 Release|Win32
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8 Release|Win32.Build.0 = Win8 Release|Win32
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8 Release|x64.ActiveCfg = Win8 Release|x64
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win8 Release|x64.Build.0 = Win8 Release|x64
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win7 Debug|Win32.ActiveCfg = Win7 Debug|Win32
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win7 Debug|Win32.Build.0 = Win7 Debug|Win32
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win7 Debug|x64.ActiveCfg = Win7 Debug|x64
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win7 Debug|x64.Build.0 = Win7 Debug|x64
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win7 Release|Win32.ActiveCfg = Win7 Release|Win32
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win7 Release|Win32.Build.0 = Win7 Release|Win32
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win7 Release|x64.ActiveCfg = Win7 Release|x64
+        {8A54658C-A9C6-4216-89CA-7957585B01A6}.Win7 Release|x64.Build.0 = Win7 Release|x64
+    EndGlobalSection
+    GlobalSection(SolutionProperties) = preSolution
+        HideSolutionNode = FALSE
+    EndGlobalSection
+    GlobalSection(NestedProjects) = preSolution
+        {EA95F2CC-DDB9-4407-9D71-0A18E762A3B3} = {6515B9F9-2C77-4864-8A83-EBAE9BF151F8}
+    EndGlobalSection
+EndGlobal

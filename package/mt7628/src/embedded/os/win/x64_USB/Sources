@@ -1,0 +1,48 @@
+TARGETNAME=MT7603UQx
+TARGETTYPE=DRIVER
+DDKROOT=$(_NTDRIVE)$(_NTROOT)#werner add
+MSC_OPTIMIZATION=/Od /Oi
+C_DEFINES=$(C_DEFINES) -DRTMP_USB_SUPPORT \
+
+TARGETPATH=OBJ
+INCLUDES= $(BASEDIR)\inc;
+
+DRIVERTYPE=WDM
+
+#BROWSER_INFO=1
+
+
+TARGETLIBS= $(DDK_LIB_PATH)\Wmilib.lib \
+            $(DDK_LIB_PATH)\usbd.lib
+	  
+	   
+#TARGETPATH=.
+
+
+
+ 
+
+SOURCES=..\Main.c \
+	..\adapter.c \
+	..\data_packet.c \
+	..\devioctl.c \
+	..\Eeprom.c \
+	..\Dma.c \
+	..\usb_if.c \
+	..\driver_common.c \
+	..\fw_cmd.c \
+	..\TxRx.c \
+	..\ComPort.c \
+	..\Power.c \
+	..\HwHalProcess.c \
+	..\bulkpnp.c \
+	..\bulkdev.c \
+	..\bulkrwr.c \
+	..\bulkpwr.c \
+	..\bulkwmi.c \
+	..\QaUsb.c \
+	..\Hal.c \
+	..\QA.rc \
+	
+
+

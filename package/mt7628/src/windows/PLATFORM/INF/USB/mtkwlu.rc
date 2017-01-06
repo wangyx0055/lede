@@ -1,0 +1,60 @@
+/*
+ ***************************************************************************
+ * Copyright (C) 2014 MediaTek Inc. All Rights Reserved
+ * 
+ * All rights reserved. Copying, compilation, modification, distribution
+ * or any other use whatsoever of this material is strictly prohibited
+ * except in accordance with a Software License Agreement with
+ * MediaTek Inc.
+ ***************************************************************************
+
+    Module Name:
+    netr28u.rc
+
+    Abstract:
+        Resouce file.
+    
+    Revision History:
+    
+    Who             When            What
+    --------        ----------      ----------------------------------------------
+    Ian Tang    070105      Created.
+
+*/
+
+#include <windows.h>
+#include <ntverp.h>
+
+#define VER_FILETYPE                VFT_DRV
+#define VER_FILESUBTYPE             VFT2_DRV_NETWORK
+#define VER_FILEDESCRIPTION_STR     "MediaTek 802.11n Wireless Adapter Driver"
+#ifdef _WIN64
+#define VER_INTERNALNAME_STR        "mtkwlux.sys"
+#define VER_ORIGINALFILENAME_STR    "mtkwlux.sys"
+#else
+#define VER_INTERNALNAME_STR        "mtkwlu.sys"
+#define VER_ORIGINALFILENAME_STR    "mtkwlu.sys"
+#endif
+
+#define VER_FILEVERSION             10,00,00,0147
+#define VER_FILEVERSION_STR         "10,00,00,0147"
+
+#undef VER_PRODUCTVERSION
+#define VER_PRODUCTVERSION          VER_FILEVERSION
+
+#undef VER_PRODUCTVERSION_STR
+#define VER_PRODUCTVERSION_STR      VER_FILEVERSION_STR
+
+#define VER_LEGALCOPYRIGHT_STR      "Copyright (C) 2014 MediaTek Inc. All Rights Reserved." 
+#ifdef VER_COMPANYNAME_STR
+#undef VER_COMPANYNAME_STR
+#define VER_COMPANYNAME_STR         "MediaTek Inc."
+#endif
+
+#undef VER_PRODUCTNAME_STR
+#define VER_PRODUCTNAME_STR         "MediaTek 802.11n Wireless Adapters"
+#define VER_LANGNEUTRAL
+
+#include "common.ver"
+
+///////////////////////////////// End of File /////////////////////////////////

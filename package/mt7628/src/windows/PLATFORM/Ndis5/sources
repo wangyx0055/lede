@@ -1,0 +1,93 @@
+TARGETNAME=mtkwlu
+TARGETTYPE=DRIVER
+
+MSC_OPTIMIZATION=/Oi /Od
+MSC_WARNING_LEVEL=/W4
+
+KMDF_VERSION_MAJOR=1
+
+C_DEFINES=$(C_DEFINES) -DNDIS_MINIPORT_DRIVER -DNDIS630_MINIPORT=1 -DBINARY_COMPATIBLE=0 -DNDIS_WDM=1
+
+INCLUDES= $(INCLUDES) ; \
+          ..; \
+          $(DDK_INC_PATH)
+
+TARGETLIBS=$(DDK_LIB_PATH)\ndis.lib \
+            $(DDK_LIB_PATH)\usbd.lib \
+            $(DDK_LIB_PATH)\ntstrsafe.lib
+
+SOURCES = \
+        ..\hal\common\hal_common.c \
+        ..\hal\mt7603\mt7603.c \
+        ..\usb_main.c \
+        ..\usb_xmit.c \
+        ..\usb_recv.c \
+        ..\usb_ss.c \
+        ..\rtusb_data.c \
+        ..\rtmp_init.c \
+        ..\rtmp_main.c \
+        ..\ioctl.c \
+        ..\rtmp_info.c \
+        ..\rtmp_cobt.c \
+        ..\mlme.c \
+        ..\rtmp_power.c \
+        ..\aironet.c \
+        ..\rtusb_io.c \
+        ..\rtmp_wep.c \
+        ..\rtmp_tkip.c \
+        ..\assoc.c \
+        ..\auth.c \
+        ..\auth_rsp.c \
+        ..\sync.c \
+        ..\connect.c \
+        ..\sanity.c \
+        ..\leap.c \
+        ..\p2p.c \
+        ..\p2p_table.c \
+        ..\p2p_packet.c \
+        ..\p2p_action.c \
+        ..\ms_p2p.c \
+        ..\rtusb_bulk.c \
+        ..\ap_data.c \
+        ..\ap.c \
+        ..\action.c \
+        ..\acm_action.c \
+        ..\ap_assoc.c \
+        ..\ap_auth.c \
+        ..\ap_authrsp.c \
+        ..\ap_connect.c \
+        ..\ap_info.c \
+        ..\ap_mlme.c \
+        ..\ap_sanity.c \
+        ..\ap_sync.c \
+        ..\ap_wpa.c \
+        ..\dls.c \
+        ..\rtmp_ckipmic.c \
+        ..\oem.c \
+        ..\md5.c \
+        ..\wpa.c \
+        ..\md4.c \
+        ..\wsc.c \
+        ..\wsc_crypto.c \
+        ..\Ap_wapi.c \
+        ..\ccx.c \
+        ..\ccx_events.c \
+        ..\Sta_wapi.c \
+        ..\tpc.c \
+        ..\tdls.c \
+        ..\mtkwlu.rc \
+        ..\bt_hci_cmd.c \
+        ..\bt_hci_event.c \
+        ..\bt.c \
+        ..\bt_mlme.c \
+        ..\bt_auth.c \
+        ..\bt_assoc.c \
+        ..\bt_sync.c \
+        ..\bt_wpa.c \
+        ..\bt_data.c \
+        ..\vht.c \
+        ..\rt6x9x.c \
+        ..\pktcmdrspevt.c \
+        ..\oid_rt6x9x.c \
+        ..\pmf.c \
+        ..\ap_uapsd.c
