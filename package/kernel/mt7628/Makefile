@@ -31,7 +31,7 @@ define KernelPackage/mt7628
   TITLE:=MediaTek MT7628/MT7688 wireless driver
   FILES:=$(PKG_BUILD_DIR)/build/mt7628.ko
   AUTOLOAD:=$(call AutoLoad,90,mt7628)
-  DEPENDS:=@TARGET_ramips_mt7688
+  DEPENDS:=@TARGET_ramips_mt7688 +kmod-rt-flash
   MENU:=1
 endef
 

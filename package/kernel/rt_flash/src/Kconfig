@@ -1,0 +1,5 @@
+config RT_FLASH
+	tristate "Mediatek flash device"
+	help
+	  This is an Mediatek flash driver
+
