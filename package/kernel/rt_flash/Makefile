@@ -16,6 +16,7 @@ include $(INCLUDE_DIR)/package.mk
 define KernelPackage/rt-flash
   SUBMENU:=Mediatek flash dirver support
   TITLE:=Mediatek flash dirver
+  AUTOLOAD:=$(call AutoLoad,89,rt_flash)
   FILES:=$(PKG_BUILD_DIR)/rt_flash.ko
   KCONFIG:=
 endef
