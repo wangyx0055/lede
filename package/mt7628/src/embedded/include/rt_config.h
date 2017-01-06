@@ -356,5 +356,7 @@
 #endif
 #endif
 
+//add by Baozhu
+#define OS_ABL_SUPPORT
 #endif	/* __RT_CONFIG_H__ */
 
