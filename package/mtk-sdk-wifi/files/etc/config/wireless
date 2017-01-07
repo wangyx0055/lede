@@ -1,0 +1,22 @@
+config wifi-device         mt7628
+        option type        mt7628
+        option vendor      ralink
+        option band        2.4G
+        option channel 	   'auto'
+        option autoch_skip '12;13;'
+        option wifimode    '9'
+        option bw          '1'
+        option country     'CN'
+        option region      '1'
+
+config wifi-iface
+        option device      mt7628
+        option ifname      ra0
+        option network     lan
+        option mode        ap
+        option disabled    '0'
+        option ssid        respeaker
+        option encryption  psk2
+        option wpa_crypto  AES
+        option key         respeaker
+
