@@ -228,11 +228,11 @@ menu "WiFi Operation Modes"
     endchoice
 
     if MT_WIFI_MODE_AP || MT_WIFI_MODE_BOTH
-		source "package/mt7628/src/embedded/mt_wifi_ap/Kconfig"
+		source "package/kernel/mt7628/src/embedded/mt_wifi_ap/Kconfig"
     endif
 
     if WIFI_MODE_STA || WIFI_MODE_BOTH
-		source "package/mt7628/src/embedded/mt_wifi_sta/Kconfig"
+		source "package/kernel/mt7628/src/embedded/mt_wifi_sta/Kconfig"
     endif
 
 config MT_AP_SUPPORT
